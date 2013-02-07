@@ -5,7 +5,8 @@ Ornamental turners workbench
 
 This project is aimed a creating a simulation of a rose engine see http://www.otinexperiences.co.uk/blog
 The tool paths created can be used to generate a gcode program to control a cnc system.
-The program is .net based and written in c# using sharpdevelop as the ide.
+The program is .net based and written in c#.
+
 The code is in the form of a Windows 8 App and is being developed on Visual Studio Express for Windows 8. 
 So if you download you will need to get a developer License to compile on your system.
 
