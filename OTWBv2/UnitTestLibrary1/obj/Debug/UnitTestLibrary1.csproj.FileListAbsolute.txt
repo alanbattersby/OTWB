@@ -1,0 +1,114 @@
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\bin\Debug\Images\UnitTestLogo.png
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\bin\Debug\Images\UnitTestSmallLogo.png
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\bin\Debug\Images\UnitTestSplashScreen.png
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\bin\Debug\Images\UnitTestStoreLogo.png
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\bin\Debug\GEODATA.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\bin\Debug\UnitTestLibrary1.dll
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\bin\Debug\UnitTestLibrary1.pdb
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\bin\Debug\resources.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\bin\Debug\AppxManifest.xml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\bin\Debug\UnitTestLibrary1.build.appxrecipe
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\bin\Debug\Microsoft.VisualStudio.TestPlatform.UnitTestFramework.dll
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\bin\Debug\Collada_Main.dll
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\bin\Debug\Geometric Chuck.exe
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\bin\Debug\TCD.Controls.dll
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\bin\Debug\Callisto.dll
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\bin\Debug\Collada_Main.pdb
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\bin\Debug\Collada_Main.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\bin\Debug\Geometric Chuck.pdb
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\bin\Debug\TCD.Controls.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\bin\Debug\Callisto.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\UnitTestLibrary1.csprojResolveAssemblyReference.cache
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\UnitTestLibrary1.dll
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\UnitTestLibrary1.pdb
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.UnitTestFramework\en-US\Microsoft.VisualStudio.TestPlatform.UnitTestFramework.FrameworkMessages.resw
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.Core\en-US\Microsoft.VisualStudio.TestPlatform.Core.Resources.resw
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.Extensions.MSAppContainerAdapter\en-US\Microsoft.VisualStudio.TestPlatform.Extensions.MSAppContainerAdapter.Framework.Messages.resw
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.Extensions.MSAppContainerAdapter\en-US\Microsoft.VisualStudio.TestPlatform.Extensions.MSAppContainerAdapter.Resources.resw
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.ObjectModel\en-US\Microsoft.VisualStudio.TestPlatform.ObjectModel.CommonResources.resw
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.ObjectModel\en-US\Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtMessages.resw
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.ObjectModel\en-US\Microsoft.VisualStudio.TestPlatform.ObjectModel.Resources.resw
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.ObjectModel\en-US\Microsoft.VisualStudio.TestPlatform.ObjectModel.ValidateArgStrings.resw
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.TestExecutor.Core\en-US\Microsoft.VisualStudio.TestPlatform.TestExecutor.Resources.resw
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.Utilities\en-US\Microsoft.VisualStudio.TestPlatform.Utilities.Resources.resw
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\UnitTestLibrary1.csproj.GenerateResource.Cache
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.UnitTestFramework.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.UnitTestFramework\LanguageQualifiers.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.Core.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.Core\LanguageQualifiers.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.Extensions.MSAppContainerAdapter.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.Extensions.MSAppContainerAdapter\LanguageQualifiers.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.ObjectModel.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.ObjectModel\LanguageQualifiers.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.TestExecutor.Core.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.TestExecutor.Core\LanguageQualifiers.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.Utilities.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.Utilities\LanguageQualifiers.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\priconfig.xml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\layout.resfiles
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\resources.resfiles
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\pri.resfiles
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\LanguageQualifiers.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\Callisto.pri.xml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\TCD.Controls.pri.xml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\TCD.Controls.Settings.pri.xml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\ProjectArchitectures.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\Images\UnitTestLogo.png
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\Images\UnitTestSmallLogo.png
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\Images\UnitTestSplashScreen.png
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\Images\UnitTestStoreLogo.png
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\GEODATA.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\UnitTestLibrary1.dll
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\UnitTestLibrary1.pdb
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\resources.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\AppxManifest.xml
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\UnitTestLibrary1.build.appxrecipe
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\Microsoft.VisualStudio.TestPlatform.UnitTestFramework.dll
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\Collada_Main.dll
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\Geometric Chuck.exe
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\Callisto.dll
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\TCD.Controls.dll
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\Collada_Main.pdb
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\Collada_Main.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\Geometric Chuck.pdb
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\Callisto.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\TCD.Controls.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\UnitTestLibrary1.csprojResolveAssemblyReference.cache
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\UnitTestLibrary1.dll
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\UnitTestLibrary1.pdb
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.UnitTestFramework\en-US\Microsoft.VisualStudio.TestPlatform.UnitTestFramework.FrameworkMessages.resw
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.Core\en-US\Microsoft.VisualStudio.TestPlatform.Core.Resources.resw
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.Extensions.MSAppContainerAdapter\en-US\Microsoft.VisualStudio.TestPlatform.Extensions.MSAppContainerAdapter.Framework.Messages.resw
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.Extensions.MSAppContainerAdapter\en-US\Microsoft.VisualStudio.TestPlatform.Extensions.MSAppContainerAdapter.Resources.resw
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.ObjectModel\en-US\Microsoft.VisualStudio.TestPlatform.ObjectModel.CommonResources.resw
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.ObjectModel\en-US\Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtMessages.resw
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.ObjectModel\en-US\Microsoft.VisualStudio.TestPlatform.ObjectModel.Resources.resw
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.ObjectModel\en-US\Microsoft.VisualStudio.TestPlatform.ObjectModel.ValidateArgStrings.resw
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.TestExecutor.Core\en-US\Microsoft.VisualStudio.TestPlatform.TestExecutor.Resources.resw
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.Utilities\en-US\Microsoft.VisualStudio.TestPlatform.Utilities.Resources.resw
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\UnitTestLibrary1.csproj.GenerateResource.Cache
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.UnitTestFramework.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.UnitTestFramework\LanguageQualifiers.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.Core.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.Core\LanguageQualifiers.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.Extensions.MSAppContainerAdapter.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.Extensions.MSAppContainerAdapter\LanguageQualifiers.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.ObjectModel.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.ObjectModel\LanguageQualifiers.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.TestExecutor.Core.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.TestExecutor.Core\LanguageQualifiers.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.Utilities.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.Utilities\LanguageQualifiers.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\priconfig.xml
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\layout.resfiles
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\resources.resfiles
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\pri.resfiles
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\LanguageQualifiers.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Callisto.pri.xml
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\TCD.Controls.pri.xml
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\TCD.Controls.Settings.pri.xml
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\ProjectArchitectures.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\priconfig.xml.intermediate
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\layout.resfiles.intermediate
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\resources.resfiles.intermediate
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\pri.resfiles.intermediate

@@ -1,0 +1,22 @@
+﻿ <StackPanel>
+                <TextBlock Text="Points" Style="{StaticResource HeaderTextStyle}" Width="157" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                <Border Width="227" Height="591">
+                    <ListView x:Name="PointsView"  ItemsSource="{Binding Converter={StaticResource PolyPointsConverter}}" Margin="0,0,38,0" HorizontalAlignment="Right" Width="161" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="10,0,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="{Binding X}" />
+                                    <TextBlock Grid.Column="1" Text="{Binding Y}" Margin="10,0,0,0" />
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Border>
+            </StackPanel>

@@ -1,0 +1,46 @@
+﻿<UserControl
+    x:Class="OTWB.Settings.CodeSettingsContent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Geometric_Chuck"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300" Width="640">
+    <UserControl.Resources>
+        <Style x:Key="SettingsHeaderText" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Margin" Value="0,0,0,2" />
+        </Style>
+        <Style x:Key="ToggleSwitchStyle" TargetType="ToggleSwitch">
+            <Setter Property="Margin" Value="20,0,0,0" />
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Black" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="6*" />
+            <RowDefinition Height="19*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="7*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
+            <ToggleSwitch Header="Use Rotary Table" Height="60" Grid.Row="1" IsOn="{Binding UseRotaryTable, Mode=TwoWay}" Style="{StaticResource ToggleSwitchStyle}"/>
+            <ToggleSwitch Header="Use Absolute Moves" Height="60" Grid.Column="1" IsOn="{Binding UseAbsoluteMoves, Mode=TwoWay}" Style="{StaticResource ToggleSwitchStyle}" />
+            <ToggleSwitch Header="Use Subroutine" Height="60" Grid.Column="1" IsOn="{Binding UseAbsoluteMoves, Mode=TwoWay}"  Style="{StaticResource ToggleSwitchStyle}" />
+        </StackPanel>
+        <ListView ItemsSource="{Binding CodeTemplates.AllTemplates}" Background="Black" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,25,0,45" Grid.RowSpan="2" >
+            <ListViewItem>
+                <TextBlock Text="{Binding Name}" />
+            </ListViewItem>
+        </ListView>
+        </Grid>
+</UserControl>

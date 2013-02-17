@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PriInfo>
+	<ResourceMap name="TCD.Controls" version="1.0" primary="true">
+		<Qualifiers/>
+		<ResourceMapSubtree name="Files">
+			<ResourceMapSubtree name="TCD.Controls">
+				<NamedResource name="Flyout.xaml" uri="ms-resource://TCD.Controls/Files/TCD.Controls/Flyout.xaml">
+					<Candidate type="Path">
+						<Value>TCD.Controls\Flyout.xaml</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="HeaderedTextBlock.xaml" uri="ms-resource://TCD.Controls/Files/TCD.Controls/HeaderedTextBlock.xaml">
+					<Candidate type="Path">
+						<Value>TCD.Controls\HeaderedTextBlock.xaml</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="HeaderedTextBox.xaml" uri="ms-resource://TCD.Controls/Files/TCD.Controls/HeaderedTextBox.xaml">
+					<Candidate type="Path">
+						<Value>TCD.Controls\HeaderedTextBox.xaml</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="KeyboardDismissingComboBox.xaml" uri="ms-resource://TCD.Controls/Files/TCD.Controls/KeyboardDismissingComboBox.xaml">
+					<Candidate type="Path">
+						<Value>TCD.Controls\KeyboardDismissingComboBox.xaml</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="LabeledProgressBar.xaml" uri="ms-resource://TCD.Controls/Files/TCD.Controls/LabeledProgressBar.xaml">
+					<Candidate type="Path">
+						<Value>TCD.Controls\LabeledProgressBar.xaml</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="LineCounter.xaml" uri="ms-resource://TCD.Controls/Files/TCD.Controls/LineCounter.xaml">
+					<Candidate type="Path">
+						<Value>TCD.Controls\LineCounter.xaml</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="PopupContainer.xaml" uri="ms-resource://TCD.Controls/Files/TCD.Controls/PopupContainer.xaml">
+					<Candidate type="Path">
+						<Value>TCD.Controls\PopupContainer.xaml</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ResourceHoldingUserControl.xaml" uri="ms-resource://TCD.Controls/Files/TCD.Controls/ResourceHoldingUserControl.xaml">
+					<Candidate type="Path">
+						<Value>TCD.Controls\ResourceHoldingUserControl.xaml</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+	</ResourceMap>
+</PriInfo>

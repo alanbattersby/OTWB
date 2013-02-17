@@ -1,0 +1,51 @@
+﻿<UserControl xmlns:Controls="using:Callisto.Controls" 
+    x:Class="Geometric_Chuck.BSDControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Geometric_Chuck"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tcd="using:TCD.Controls" 
+    mc:Ignorable="d" Width="273" Height="176">
+    
+    <Grid Margin="10,0,-42,0" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="#FF969090" BorderThickness="2" CornerRadius="5" Margin="2,0,0,0" HorizontalAlignment="Left" Width="264" >
+            <Grid Margin="10,10,-2,10" HorizontalAlignment="Left" Width="234">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MinWidth="49" />
+                    <ColumnDefinition Width="Auto" MinWidth="189" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="V in" Style="{StaticResource ItemTextStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <!--<Slider Value="{Binding Vnum, Mode=TwoWay}" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,-97,0" StepFrequency="0.1" SmallChange="0.1" />-->
+                <Controls:NumericUpDown Value="{Binding Vnum, Mode=TwoWay}" Grid.Column="1" Margin="0,0,14,0" />
+
+                <TextBlock Text="V out" Style="{StaticResource ItemTextStyle}" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Controls:NumericUpDown Value="{Binding Vden, Mode=TwoWay}" Grid.Column="1" Grid.Row="1" Margin="0,5,14,0" />
+                <!--<Slider Value="{Binding Vden, Mode=TwoWay}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,-97,0" SmallChange="0.1" StepFrequency="0.1" TickFrequency="10" />-->
+               
+                <TextBlock Text="Same" Style="{StaticResource ItemTextStyle}" Grid.Row="2" ToolTipService.ToolTip="If on both stages are rotating in the same direction" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <ToggleSwitch Grid.Row="2" Grid.Column="1"  Margin="0,1,0,0" Width="175" IsOn="{Binding SameDirection, Mode=TwoWay}" Height="53" />
+                <!--<CheckBox IsChecked="{Binding SameDirection, Mode=TwoWay}" Grid.Column="1" Grid.Row="2" />-->
+
+                <TextBlock Text="Ex" Style="{StaticResource ItemTextStyle}" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <Controls:NumericUpDown Grid.Row="3" Grid.Column="1" Margin="0,0,14,0" DecimalPlaces="3" Value="{Binding Ex, Mode=TwoWay}" />
+                <!--<tcd:HeaderedTextBlock Header="Ex" Text="" Grid.Row="3" />-->
+
+                <TextBlock Text="Phase" Style="{StaticResource ItemTextStyle}" Grid.Row="4" />
+                <Controls:NumericUpDown Value="{Binding PHI, Mode=TwoWay}" Grid.Column="1" Grid.Row="4" Maximum="360" Margin="25,32,-21,-32" />
+                <!--<tcd:HeaderedTextBlock Header="Phi" Text="{Binding PHI, Mode=TwoWay}" Grid.Row="4" Grid.Column="1"/>-->
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
+

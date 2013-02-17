@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{53FCB0DC-2454-444C-A3F9-EF3F615B0917}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OTWB</RootNamespace>
+    <AssemblyName>Geometric Chuck</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>Geometric Chuck_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BasicLib.cs" />
+    <Compile Include="CodeGeneration\CodeGenTemplates.cs" />
+    <Compile Include="CodeGeneration\CodeGenViewModel.cs" />
+    <Compile Include="Settings\CodeSettingsContent.xaml.cs">
+      <DependentUpon>CodeSettingsContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColladaGenerator.cs" />
+    <Compile Include="Common\PathListIndexConverter.cs" />
+    <Compile Include="Common\RadianToAngleConverter.cs" />
+    <Compile Include="Common\Range.cs" />
+    <Compile Include="Coordinates\Cartesian.cs" />
+    <Compile Include="Coordinates\TemplateSelector.cs" />
+    <Compile Include="Coordinates\Cylindrical.cs" />
+    <Compile Include="Coordinates\ICoordinate.cs" />
+    <Compile Include="Coordinates\Spherical.cs" />
+    <Compile Include="GcodePage.xaml.cs">
+      <DependentUpon>GcodePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Grid.cs" />
+    <Compile Include="MyControls\BSDControl.xaml.cs">
+      <DependentUpon>BSDControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IOffset.cs" />
+    <Compile Include="Interfaces\IPathData.cs" />
+    <Compile Include="MyControls\GridControl.xaml.cs">
+      <DependentUpon>GridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyControls\NewRosetteFlyoutControl.xaml.cs">
+      <DependentUpon>NewRosetteFlyoutControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyControls\PointsControl.xaml.cs">
+      <DependentUpon>PointsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyControls\RangeControl.xaml.cs">
+      <DependentUpon>RangeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyControls\RossControl.xaml.cs">
+      <DependentUpon>RossControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageData.cs" />
+    <Compile Include="PathDisplay.xaml.cs">
+      <DependentUpon>PathDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IPathGenerator.cs" />
+    <Compile Include="PathGenerators\BazelyEngine.cs" />
+    <Compile Include="PathGenerators\OffsetPathEngine.cs" />
+    <Compile Include="PathGenerators\WheelsEngine.cs" />
+    <Compile Include="Ratio.cs" />
+    <Compile Include="Rational.cs" />
+    <Compile Include="RossData.cs" />
+    <Compile Include="PathGenerators\RossEngine.cs" />
+    <Compile Include="CodeGeneration\CodeTemplate.cs" />
+    <Compile Include="Settings\SettingsNames.cs" />
+    <Compile Include="Settings\TemplateUIControl.xaml.cs">
+      <DependentUpon>TemplateUIControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SpindleDataDisplay.xaml.cs">
+      <DependentUpon>SpindleDataDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SpindlePage.xaml.cs">
+      <DependentUpon>SpindlePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Spindle\Barrel.cs" />
+    <Compile Include="Spindle\Petal.cs" />
+    <Compile Include="Spindle\SquareWave.cs" />
+    <Compile Include="Spindle\Ellipse.cs" />
+    <Compile Include="Interfaces\IRosette.cs" />
+    <Compile Include="Spindle\GearRosette.cs" />
+    <Compile Include="Spindle\OffsetPath.cs" />
+    <Compile Include="Spindle\RadialOffsetPath.cs" />
+    <Compile Include="Spindle\Poly.cs" />
+    <Compile Include="Spindle\Rosette.cs" />
+    <Compile Include="Spindle\RosetteTemplateSelector.cs" />
+    <Compile Include="Spindle\Wave.cs" />
+    <Compile Include="StageData.cs" />
+    <Compile Include="Common\BindableBase.cs" />
+    <Compile Include="Common\BooleanNegationConverter.cs" />
+    <Compile Include="Common\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Common\LayoutAwarePage.cs" />
+    <Compile Include="Common\PathListConverters.cs" />
+    <Compile Include="Common\RichTextColumns.cs" />
+    <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="Extent.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PolygonCollection.cs" />
+    <Compile Include="RossPage.xaml.cs">
+      <DependentUpon>RossPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StartPage.xaml.cs">
+      <DependentUpon>StartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TemplateUI.xaml.cs">
+      <DependentUpon>TemplateUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel.cs" />
+    <Compile Include="MyControls\WheelDataControl.xaml.cs">
+      <DependentUpon>WheelDataControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Wheels.xaml.cs">
+      <DependentUpon>Wheels.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WheelsData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="packages.config" />
+    <PRIResource Include="Resources.resw" />
+    <PRIResource Include="Assets\Resources.resw" />
+    <None Include="Geometric Chuck_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="StartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Content Include="Assets\BazelyIcon.png" />
+    <Content Include="Assets\Export.png" />
+    <Content Include="Assets\RoseIcon.png" />
+    <Content Include="Assets\RossIcon.png" />
+    <Content Include="Assets\WheelsIcon.png" />
+    <Page Include="GcodePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\CodeSettingsContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TemplateUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\TemplateUIControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Content Include="Tmp.txt" />
+    <Page Include="MyControls\PointsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\RangeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\GridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\NewRosetteFlyoutControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\RossControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SpindleDataDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SpindlePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\WheelDataControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Wheels.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Dictionary1.xaml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Content Include="Assets\ellipse_rosette.png" />
+    <Content Include="Assets\ExportLOgo.png" />
+    <Content Include="Assets\gear_rosette.png" />
+    <Content Include="Assets\Logo.png" />
+    <EmbeddedResource Include="Assets\SaveLogo.png" />
+    <Content Include="Assets\petal_rosette.png" />
+    <Content Include="Assets\poly_rosette.png" />
+    <Content Include="Assets\SmallLogo.png" />
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\spur_gear.png" />
+    <Content Include="Assets\squarewave_rosette.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Page Include="MyControls\BSDControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Content Include="Assets\wave_rosette.png" />
+    <Content Include="Common\ReadMe.txt" />
+    <Content Include="GEODATA.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Page Include="PathDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RossPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Common\StandardStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Callisto, Version=1.2.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\GitHub\callisto\Tools\nuget\Callisto\lib\winrt45\Callisto.dll</HintPath>
+    </Reference>
+    <Reference Include="TCD.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="TCD.Controls.Settings, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="TCD.Mathematics">
+      <HintPath>..\packages\TCD.Mathematics.1.2.0\lib\portable-net4+sl4+wp7+win8\TCD.Mathematics.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Collada_Main\Collada_Main.csproj">
+      <Project>{9e818283-9cdb-418a-a46b-3cf11bdbbf26}</Project>
+      <Name>Collada_Main</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CodeGenerators\" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

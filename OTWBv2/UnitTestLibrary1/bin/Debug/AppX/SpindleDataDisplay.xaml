@@ -1,0 +1,186 @@
+﻿<UserControl
+    x:Class="Geometric_Chuck.SpindleDataDisplay"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Geometric_Chuck"
+    xmlns:common="using:Geometric_Chuck.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Spindle="using:Geometric_Chuck.Spindle"
+     xmlns:Controls="using:Callisto.Controls" 
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    <UserControl.Resources>
+        <common:RadianToAngleConverter x:Key="RadianToAngleConverter"/>
+        <DataTemplate x:Key="EllipseTemplate" >
+            <Border>
+                <Grid DataContext="{Binding}" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{Binding Name}" Grid.ColumnSpan="2" />
+                    <TextBlock Text="Eccentricity" Grid.Row="1" />
+                    <Controls:NumericUpDown  Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" InputScope="NumberFullWidth" DecimalPlaces="3" Increment="0.1" Maximum="1.0" Value="{Binding Eccentricity, Mode=TwoWay}"/>
+                   
+                    <TextBlock Text="Weight" Grid.Row="2" />
+                    <Controls:NumericUpDown  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" InputScope="NumberFullWidth" DecimalPlaces="2" Increment="0.01" Maximum="100" Value="{Binding Weight, Mode=TwoWay}" Minimum="-100"/>
+
+                    <TextBlock Text="Phase" Grid.Row="3" />
+                    <Controls:NumericUpDown  Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" InputScope="NumberFullWidth" DecimalPlaces="2" Increment="1" Maximum="180" Value="{Binding Phase, Mode=TwoWay}" Minimum="-180"/>
+                  
+                </Grid>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="WaveTemplate">
+            <Border >
+                <Grid DataContext="{Binding}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{Binding Name}" />
+                    <TextBlock Text="Frequency" Grid.Row="1" />
+                    <Controls:NumericUpDown  Grid.Row="1" Grid.Column="1" HorizontalContentAlignment="Right" InputScope="NumberFullWidth"  Increment="1" Maximum="100" Value="{Binding Frequency, Mode=TwoWay}"/>
+
+                    <TextBlock Text="Weight" Grid.Row="2" />
+                    <Controls:NumericUpDown  Grid.Row="2" Grid.Column="1" HorizontalContentAlignment="Right" InputScope="NumberFullWidth" DecimalPlaces="2" Increment="0.1" Maximum="100" Value="{Binding Weight, Mode=TwoWay}" Minimum="-100"/>
+
+                    <TextBlock Text="Phase" Grid.Row="3" />
+                    <Controls:NumericUpDown  Grid.Row="3" Grid.Column="1" HorizontalContentAlignment="Right" InputScope="NumberFullWidth" DecimalPlaces="1" Increment="1" Maximum="180" Value="{Binding Phase, Mode=TwoWay}" Minimum="-180"/>
+                    
+                </Grid>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="PolygonTemplate">
+            <Border>
+                <Grid DataContext="{Binding}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{Binding Name}" Grid.ColumnSpan="2"  />
+                    <TextBlock Text="N" Grid.Row="1" />
+                    <Controls:NumericUpDown  Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" InputScope="NumberFullWidth" Increment="1" Maximum="100" Minimum="3" Value="{Binding N, Mode=TwoWay}" />
+                   
+                    <TextBlock Text="Weight" Grid.Row="2" />
+                    <Controls:NumericUpDown  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" InputScope="NumberFullWidth" DecimalPlaces="2" Increment="0.1" Maximum="100" Value="{Binding Weight, Mode=TwoWay}" Minimum="-100"/>
+                    
+                    <TextBlock Text="Phase" Grid.Row="3" />
+                    <Controls:NumericUpDown  Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" InputScope="NumberFullWidth" DecimalPlaces="1" Increment="1" Maximum="180" Value="{Binding Phase, Mode=TwoWay}" Minimum="-180"/>
+                   
+                </Grid>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="SpurGearTemplate" >
+            <Border>
+                <Grid DataContext="{Binding}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{Binding Name}"  />
+                    <TextBlock Text="Num Teeth" Grid.Row="1" />
+                    <Controls:NumericUpDown  Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" InputScope="NumberFullWidth" Increment="1" Maximum="100" Value="{Binding NumTeeth, Mode=TwoWay}" />
+
+                    <TextBlock Text="Module" Grid.Row="2" />
+                    <Controls:NumericUpDown  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" InputScope="NumberFullWidth" DecimalPlaces="2" Increment="0.1" Maximum="50" Value="{Binding Module, Mode=TwoWay}" />
+
+                    <TextBlock Text="Pressure Angle" Grid.Row="3" />
+                    <Controls:NumericUpDown  Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" InputScope="NumberFullWidth" DecimalPlaces="1" Increment="1" Maximum="100" Value="{Binding PressureAngle, Mode=TwoWay}"/>
+
+
+                    <TextBlock Text="Weight" Grid.Row="4" />
+                    <Controls:NumericUpDown  Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" InputScope="NumberFullWidth" DecimalPlaces="1" Increment="1" Maximum="100" Value="{Binding Weight, Mode=TwoWay}"/>
+
+                    <TextBlock Text="Phase" Grid.Row="5" />
+                    <Controls:NumericUpDown  Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right" InputScope="NumberFullWidth" DecimalPlaces="1" Increment="1" Maximum="180" Value="{Binding Phase, Mode=TwoWay}" Minimum="-180"/>
+
+                    <TextBlock Text="Undercut" Grid.Row="6" />
+                    <Controls:NumericUpDown  Grid.Row="6" Grid.Column="1" HorizontalAlignment="Right" InputScope="NumberFullWidth" DecimalPlaces="2" Increment="0.1" Maximum="1.0" Value="{Binding Undercut, Mode=TwoWay}"/>
+                    <Border Grid.Row="7" Grid.ColumnSpan="2" >
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Outside Diameter" />
+                            <TextBlock Grid.Column="1" Text="{Binding OutsideDiameter}" />
+
+                            <TextBlock Text="Root Diameter" Grid.Row="1" />
+                            <TextBlock Grid.Column="1" Text="{Binding RootDiameter}" Grid.Row="1" />
+
+                            <TextBlock Text="Pitch Diameter" Grid.Row="2" />
+                            <TextBlock Grid.Column="1" Text="{Binding PitchDiameter}" Grid.Row="2" />
+
+                            <TextBlock Text="Tooth Depth" Grid.Row="3" />
+                            <TextBlock Grid.Column="1" Text="{Binding WholeDepth}" Grid.Row="3" />
+
+                            <TextBlock Text="Tooth Pitch" Grid.Row="4" />
+                            <TextBlock Grid.Column="1" Text="{Binding ToothPitchAngle, Converter={StaticResource RadianToAngleConverter}}" Grid.Row="4" />
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+        </DataTemplate>
+        <Spindle:RosetteTemplateSelector x:Key="itemsTemplateSelector"
+                            TemplateA="{StaticResource EllipseTemplate}" 
+                            TemplateB="{StaticResource WaveTemplate}" 
+                            TemplateC="{StaticResource PolygonTemplate}" 
+                            TemplateD="{StaticResource SpurGearTemplate}" 
+         />
+    </UserControl.Resources>
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Num Rosettes" Style="{StaticResource ItemTextStyle}" Margin="0,0,10,0"  />
+                <TextBlock  Style="{StaticResource ItemTextStyle}" Text="{Binding Rosettes.Count}"  />
+            </StackPanel>
+            <Border Grid.Row="1" BorderThickness="1" BorderBrush="#FF636060" Height="278" Margin="0,10,0,0">
+
+                <ListView x:Name="RosetteListView" ItemsSource="{Binding Rosettes,Mode=TwoWay}"
+                ItemTemplateSelector="{StaticResource itemsTemplateSelector}" IsActiveView="True">
+
+                </ListView>
+            </Border>
+        </StackPanel>
+    </Grid>
+</UserControl>
+

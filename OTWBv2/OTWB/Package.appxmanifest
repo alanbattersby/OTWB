@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="60969d84-db98-41ed-aee0-184d903cec8d" Publisher="CN=ALAN" Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>Geometric_Chuck</DisplayName>
+    <PublisherDisplayName>ALAN</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Geometric_Chuck.App">
+      <VisualElements DisplayName="Geometric Chuck" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Geometric Chuck" ForegroundText="light" BackgroundColor="#464646">
+        <DefaultTile ShowName="allLogos" />
+        <SplashScreen Image="Assets\SplashScreen.png" />
+      </VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>

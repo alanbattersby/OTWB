@@ -1,0 +1,28 @@
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Collada_Main\bin\Debug\Collada_Main.dll
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Collada_Main\bin\Debug\Collada_Main.pdb
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Collada_Main\bin\Debug\Collada_Main.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Collada_Main\obj\Debug\Collada_Main.dll
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Collada_Main\obj\Debug\Collada_Main.pdb
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Collada_Main\obj\Debug\priconfig.xml.intermediate
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Collada_Main\obj\Debug\layout.resfiles.intermediate
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Collada_Main\obj\Debug\resources.resfiles.intermediate
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Collada_Main\obj\Debug\pri.resfiles.intermediate
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Collada_Main\obj\Debug\priconfig.xml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Collada_Main\obj\Debug\layout.resfiles
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Collada_Main\obj\Debug\resources.resfiles
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Collada_Main\obj\Debug\pri.resfiles
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Collada_Main\obj\Debug\LanguageQualifiers.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\Collada_Main\bin\Debug\Collada_Main.dll
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\Collada_Main\bin\Debug\Collada_Main.pdb
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\Collada_Main\bin\Debug\Collada_Main.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\Collada_Main\obj\Debug\Collada_Main.dll
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\Collada_Main\obj\Debug\Collada_Main.pdb
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\Collada_Main\obj\Debug\priconfig.xml.intermediate
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\Collada_Main\obj\Debug\layout.resfiles.intermediate
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\Collada_Main\obj\Debug\resources.resfiles.intermediate
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\Collada_Main\obj\Debug\pri.resfiles.intermediate
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\Collada_Main\obj\Debug\priconfig.xml
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\Collada_Main\obj\Debug\layout.resfiles
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\Collada_Main\obj\Debug\resources.resfiles
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\Collada_Main\obj\Debug\pri.resfiles
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\Collada_Main\obj\Debug\LanguageQualifiers.txt

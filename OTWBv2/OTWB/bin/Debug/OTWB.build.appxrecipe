@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>ALAN-PC</Machine>
+    <WindowsUser>ALAN</WindowsUser>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Geometric Chuck.exe">
+      <PackagePath>Geometric Chuck.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Geometric Chuck.pdb">
+      <PackagePath>Geometric Chuck.pdb</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\Collada_Main\bin\Debug\Collada_Main.pdb">
+      <PackagePath>Collada_Main.pdb</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\GitHub\callisto\Tools\nuget\Callisto\lib\winrt45\Callisto.dll">
+      <PackagePath>Callisto.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\Collada_Main\bin\Debug\Collada_Main.dll">
+      <PackagePath>Collada_Main.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls.dll">
+      <PackagePath>TCD.Controls.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls.Settings.dll">
+      <PackagePath>TCD.Controls.Settings.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Mathematics.1.2.0\lib\portable-net4+sl4+wp7+win8\TCD.Mathematics.dll">
+      <PackagePath>TCD.Mathematics.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\BazelyIcon.png">
+      <PackagePath>Assets\BazelyIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\Export.png">
+      <PackagePath>Assets\Export.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\RoseIcon.png">
+      <PackagePath>Assets\RoseIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\RossIcon.png">
+      <PackagePath>Assets\RossIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\WheelsIcon.png">
+      <PackagePath>Assets\WheelsIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\ellipse_rosette.png">
+      <PackagePath>Assets\ellipse_rosette.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\ExportLOgo.png">
+      <PackagePath>Assets\ExportLOgo.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\gear_rosette.png">
+      <PackagePath>Assets\gear_rosette.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\Logo.png">
+      <PackagePath>Assets\Logo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\petal_rosette.png">
+      <PackagePath>Assets\petal_rosette.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\poly_rosette.png">
+      <PackagePath>Assets\poly_rosette.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\SmallLogo.png">
+      <PackagePath>Assets\SmallLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\SplashScreen.png">
+      <PackagePath>Assets\SplashScreen.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\spur_gear.png">
+      <PackagePath>Assets\spur_gear.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\squarewave_rosette.png">
+      <PackagePath>Assets\squarewave_rosette.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\StoreLogo.png">
+      <PackagePath>Assets\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\wave_rosette.png">
+      <PackagePath>Assets\wave_rosette.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Tmp.txt">
+      <PackagePath>Tmp.txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Common\ReadMe.txt">
+      <PackagePath>Common\ReadMe.txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\GEODATA.txt">
+      <PackagePath>GEODATA.txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\App.xaml">
+      <PackagePath>App.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\StartPage.xaml">
+      <PackagePath>StartPage.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\GcodePage.xaml">
+      <PackagePath>GcodePage.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Settings\CodeSettingsContent.xaml">
+      <PackagePath>Settings\CodeSettingsContent.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\TemplateUI.xaml">
+      <PackagePath>TemplateUI.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Settings\TemplateUIControl.xaml">
+      <PackagePath>Settings\TemplateUIControl.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\PointsControl.xaml">
+      <PackagePath>MyControls\PointsControl.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\RangeControl.xaml">
+      <PackagePath>MyControls\RangeControl.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\GridControl.xaml">
+      <PackagePath>MyControls\GridControl.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\NewRosetteFlyoutControl.xaml">
+      <PackagePath>MyControls\NewRosetteFlyoutControl.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\RossControl.xaml">
+      <PackagePath>MyControls\RossControl.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\SpindleDataDisplay.xaml">
+      <PackagePath>SpindleDataDisplay.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\SpindlePage.xaml">
+      <PackagePath>SpindlePage.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\WheelDataControl.xaml">
+      <PackagePath>MyControls\WheelDataControl.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Wheels.xaml">
+      <PackagePath>Wheels.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Assets\Dictionary1.xaml">
+      <PackagePath>Assets\Dictionary1.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\BSDControl.xaml">
+      <PackagePath>MyControls\BSDControl.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\PathDisplay.xaml">
+      <PackagePath>PathDisplay.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\RossPage.xaml">
+      <PackagePath>RossPage.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MainPage.xaml">
+      <PackagePath>MainPage.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Common\StandardStyles.xaml">
+      <PackagePath>Common\StandardStyles.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\GitHub\callisto\Tools\nuget\Callisto\lib\winrt45\Callisto\themes\Generic.xaml">
+      <PackagePath>Callisto\themes\Generic.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\Flyout.xaml">
+      <PackagePath>TCD.Controls\Flyout.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\HeaderedTextBlock.xaml">
+      <PackagePath>TCD.Controls\HeaderedTextBlock.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\HeaderedTextBox.xaml">
+      <PackagePath>TCD.Controls\HeaderedTextBox.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\KeyboardDismissingComboBox.xaml">
+      <PackagePath>TCD.Controls\KeyboardDismissingComboBox.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\LabeledProgressBar.xaml">
+      <PackagePath>TCD.Controls\LabeledProgressBar.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\LineCounter.xaml">
+      <PackagePath>TCD.Controls\LineCounter.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\PopupContainer.xaml">
+      <PackagePath>TCD.Controls\PopupContainer.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\ResourceHoldingUserControl.xaml">
+      <PackagePath>TCD.Controls\ResourceHoldingUserControl.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

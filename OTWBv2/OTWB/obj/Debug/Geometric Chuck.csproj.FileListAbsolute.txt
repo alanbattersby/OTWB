@@ -1,0 +1,85 @@
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\bin\Debug\GEODATA.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\bin\Debug\Geometric Chuck.exe
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\bin\Debug\Geometric Chuck.pdb
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\bin\Debug\resources.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\bin\Debug\AppxManifest.xml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\bin\Debug\Geometric Chuck.build.appxrecipe
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\bin\Debug\Callisto.dll
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\bin\Debug\Collada_Main.dll
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\bin\Debug\TCD.Controls.dll
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\bin\Debug\TCD.Controls.Settings.dll
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\bin\Debug\TCD.Mathematics.dll
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\bin\Debug\Collada_Main.pdb
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\bin\Debug\Collada_Main.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\bin\Debug\Callisto.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\bin\Debug\TCD.Controls.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\bin\Debug\TCD.Controls.Settings.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\Geometric Chuck.csprojResolveAssemblyReference.cache
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\App.g.i.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\App.g.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MyControls\PointsControl.g.i.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MyControls\PointsControl.g.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MyControls\RangeControl.g.i.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MyControls\RangeControl.g.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MyControls\GridControl.g.i.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MyControls\GridControl.g.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MyControls\NewRosetteFlyoutControl.g.i.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MyControls\NewRosetteFlyoutControl.g.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MyControls\RossControl.g.i.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MyControls\RossControl.g.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\SpindleDataDisplay.g.i.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\SpindleDataDisplay.g.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\SpindlePage.g.i.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\SpindlePage.g.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MyControls\WheelDataControl.g.i.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MyControls\WheelDataControl.g.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\Wheels.g.i.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\Wheels.g.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\Assets\Dictionary1.g.i.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\Assets\Dictionary1.g.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MyControls\BSDControl.g.i.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MyControls\BSDControl.g.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\PathDisplay.g.i.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\PathDisplay.g.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\RossPage.g.i.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\RossPage.g.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MainPage.g.i.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MainPage.g.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\Common\StandardStyles.g.i.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\Common\StandardStyles.g.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\XamlTypeInfo.g.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\App.xaml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MyControls\PointsControl.xaml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MyControls\GridControl.xaml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MyControls\NewRosetteFlyoutControl.xaml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MyControls\RossControl.xaml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\SpindleDataDisplay.xaml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\SpindlePage.xaml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\Assets\Dictionary1.xaml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MyControls\BSDControl.xaml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\RossPage.xaml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MainPage.xaml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\Common\StandardStyles.xaml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MyControls\RangeControl.xaml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\MyControls\WheelDataControl.xaml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\Wheels.xaml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\PathDisplay.xaml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\Geometric Chuck.exe
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\Geometric Chuck.pdb
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\Geometric Chuck.csproj.GenerateResource.Cache
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\priconfig.xml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\layout.resfiles
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\resources.resfiles
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\pri.resfiles
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\LanguageQualifiers.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\Callisto.pri.xml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\TCD.Controls.pri.xml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\TCD.Controls.Settings.pri.xml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\ProjectArchitectures.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\StartPage.g.i.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\StartPage.g.cs
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\StartPage.xaml
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\priconfig.xml.intermediate
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\layout.resfiles.intermediate
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\resources.resfiles.intermediate
+C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\Geometric Chuck\obj\Debug\pri.resfiles.intermediate
