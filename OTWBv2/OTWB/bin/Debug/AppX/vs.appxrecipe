@@ -16,21 +16,25 @@
     <AppXManifest Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-02-16T16:48:34.203</Modified>
+      <Modified>2013-03-05T18:12:10.162</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Geometric Chuck.exe">
       <PackagePath>Geometric Chuck.exe</PackagePath>
-      <Modified>2013-02-16T21:09:28.925</Modified>
+      <Modified>2013-03-05T21:15:47.228</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Geometric Chuck.pdb">
       <PackagePath>Geometric Chuck.pdb</PackagePath>
-      <Modified>2013-02-16T21:09:28.900</Modified>
+      <Modified>2013-03-05T21:15:47.208</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\Collada_Main\bin\Debug\Collada_Main.pdb">
       <PackagePath>Collada_Main.pdb</PackagePath>
-      <Modified>2013-02-14T20:53:47.551</Modified>
+      <Modified>2013-03-05T15:45:40.735</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\CSharp Eval 1.1\CSharp Eval 1.1\Antlr3.Runtime.dll">
+      <PackagePath>Antlr3.Runtime.dll</PackagePath>
+      <Modified>2013-02-18T16:05:22.015</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\GitHub\callisto\Tools\nuget\Callisto\lib\winrt45\Callisto.dll">
       <PackagePath>Callisto.dll</PackagePath>
@@ -38,7 +42,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\Collada_Main\bin\Debug\Collada_Main.dll">
       <PackagePath>Collada_Main.dll</PackagePath>
-      <Modified>2013-02-14T20:53:47.601</Modified>
+      <Modified>2013-03-05T15:45:40.754</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls.dll">
       <PackagePath>TCD.Controls.dll</PackagePath>
@@ -51,6 +55,10 @@
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Mathematics.1.2.0\lib\portable-net4+sl4+wp7+win8\TCD.Mathematics.dll">
       <PackagePath>TCD.Mathematics.dll</PackagePath>
       <Modified>2013-01-23T14:50:55.524</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\OTWBHelp.pdf">
+      <PackagePath>Assets\OTWBHelp.pdf</PackagePath>
+      <Modified>2013-03-04T22:39:37.948</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\BazelyIcon.png">
       <PackagePath>Assets\BazelyIcon.png</PackagePath>
@@ -146,23 +154,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\GcodePage.xaml">
       <PackagePath>GcodePage.xaml</PackagePath>
-      <Modified>2013-02-16T16:24:02.079</Modified>
+      <Modified>2013-03-05T18:48:47.007</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Settings\CodeSettingsContent.xaml">
       <PackagePath>Settings\CodeSettingsContent.xaml</PackagePath>
-      <Modified>2013-02-16T21:08:26.048</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\TemplateUI.xaml">
-      <PackagePath>TemplateUI.xaml</PackagePath>
-      <Modified>2013-02-16T16:15:45.837</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Settings\TemplateUIControl.xaml">
-      <PackagePath>Settings\TemplateUIControl.xaml</PackagePath>
-      <Modified>2013-02-16T16:46:38.033</Modified>
+      <Modified>2013-03-05T15:59:40.595</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\PointsControl.xaml">
       <PackagePath>MyControls\PointsControl.xaml</PackagePath>
-      <Modified>2013-02-11T18:03:13.568</Modified>
+      <Modified>2013-03-05T18:07:26.966</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\RangeControl.xaml">
       <PackagePath>MyControls\RangeControl.xaml</PackagePath>
@@ -214,7 +214,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MainPage.xaml">
       <PackagePath>MainPage.xaml</PackagePath>
-      <Modified>2013-02-08T13:44:43.623</Modified>
+      <Modified>2013-02-17T16:52:12.593</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Common\StandardStyles.xaml">
       <PackagePath>Common\StandardStyles.xaml</PackagePath>
@@ -258,7 +258,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2013-02-16T16:48:33.739</Modified>
+      <Modified>2013-03-05T15:45:43.400</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

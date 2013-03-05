@@ -4,6 +4,7 @@ Assets\Export.png
 Assets\ExportLOgo.png
 Assets\gear_rosette.png
 Assets\Logo.png
+Assets\OTWBHelp.pdf
 Assets\petal_rosette.png
 Assets\poly_rosette.png
 Assets\RoseIcon.png
@@ -30,11 +31,9 @@ MyControls\WheelDataControl.xaml
 PathDisplay.xaml
 RossPage.xaml
 Settings\CodeSettingsContent.xaml
-Settings\TemplateUIControl.xaml
 SpindleDataDisplay.xaml
 SpindlePage.xaml
 StartPage.xaml
-TemplateUI.xaml
 Wheels.xaml
 Common\ReadMe.txt
 GEODATA.txt

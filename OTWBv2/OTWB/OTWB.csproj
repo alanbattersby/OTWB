@@ -105,6 +105,13 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="BasicLib.cs" />
+    <Compile Include="CodeGeneration\BindableCodeTemplate.cs" />
+    <Compile Include="CodeGeneration\CodeGenDataContext.cs" />
+    <Compile Include="CodeGeneration\GcodeFile.cs" />
+    <Compile Include="CodeGeneration\GCODES.cs" />
+    <Compile Include="Common\Association.cs" />
+    <Compile Include="Common\BindableExtender.cs" />
+    <Compile Include="Common\BindableString.cs" />
     <Compile Include="CodeGeneration\CodeGenTemplates.cs" />
     <Compile Include="CodeGeneration\CodeGenViewModel.cs" />
     <Compile Include="Settings\CodeSettingsContent.xaml.cs">
@@ -155,11 +162,7 @@
     <Compile Include="Rational.cs" />
     <Compile Include="RossData.cs" />
     <Compile Include="PathGenerators\RossEngine.cs" />
-    <Compile Include="CodeGeneration\CodeTemplate.cs" />
     <Compile Include="Settings\SettingsNames.cs" />
-    <Compile Include="Settings\TemplateUIControl.xaml.cs">
-      <DependentUpon>TemplateUIControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SpindleDataDisplay.xaml.cs">
       <DependentUpon>SpindleDataDisplay.xaml</DependentUpon>
     </Compile>
@@ -198,9 +201,6 @@
     <Compile Include="StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TemplateUI.xaml.cs">
-      <DependentUpon>TemplateUI.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModel.cs" />
     <Compile Include="MyControls\WheelDataControl.xaml.cs">
       <DependentUpon>WheelDataControl.xaml</DependentUpon>
@@ -214,6 +214,9 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Assets\OTWBHelp.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <PRIResource Include="Resources.resw" />
     <PRIResource Include="Assets\Resources.resw" />
@@ -234,14 +237,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Settings\CodeSettingsContent.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="TemplateUI.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Settings\TemplateUIControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -332,6 +327,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\..\CSharp Eval 1.1\CSharp Eval 1.1\Antlr3.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Callisto, Version=1.2.6.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\GitHub\callisto\Tools\nuget\Callisto\lib\winrt45\Callisto.dll</HintPath>

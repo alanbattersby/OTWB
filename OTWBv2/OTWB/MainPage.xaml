@@ -89,7 +89,7 @@
                             <TextBlock Text="SR is " Margin="0,0,20,0" Style="{StaticResource SubheaderTextStyle}" Height="32"/>
                             <Controls:NumericUpDown Value="{Binding SR, Mode=TwoWay}" Width="141" DecimalPlaces="2" Minimum="-100" />
                         </StackPanel>
-                        <ListView Height="285"  x:Name="BazelyStageList" ItemsSource="{Binding SelectedItem.Stages, ElementName=PatternChoices}">
+                        <ListView Height="372"  x:Name="BazelyStageList" ItemsSource="{Binding SelectedItem.Stages, ElementName=PatternChoices}">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <mycontrols:BSDControl DataContext="{Binding}"/>

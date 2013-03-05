@@ -22,6 +22,9 @@
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\Collada_Main\bin\Debug\Collada_Main.pdb">
       <PackagePath>Collada_Main.pdb</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\CSharp Eval 1.1\CSharp Eval 1.1\Antlr3.Runtime.dll">
+      <PackagePath>Antlr3.Runtime.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\GitHub\callisto\Tools\nuget\Callisto\lib\winrt45\Callisto.dll">
       <PackagePath>Callisto.dll</PackagePath>
     </AppxPackagedFile>
@@ -36,6 +39,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Mathematics.1.2.0\lib\portable-net4+sl4+wp7+win8\TCD.Mathematics.dll">
       <PackagePath>TCD.Mathematics.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\OTWBHelp.pdf">
+      <PackagePath>Assets\OTWBHelp.pdf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\BazelyIcon.png">
       <PackagePath>Assets\BazelyIcon.png</PackagePath>
@@ -112,12 +118,6 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Settings\CodeSettingsContent.xaml">
       <PackagePath>Settings\CodeSettingsContent.xaml</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\TemplateUI.xaml">
-      <PackagePath>TemplateUI.xaml</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Settings\TemplateUIControl.xaml">
-      <PackagePath>Settings\TemplateUIControl.xaml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\PointsControl.xaml">
       <PackagePath>MyControls\PointsControl.xaml</PackagePath>

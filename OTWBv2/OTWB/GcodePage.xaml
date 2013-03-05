@@ -24,9 +24,9 @@
                     <Button AutomationProperties.Name="Generate Code" Style="{StaticResource SaveAppBarButtonStyle}" Click="Generate_Code_Click"/>
                     <Button AutomationProperties.Name="Clear Code" Style="{StaticResource DiscardAppBarButtonStyle}" Click="Clear_Code_Click"/>
                     <Button AutomationProperties.Name="Settings" Style="{StaticResource SettingsAppBarButtonStyle}" Click="ShowSettings"/>
+                   
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="405">
-                    <Button AutomationProperties.Name="Templates" Style="{StaticResource EditAppBarButtonStyle}" Click="Edit_Templates_Click"/>
                     <Button AutomationProperties.Name="Save Templates" Click="Save_Templates_Click" Style="{StaticResource SaveAppBarButtonStyle}"/>
                     <Button AutomationProperties.Name="Load Templates" Click="Load_Templates_Click" Style="{StaticResource ImportAppBarButtonStyle}"/>
                 </StackPanel>
@@ -63,11 +63,18 @@
             <TextBlock x:Name="pathName" Grid.Column="2" Text="{Binding PathName}" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.RowSpan="2" Margin="55,0,0,0">
+            <ListView x:Name="GcodeFileCombo" ItemsSource="{Binding Code}" Margin="0,0,0,133" Width="240">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding FileName}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
             <ScrollViewer Width="815" Margin="50,0,0,38" BorderThickness="10" BorderBrush="{StaticResource AppBarBorderThemeBrush}">
                 <ListView x:Name="CodeViewer" Background="{StaticResource ApplicationPageBackgroundThemeBrush}" Foreground="White" BorderThickness="5" ItemsSource="{Binding}" Width="782" Margin="0,0,10,20"  >
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding}" Margin="20,0,0,0"  />
+                            <TextBlock Text="{Binding SelectedItem.Code, ElementName=GcodeFileCombo}" Margin="20,0,0,0"  />
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

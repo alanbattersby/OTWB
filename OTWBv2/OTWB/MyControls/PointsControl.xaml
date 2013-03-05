@@ -42,9 +42,25 @@
                 <TextBlock Grid.Column="2" Text="{Binding Depth}" />
             </Grid>
         </DataTemplate>
+        <DataTemplate x:Key="CartesianTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="{Binding X}" Margin="0,0,20,0" />
+                <TextBlock Grid.Column="1" Text="{Binding Y}" Margin="0,0,20,0" />
+                <TextBlock Grid.Column="2" Text="{Binding Z}" />
+            </Grid>
+        </DataTemplate>
         <Coord:CoordTemplateSelector x:Key="itemsTemplateSelector"
                             PointTemplate="{StaticResource PointTemplate}" 
-                            CylindricalTemplate="{StaticResource CylindricalTemplate}" 
+                            CylindricalTemplate="{StaticResource CylindricalTemplate}"
+                            CartesianTemplate="{StaticResource CartesianTemplate}"
 
          />
     </UserControl.Resources>

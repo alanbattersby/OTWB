@@ -8,6 +8,10 @@ using System.Diagnostics;
 using grendgine_collada;
 using OTWB.CodeGeneration;
 using OTWB.Settings;
+using Windows.UI.Xaml.Data;
+using OTWB;
+using Windows.UI.Xaml.Controls;
+using OTWB.Common;
 
 namespace UnitTestLibrary1
 {
@@ -76,17 +80,13 @@ namespace UnitTestLibrary1
         [TestMethod]
         public void TestTemplateLookup()
         {
-            CodeGenViewModel model = new CodeGenViewModel();
-            Assert.AreEqual("CODE_POINT_TEMPLATE", SettingsNames.CODE_POINT_TEMPLATE );
-            Assert.IsNotNull(model.Templates);
+           
+        }
 
-            CodeTemplate tmpl = model.Templates.Lookup(SettingsNames.CODE_POINT_TEMPLATE);
-            Assert.IsNotNull(tmpl);
-            Assert.AreEqual(SettingsNames.CODE_POINT_TEMPLATE, tmpl.Name);
-            Assert.IsFalse(tmpl.IsMultiLine);
-
-            tmpl = model.Templates.Lookup("NOT_PRESENT");
-            Assert.IsNull(tmpl);
+        [TestMethod]
+        public void TestBinding()
+        {
+          
         }
     }
 }

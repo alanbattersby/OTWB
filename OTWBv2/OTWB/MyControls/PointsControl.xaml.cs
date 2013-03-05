@@ -36,7 +36,7 @@ namespace Geometric_Chuck.MyControls
             if (DataContext is List<List<Point>>)
                 PointsView.DataContext = (this.DataContext as List<List<Point>>)[PathCombo.SelectedIndex];
             else
-                PointsView.DataContext = (this.DataContext as List<List<Cylindrical>>)[PathCombo.SelectedIndex];
+                PointsView.DataContext = (this.DataContext as List<List<ICoordinate>>)[PathCombo.SelectedIndex];
             PathCount.DataContext = PointsView.DataContext;
         }
     }

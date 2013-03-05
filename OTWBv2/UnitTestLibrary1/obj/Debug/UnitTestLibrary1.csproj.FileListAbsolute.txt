@@ -53,6 +53,7 @@ C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\
 C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\TCD.Controls.pri.xml
 C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\TCD.Controls.Settings.pri.xml
 C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\ProjectArchitectures.txt
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\Assets\OTWBHelp.pdf
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\Images\UnitTestLogo.png
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\Images\UnitTestSmallLogo.png
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\Images\UnitTestSplashScreen.png
@@ -108,7 +109,3 @@ C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Cal
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\TCD.Controls.pri.xml
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\TCD.Controls.Settings.pri.xml
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\ProjectArchitectures.txt
-C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\priconfig.xml.intermediate
-C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\layout.resfiles.intermediate
-C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\resources.resfiles.intermediate
-C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\pri.resfiles.intermediate

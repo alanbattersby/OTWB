@@ -37,6 +37,9 @@
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\TCD.Controls.dll">
       <PackagePath>TCD.Controls.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\CSharp Eval 1.1\CSharp Eval 1.1\Antlr3.Runtime.dll">
+      <PackagePath>Antlr3.Runtime.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls.Settings.dll">
       <PackagePath>TCD.Controls.Settings.dll</PackagePath>
     </AppxPackagedFile>
@@ -134,6 +137,9 @@
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\wave_rosette.png">
       <PackagePath>Assets\wave_rosette.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\OTWBHelp.pdf">
+      <PackagePath>Assets\OTWBHelp.pdf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Tmp.txt">
       <PackagePath>Tmp.txt</PackagePath>
     </AppxPackagedFile>
@@ -154,12 +160,6 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Settings\CodeSettingsContent.xaml">
       <PackagePath>Settings\CodeSettingsContent.xaml</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\TemplateUI.xaml">
-      <PackagePath>TemplateUI.xaml</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Settings\TemplateUIControl.xaml">
-      <PackagePath>Settings\TemplateUIControl.xaml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\PointsControl.xaml">
       <PackagePath>MyControls\PointsControl.xaml</PackagePath>

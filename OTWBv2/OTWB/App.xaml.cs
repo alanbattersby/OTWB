@@ -3,12 +3,14 @@ using Callisto.Controls.SettingsManagement;
 using OTWB.Settings;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ApplicationSettings;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -37,8 +39,27 @@ namespace Geometric_Chuck
         {
             this.InitializeComponent();
             viewModel = new ViewModel();
-
+           
             this.Suspending += OnSuspending;
+        }
+
+        void App_CommandsRequested(SettingsPane sender, SettingsPaneCommandsRequestedEventArgs args)
+        {
+            args.Request.ApplicationCommands.Add(new SettingsCommand(1, "Help", HelpCommand));
+        }
+
+        private async void HelpCommand(Windows.UI.Popups.IUICommand command)
+        {
+            try
+            {
+                Windows.Storage.StorageFile file =
+                    await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFileAsync(@"Assets\OTWBHelp.pdf");
+                await Windows.System.Launcher.LaunchFileAsync(file);
+            }
+            catch (Exception exception)
+            {
+                Debug.WriteLine(exception.Message);
+            }
         }
 
         /// <summary>
@@ -54,6 +75,7 @@ namespace Geometric_Chuck
             VisualElements = await Callisto.Controls.Common.AppManifestHelper.GetManifestVisualElementsAsync();
             Frame rootFrame = Window.Current.Content as Frame;
 
+            SettingsPane.GetForCurrentView().CommandsRequested += App_CommandsRequested;
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
             if (rootFrame == null)

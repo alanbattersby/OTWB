@@ -22,17 +22,6 @@ namespace OTWB.Settings
         Windows.Storage.ApplicationDataContainer localSettings;
         public CodeGenTemplates CodeTemplates { get; set; }
 
-        public string CodePointTemplate
-        {
-            get 
-            {
-                if (localSettings.Values[SettingsNames.CODE_POINT_TEMPLATE] != null)
-                    return (string)localSettings.Values[SettingsNames.CODE_POINT_TEMPLATE];
-                else
-                    return DefaultSettings.CODE_POINT_TEMPLATE;
-            }
-            set { localSettings.Values[SettingsNames.CODE_POINT_TEMPLATE] = value; }
-        }
         public bool UseRotaryTable
         {
             get 
@@ -55,7 +44,7 @@ namespace OTWB.Settings
                     return DefaultSettings.USE_ABSOLUTE_MOVES;
 
             }
-            set { localSettings.Values[SettingsNames.USE_ROTARY_TABLE] = value; }
+            set { localSettings.Values[SettingsNames.USE_ABSOLUTE_MOVES] = value; }
         }
         public bool UseSubroutine
         {
@@ -67,7 +56,19 @@ namespace OTWB.Settings
                     return DefaultSettings.USE_SUBROUTINE;
 
             }
-            set { localSettings.Values[SettingsNames.USE_ROTARY_TABLE] = value; }
+            set { localSettings.Values[SettingsNames.USE_SUBROUTINE] = value; }
+        }
+        public bool UseSingleFile
+        {
+            get
+            {
+                if (localSettings.Values[SettingsNames.USE_SINGLE_FILE] != null)
+                    return (bool)localSettings.Values[SettingsNames.USE_SINGLE_FILE];
+                else
+                    return DefaultSettings.USE_SINGLE_FILE;
+
+            }
+            set { localSettings.Values[SettingsNames.USE_SINGLE_FILE] = value; }
         }
 
         public CodeSettingsContent()

@@ -1,9 +1,11 @@
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Assets\OTWBHelp.pdf
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\GEODATA.txt
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Geometric Chuck.exe
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Geometric Chuck.pdb
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\resources.pri
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\AppxManifest.xml
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\OTWB.build.appxrecipe
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Antlr3.Runtime.dll
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Callisto.dll
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Collada_Main.dll
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\TCD.Controls.dll
@@ -57,7 +59,6 @@ C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\XamlTypeInfo.g.
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\App.xaml
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\StartPage.xaml
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\GcodePage.xaml
-C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\Settings\CodeSettingsContent.xaml
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\MyControls\PointsControl.xaml
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\MyControls\RangeControl.xaml
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\MyControls\GridControl.xaml
@@ -73,13 +74,10 @@ C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\PathDisplay.xam
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\RossPage.xaml
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\MainPage.xaml
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\Common\StandardStyles.xaml
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\Settings\CodeSettingsContent.xaml
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\Geometric Chuck.exe
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\Geometric Chuck.pdb
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\OTWB.csproj.GenerateResource.Cache
-C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\priconfig.xml.intermediate
-C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\layout.resfiles.intermediate
-C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\resources.resfiles.intermediate
-C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\pri.resfiles.intermediate
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\priconfig.xml
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\layout.resfiles
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\resources.resfiles
@@ -89,9 +87,7 @@ C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\Callisto.pri.xm
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\TCD.Controls.pri.xml
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\TCD.Controls.Settings.pri.xml
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\ProjectArchitectures.txt
-C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\TemplateUI.g.i.cs
-C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\TemplateUI.g.cs
-C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\TemplateUI.xaml
-C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\Settings\TemplateUIControl.g.i.cs
-C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\Settings\TemplateUIControl.g.cs
-C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\Settings\TemplateUIControl.xaml
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\priconfig.xml.intermediate
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\layout.resfiles.intermediate
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\resources.resfiles.intermediate
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\obj\Debug\pri.resfiles.intermediate

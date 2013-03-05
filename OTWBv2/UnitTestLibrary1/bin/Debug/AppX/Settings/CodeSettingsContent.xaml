@@ -32,13 +32,16 @@
             <ColumnDefinition Width="3*" />
             <ColumnDefinition Width="7*" />
         </Grid.ColumnDefinitions>
-        <TextBlock Style="{StaticResource SettingsHeaderText}" Text="Point Code Template" Margin="30,16,12,10"  />
-        <TextBox Text="{Binding CodePointTemplate, Mode=TwoWay}" Grid.Column="1" BorderBrush="{StaticResource ToolTipBorderThemeBrush}" Background="#FF119EB8" VerticalAlignment="Center" Height="32" Margin="0,11,0,7" />
-        <StackPanel Grid.Row="1"  Orientation="Horizontal" Grid.ColumnSpan="2">
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
             <ToggleSwitch Header="Use Rotary Table" Height="60" Grid.Row="1" IsOn="{Binding UseRotaryTable, Mode=TwoWay}" Style="{StaticResource ToggleSwitchStyle}"/>
             <ToggleSwitch Header="Use Absolute Moves" Height="60" Grid.Column="1" IsOn="{Binding UseAbsoluteMoves, Mode=TwoWay}" Style="{StaticResource ToggleSwitchStyle}" />
             <ToggleSwitch Header="Use Subroutine" Height="60" Grid.Column="1" IsOn="{Binding UseAbsoluteMoves, Mode=TwoWay}"  Style="{StaticResource ToggleSwitchStyle}" />
         </StackPanel>
+        <ListView ItemsSource="{Binding CodeTemplates.AllTemplates}" Background="Black" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,25,0,45" Grid.RowSpan="2" >
+            <ListViewItem>
+                <TextBlock Text="{Binding Name}" />
+            </ListViewItem>
+        </ListView>
         </Grid>
 </UserControl>
 

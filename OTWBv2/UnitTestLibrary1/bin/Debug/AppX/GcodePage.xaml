@@ -24,6 +24,7 @@
                     <Button x:ConnectionId='9' AutomationProperties.Name="Generate Code" Style="{StaticResource SaveAppBarButtonStyle}"                            />
                     <Button x:ConnectionId='10' AutomationProperties.Name="Clear Code" Style="{StaticResource DiscardAppBarButtonStyle}"                         />
                     <Button x:ConnectionId='11' AutomationProperties.Name="Settings" Style="{StaticResource SettingsAppBarButtonStyle}"                     />
+                    <Button x:ConnectionId='12' AutomationProperties.Name="Test" Style="{StaticResource YesAppBarButtonStyle}"                            />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="405">
                     <Button x:ConnectionId='5' AutomationProperties.Name="Templates" Style="{StaticResource EditAppBarButtonStyle}"                             />
@@ -58,7 +59,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:ConnectionId='12' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
+            <Button x:ConnectionId='13' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
             <TextBlock x:Name="pathName" Grid.Column="2" Text="{Binding PathName}" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>

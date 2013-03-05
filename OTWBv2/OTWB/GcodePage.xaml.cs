@@ -24,6 +24,9 @@ using OTWB.Settings;
 using System.Diagnostics;
 using Windows.Storage.Pickers;
 using OTWB.CodeGeneration;
+using OTWB.Common;
+using Windows.UI.Core;
+using System.Text;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -202,17 +205,11 @@ namespace Geometric_Chuck
         private void Generate_Code_Click(object sender, RoutedEventArgs e)
         {
             codeGen.GenerateCode();
-           
         }
 
         private void Clear_Code_Click(object sender, RoutedEventArgs e)
         {
             codeGen.Clear();
-
-        }
-
-        private void Edit_Templates_Click(object sender, RoutedEventArgs e)
-        {
 
         }
 
@@ -225,5 +222,8 @@ namespace Geometric_Chuck
         {
             codeGen.LoadTemplates();
         }
+
+     
+
     }
 }

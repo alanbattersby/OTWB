@@ -20,15 +20,15 @@
         <AppBar>
             <StackPanel Orientation="Horizontal" Margin="0,0,-20,0">
                 <StackPanel HorizontalAlignment="Left" Height="100" Width="530" Orientation="Horizontal">
-                    <Button x:ConnectionId='8' AutomationProperties.Name="Save Code" Style="{StaticResource SaveAppBarButtonStyle}"                        />
-                    <Button x:ConnectionId='9' AutomationProperties.Name="Generate Code" Style="{StaticResource SaveAppBarButtonStyle}"                            />
-                    <Button x:ConnectionId='10' AutomationProperties.Name="Clear Code" Style="{StaticResource DiscardAppBarButtonStyle}"                         />
-                    <Button x:ConnectionId='11' AutomationProperties.Name="Settings" Style="{StaticResource SettingsAppBarButtonStyle}"                     />
+                    <Button x:ConnectionId='7' AutomationProperties.Name="Save Code" Style="{StaticResource SaveAppBarButtonStyle}"                        />
+                    <Button x:ConnectionId='8' AutomationProperties.Name="Generate Code" Style="{StaticResource SaveAppBarButtonStyle}"                            />
+                    <Button x:ConnectionId='9' AutomationProperties.Name="Clear Code" Style="{StaticResource DiscardAppBarButtonStyle}"                         />
+                    <Button x:ConnectionId='10' AutomationProperties.Name="Settings" Style="{StaticResource SettingsAppBarButtonStyle}"                     />
+                   
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="405">
-                    <Button x:ConnectionId='5' AutomationProperties.Name="Templates" Style="{StaticResource EditAppBarButtonStyle}"                             />
-                    <Button x:ConnectionId='6' AutomationProperties.Name="Save Templates"                              Style="{StaticResource SaveAppBarButtonStyle}"/>
-                    <Button x:ConnectionId='7' AutomationProperties.Name="Load Templates"                              Style="{StaticResource ImportAppBarButtonStyle}"/>
+                    <Button x:ConnectionId='5' AutomationProperties.Name="Save Templates"                              Style="{StaticResource SaveAppBarButtonStyle}"/>
+                    <Button x:ConnectionId='6' AutomationProperties.Name="Load Templates"                              Style="{StaticResource ImportAppBarButtonStyle}"/>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Width="415" RenderTransformOrigin="0,0">
                     <Button x:ConnectionId='1' AutomationProperties.Name="Point" CommandParameter="POINT"                      Style="{StaticResource EditAppBarButtonStyle}" />
@@ -58,16 +58,23 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:ConnectionId='12' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
+            <Button x:ConnectionId='11' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
             <TextBlock x:Name="pathName" Grid.Column="2" Text="{Binding PathName}" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.RowSpan="2" Margin="55,0,0,0">
+            <ListView x:Name="GcodeFileCombo" ItemsSource="{Binding Code}" Margin="0,0,0,133" Width="240">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding FileName}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
             <ScrollViewer Width="815" Margin="50,0,0,38" BorderThickness="10" BorderBrush="{StaticResource AppBarBorderThemeBrush}">
                 <ListView x:Name="CodeViewer" Background="{StaticResource ApplicationPageBackgroundThemeBrush}" Foreground="White" BorderThickness="5" ItemsSource="{Binding}" Width="782" Margin="0,0,10,20"  >
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding}" Margin="20,0,0,0"  />
+                            <TextBlock Text="{Binding SelectedItem.Code, ElementName=GcodeFileCombo}" Margin="20,0,0,0"  />
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

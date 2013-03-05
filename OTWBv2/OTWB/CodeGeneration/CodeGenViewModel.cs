@@ -31,13 +31,6 @@ namespace OTWB.CodeGeneration
             set { SetProperty(ref _templates, value); }
         }
 
-        string _footerFile;
-        public string FooterFile
-        {
-            get { return _footerFile; }
-            set { SetProperty(ref _footerFile, value); }
-        }
-
         string _pathName;
         public string PathName
         {
@@ -45,11 +38,17 @@ namespace OTWB.CodeGeneration
             set { SetProperty(ref _pathName, value); }
         }
 
-        int DP;
-        double FeedRate;
+        public int DP
+        {
+            get { return (int)BasicLib.GetSetting(SettingsNames.DECIMAL_PLACES); }
+        }
+        public double FeedRate
+        {
+            get {return (double)BasicLib.GetSetting(SettingsNames.FEED_RATE_VALUE);   }
+        }
 
-        ObservableCollection<string> _code;
-        public ObservableCollection<string> Code
+        ObservableCollection<GcodeFile> _code;
+        public ObservableCollection<GcodeFile> Code
         {
             get { return _code; }
             set 
@@ -67,7 +66,7 @@ namespace OTWB.CodeGeneration
         public CodeGenViewModel()
         {
             PathName = "No Path";
-            Code = new ObservableCollection<string>();
+            Code = new ObservableCollection<GcodeFile>();
             _templates = new CodeGenTemplates();
         }
         /// <summary>
@@ -97,6 +96,27 @@ namespace OTWB.CodeGeneration
             }
             set { BasicLib.SetSetting(SettingsNames.USE_SUBROUTINE, value); }
         }
+        public bool UseSingleFile
+        {
+            get
+            {
+                return (bool)BasicLib.GetSetting(SettingsNames.USE_SINGLE_FILE);
+            }
+            set { BasicLib.SetSetting(SettingsNames.USE_SINGLE_FILE, value); }
+        }
+
+        public int _currentPathIndex;
+        public int CurrentPathIndex
+        {
+            get { return _currentPathIndex; }
+            set { SetProperty(ref _currentPathIndex, value); }
+        }
+        public ICoordinate _currentPoint;
+        public ICoordinate CurrentPoint
+        {
+            get { return _currentPoint; }
+            set { SetProperty(ref _currentPoint, value); }
+        }
 
         public List<List<Point>> CurrentPath
         {
@@ -106,35 +126,59 @@ namespace OTWB.CodeGeneration
                 SetProperty(ref _currentPath, value, "CurrentPath");
             }
         }
-        private List<Point> OffsetList(List<Point> p)
-        {
-            List<Point> offsets = new List<Point>();
-            for (int indx = 1; indx < p.Count; indx++)
-            {
-                Point pnt = new Point(p[indx].X - p[indx - 1].X,
-                                      p[indx].Y - p[indx - 1].Y);
-                offsets.Add(pnt);
-            }
-            return offsets;
-        }
-        private List<Cylindrical> OffsetList(List<Cylindrical> p)
-        {
-            List<Cylindrical> offsets = new List<Cylindrical>();
-            for (int indx = 1; indx < p.Count; indx++)
-            {
-                Cylindrical pnt = new Cylindrical(p[indx].Radius - p[indx - 1].Radius,
-                                      p[indx].Angle - p[indx - 1].Angle,
-                                      p[indx].Depth - p[indx-1].Depth);
-                offsets.Add(pnt);
-            }
-            return offsets;
-        }
 
-        public List<List<Point>> CreateOffsetList
+        private List<ICoordinate> OffsetList(List<Point> p)
+        {
+            List<ICoordinate> offsets = new List<ICoordinate>();
+            for (int indx = 1; indx < p.Count; indx++)
+            {
+                Cartesian pnt = new Cartesian(p[indx].X - p[indx - 1].X,
+                                      p[indx].Y - p[indx - 1].Y, 0);
+                offsets.Add(pnt);
+            }
+            return offsets;
+        }
+       
+
+        private List<ICoordinate> OffsetList(List<ICoordinate> p)
+        {
+            List<ICoordinate> offsets = new List<ICoordinate>();
+            for (int indx = 1; indx < p.Count; indx++)
+            {
+                ICoordinate pnt = null;
+                if (p[indx] is Cartesian)
+                {
+                    Cartesian pc = p[indx] as Cartesian;
+                    Cartesian pc1 = p[indx - 1] as Cartesian;
+                    pnt = new Cartesian(pc.X - pc1.X,
+                                         pc.Y - pc1.Y,
+                                         pc.Z - pc1.Z);
+                }
+                else if (p[indx] is Cylindrical)
+                {
+                    Cylindrical pc = p[indx] as Cylindrical;
+                    Cylindrical pc1 = p[indx - 1] as Cylindrical;
+                    pnt = new Cylindrical(pc.Radius - pc1.Radius,
+                                         pc.Angle - pc1.Angle,
+                                         pc.Depth - pc1.Depth);
+                }
+                else if (p[indx] is Spherical)
+                {
+                    Spherical pc = p[indx] as Spherical;
+                    Spherical pc1 = p[indx - 1] as Spherical;
+                    pnt = new Spherical(pc.Radius - pc1.Radius,
+                                         pc.CoLattitude - pc1.CoLattitude,
+                                         pc.Depth - pc1.Depth);
+                }
+                offsets.Add(pnt);
+            }
+            return offsets;
+        }
+        public List<List<ICoordinate>> CreateOffsetList
         {
             get
             {
-                List<List<Point>> newpoints = new List<List<Point>>();
+                List<List<ICoordinate>> newpoints = new List<List<ICoordinate>>();
                 foreach (List<Point> p in _currentPath)
                 {
                     newpoints.Add(OffsetList(p));
@@ -142,15 +186,15 @@ namespace OTWB.CodeGeneration
                 return newpoints;
             }
         }
-        public List<List<Cylindrical>> CreateCylindricalList
+        public List<List<ICoordinate>> CreateCylindricalList
         {
             get
             {
                 
-                List<List<Cylindrical>> c = new List<List<Cylindrical>>();
+                List<List<ICoordinate>> c = new List<List<ICoordinate>>();
                 foreach (List<Point> lp in CurrentPath)
                 {
-                    List<Cylindrical> lc = new List<Cylindrical>();
+                    List<ICoordinate> lc = new List<ICoordinate>();
                     int winding = 0;
                     double lastAngle = 0;
                     foreach (Point p in lp)
@@ -169,19 +213,57 @@ namespace OTWB.CodeGeneration
                 return c;
             }
         }
-        public List<List<Cylindrical>> CreateCylindricalOffsetList
+        public List<List<ICoordinate>> CreateCylindricalOffsetList
         {
             get
             {
-                List<List<Cylindrical>> col = new List<List<Cylindrical>>();
-                foreach (List<Cylindrical> p in CreateCylindricalList)
+                List<List<ICoordinate>> col = new List<List<ICoordinate>>();
+                foreach (List<ICoordinate> p in CreateCylindricalList)
                 {
                     col.Add(OffsetList(p));
                 }
                 return col;
             }
         }
-       
+
+        private List<ICoordinate> MapToCartesianOffsetList(List<Point> pl)
+        {
+            List<ICoordinate> p = MapToCartesianList(pl);
+            return OffsetList(p);
+        }
+        private List<ICoordinate> MapToCylindricalOffsetList(List<Point> pl)
+        {
+            List<ICoordinate> p = MapToCylindricalList(pl);
+            return OffsetList(p);
+        }
+
+        private List<ICoordinate> MapToCartesianList(List<Point> pl)
+        {
+            List<ICoordinate> lc = new List<ICoordinate>();
+            foreach (Point p in pl)
+            {
+                lc.Add(new Cartesian(p.X, p.Y, 0));
+            }
+            return lc;
+        }
+        private List<ICoordinate> MapToCylindricalList(List<Point> pl)
+        {
+            List<ICoordinate> lc = new List<ICoordinate>();
+            int winding = 0;
+            double lastAngle = 0;
+            foreach (Point p in pl)
+            {
+                Cylindrical cp = new Cylindrical(p);
+                if (BasicLib.Quadrant3To0(lastAngle, cp.Angle))
+                    winding += 1;
+                else if (BasicLib.Quadrant0To3(lastAngle, cp.Angle))
+                    winding -= 1;
+                cp.Angle += winding * 360;
+                lc.Add(cp);
+                lastAngle = cp.Angle;
+            }
+            return lc;
+        }
 
         public async void  ImportPath()
         {
@@ -208,146 +290,154 @@ namespace OTWB.CodeGeneration
             }
         }
 
-        private void PathStart(ref StringBuilder sb, string name)
+        private BindableCodeTemplate PathStartTemplate()
         {
             if (this.UseSubroutine)
             {
                 // generate sub header
-                sb.AppendLine(string.Format(_templates.SubStartTemplate.SingleLine, name));
+                return _templates.SubStartTemplate;
             }
             else
             {
-                sb.AppendLine(string.Format(_templates.PathStartTemplate.SingleLine, name));
+                return _templates.PathStartTemplate;
             }
         }
-        private void PathEnd(ref StringBuilder sb, string name)
+        private BindableCodeTemplate PathEndTemplate()
         {
             if (this.UseSubroutine)
             {
-                // generate sub header
-                sb.AppendLine(string.Format(_templates.SubEndTemplate.SingleLine, name));
+               return _templates.SubEndTemplate;
             }
             else
             {
-                sb.AppendLine(string.Format(_templates.PathEndTemplate.SingleLine, name));
+                return _templates.PathEndTemplate;
             }
-        }
-        private void Header(ref StringBuilder sb)
-        {
-            sb.AppendLine("(    Gcode Program                   )");
-            sb.AppendLine("( BY:    OTWB                        )");
-                sb.Append("( ON:    ").Append(DateTime.Now.ToString()).AppendLine(")");
-            sb.AppendLine("( Flags:                             )");
-                sb.Append("(    Rotary      : ").Append(UseRotaryTable).AppendLine("  )");
-                sb.Append("(    Absolute    : ").Append(UseAbsoluteMoves).AppendLine("  )");
-                sb.Append("(    Subroutine  : ").Append(UseSubroutine).AppendLine("  )");
-                sb.AppendLine("(********************************)");
-        }
-        private void Footer(ref StringBuilder sb)
-        {
-            if ((_footerFile == null) || (_footerFile == string.Empty))
-            {
-                if (!UseSubroutine)
-                    sb.AppendLine(string.Format(_templates.ProgramEndTemplate.SingleLine,
-                                                _templates.ProgramEndComment.SingleLine));
-                else
-                    sb.AppendLine(_templates.SubEndComment.SingleLine);
-            }
-           
-        }
-
-        private string Instantiate(string tmplt)
-        {
-            string result = new string(tmplt.ToCharArray());
-
-            if (result.Contains("{FirstPoint}"))
-            {
-                Point fp = CurrentPath[0][0];
-                result = result.Replace("{FirstPoint}",
-                            string.Format(_templates.Point_Template.SingleLine,
-                                            Math.Round(fp.X, DP),
-                                            Math.Round(fp.Y, DP)));
-            }
-            
-            if (result.Contains("{Feedrate}"))
-            {
-                result = result.Replace("{Feedrate}",
-                            string.Format(_templates.FeedRateTemplate.SingleLine, FeedRate));
-            }
-
-            if (result.Contains("{Pathname}"))
-            {
-                result = result.Replace("{Pathname}",
-                            string.Format(_templates.PathNameTemplate.SingleLine, PathName, 0));
-            }
-          
-            return result;
         }
 
         public void GenerateCode()
         {
             if (CurrentPath == null) return;
+            CodeGenDataContext cntxt = new CodeGenDataContext(this);
             Code.Clear();
-            DP = (int)BasicLib.GetSetting(SettingsNames.DECIMAL_PLACES);
-            FeedRate = (double)BasicLib.GetSetting(SettingsNames.FEED_RATE_VALUE);
 
-            string gcode = ((bool)BasicLib.GetSetting(SettingsNames.USE_ABSOLUTE_MOVES)
-                         ? _templates.AbsoluteModeTemplate.SingleLine
-                         : _templates.RelativeModeTemplate.SingleLine);
-
-            StringBuilder sb = new StringBuilder();
-            Header(ref sb);
-            if (this.UseRotaryTable)
-            {
-                List<List<Cylindrical>> cpoints;
-                cpoints = (this.UseAbsoluteMoves) ? CreateCylindricalList :CreateCylindricalOffsetList;
-                foreach (List<Cylindrical> lcy in cpoints)
-                {
-                    string name =string.Format(_templates.PathNameTemplate.SingleLine, PathName,cpoints.IndexOf(lcy));
-                    PathStart(ref sb,name);
-                    foreach (Cylindrical cp in lcy)
-                    {
-                        if (lcy.IndexOf(cp) == 0)
-                            sb.Append(gcode).AppendLine(_templates.LinearMoveToTemplate.SingleLine);
-                        sb.AppendLine(string.Format(_templates.Point_Template.SingleLine,
-                                                    Math.Round(cp.Radius,DP), 
-                                                    Math.Round(cp.Angle,DP)));
-                    }
-                    PathEnd(ref sb,name);  
-                }
-            }
+            if (UseSingleFile)
+                GenerateCodeInSingleFile(cntxt);
             else
-            {
-                List<List<Point>> points;
-                points = (this.UseAbsoluteMoves) ?CurrentPath :CreateOffsetList;
-                foreach (List<Point> lcy in points)
-                {
-                    string name = string.Format(_templates.PathNameTemplate.SingleLine, PathName, points.IndexOf(lcy));
-                    PathStart(ref sb, name);
-                    foreach (Point cp in lcy)
-                    {
-                        if (lcy.IndexOf(cp) == 0)
-                            sb.Append(gcode).AppendLine(_templates.LinearMoveToTemplate.SingleLine);
-                        sb.AppendLine(string.Format(_templates.Point_Template.SingleLine, 
-                                                    Math.Round(cp.X,DP), 
-                                                    Math.Round(cp.Y,DP)));
-                    }
-                    PathEnd(ref sb, name);
-                }
-                
-            }
-            Footer(ref sb);
-            Main(ref sb);
-            // now add main program
-            Code.Add(sb.ToString());
+                GenerateCodeInMultipleFiles(cntxt);
         }
 
-        private void Main(ref StringBuilder sb)
+        void GenerateCodeInMultipleFiles(CodeGenDataContext cntxt)
         {
-            foreach (string tmplt in _templates.MainProgramTemplate.Lines)
+            // first generate subroutines or paths
+            // then main program to call them
+            GenerateSubroutines(cntxt);
+            GenerateMain(cntxt);
+        }
+
+        private void GenerateMain(CodeGenDataContext cntxt)
+        {
+            StringBuilder sb = new StringBuilder();
+            BindableCodeTemplate tmpl = Templates.Header_Template;
+            tmpl.DataContext = cntxt;
+            sb.AppendLine(tmpl.Text);
+
+            tmpl = _templates.MainProgramTemplate;
+            tmpl.DataContext = cntxt;
+            sb.AppendLine(tmpl.Text);
+            // now add main program
+            tmpl = _templates.MainFilenameTemplate;
+            tmpl.DataContext = cntxt;
+            Code.Add(new GcodeFile(tmpl.Text, sb.ToString()));
+        }
+
+        /// <summary>
+        /// Subroutines each have an individual header file
+        /// </summary>
+        /// <param name="cntxt"></param>
+        void GenerateSubroutines(CodeGenDataContext cntxt)
+        {
+            foreach (List<Point> pl in CurrentPath)
             {
-                    sb.AppendLine(Instantiate(tmplt));
+                CurrentPathIndex = CurrentPath.IndexOf(pl);
+                StringBuilder sb = new StringBuilder();
+                BindableCodeTemplate tmpl = Templates.Header_Template;
+                tmpl.DataContext = cntxt;
+                sb.AppendLine(tmpl.Text);
+                // add start of path 
+                tmpl = PathStartTemplate();
+                tmpl.DataContext = cntxt;
+                sb.AppendLine(tmpl.Text);
+                // now generate points in path
+                List<ICoordinate> points = (this.UseRotaryTable)
+                    ? MapToCylindricalList(pl) : MapToCartesianList(pl);
+                if (!this.UseAbsoluteMoves)
+                    points = OffsetList(points);
+                // loop round points in list
+                foreach (ICoordinate coord in points)
+                {
+                    CurrentPoint = coord;
+                    tmpl = (coord is Cartesian)
+                         ?_templates.XY_Point_Template
+                         :_templates.RA_Point_Template;
+                   
+                    tmpl.DataContext = cntxt;
+                    sb.AppendLine(tmpl.Text); 
+                }
+                // add end of path
+                tmpl = PathEndTemplate();
+                tmpl.DataContext = cntxt;
+                sb.AppendLine(tmpl.Text);
+
+                // now deal with name
+                tmpl = _templates.SubFilenameTemplate;
+                tmpl.DataContext = cntxt;
+                Code.Add(new GcodeFile(tmpl.Text,sb.ToString()));
             }
+        }
+
+        void GenerateCodeInSingleFile(CodeGenDataContext cntxt)
+        {
+           
+            StringBuilder sb = new StringBuilder();
+            BindableCodeTemplate tmpl = Templates.Header_Template;
+            tmpl.DataContext = cntxt;
+            sb.AppendLine(tmpl.Text);
+            foreach (List<Point> pl in CurrentPath)
+            {
+                // add start of path 
+                tmpl = PathStartTemplate();
+                tmpl.DataContext = cntxt;
+                sb.AppendLine(tmpl.Text);
+                // now generate points in path
+                List<ICoordinate> points = (this.UseRotaryTable)
+                    ? MapToCylindricalList(pl) : MapToCartesianList(pl);
+                if (!this.UseAbsoluteMoves)
+                    points = OffsetList(points);
+                // loop round points in list
+                foreach (ICoordinate coord in points)
+                {
+                    CurrentPoint = coord;
+                    tmpl = (coord is Cartesian)
+                         ? _templates.XY_Point_Template
+                         : _templates.RA_Point_Template;
+
+                    tmpl.DataContext = cntxt;
+                    sb.AppendLine(tmpl.Text);
+                }
+                // add end of path
+                tmpl = PathEndTemplate();
+                tmpl.DataContext = cntxt;
+                sb.AppendLine(tmpl.Text);
+            }
+               
+            tmpl = _templates.MainProgramTemplate;
+            tmpl.DataContext = cntxt;
+            sb.AppendLine(tmpl.Text);
+
+            tmpl = _templates.MainFilenameTemplate;
+            tmpl.DataContext = cntxt;
+            // now add main program
+            Code.Add(new GcodeFile(tmpl.Text,sb.ToString()));
         }
 
         internal void Clear()
@@ -361,19 +451,16 @@ namespace OTWB.CodeGeneration
             folderPicker.FileTypeFilter.Add(".");
             folderPicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
             StorageFolder folder = await folderPicker.PickSingleFolderAsync();
-          
-            foreach (string s in Code)
+
+            foreach (GcodeFile f in Code)
             {
-                string pn = System.IO.Path.GetFileNameWithoutExtension(PathName);
-                string filename = string.Format("{0}_Path{1}.{2}", 
-                    pn, Code.IndexOf(s), "ngc");
                 try
                 {
 
-                    StorageFile file = await folder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+                    StorageFile file = await folder.CreateFileAsync(f.FileName, CreationCollisionOption.ReplaceExisting);
                     if (file != null)
                     {
-                        await Windows.Storage.FileIO.WriteTextAsync(file, s);
+                        await Windows.Storage.FileIO.WriteTextAsync(file, f.Code);
                     }
                 }
                 catch (Exception e)
