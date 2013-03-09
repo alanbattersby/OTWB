@@ -18,7 +18,6 @@ using Windows.UI.Xaml.Shapes;
 using System.Diagnostics;
 using System.Xml;
 using Geometric_Chuck.Spindle;
-using grendgine_collada;
 using Windows.UI.Xaml.Media;
 
 namespace Geometric_Chuck
@@ -638,13 +637,13 @@ namespace Geometric_Chuck
             savePicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
             // Dropdown of file types the user can save the file as
             if (CurrentPathData.PathType == PatternType.WHEELS)
-                savePicker.FileTypeChoices.Add("Wheel",new List<string>() {".wheel"});
+                savePicker.FileTypeChoices.Add("wheel",new List<string>() {".wheel"});
             else if (CurrentPathData.PathType == PatternType.ROSS)
-                savePicker.FileTypeChoices.Add("Ross", new List<string>() { ".ross"});
+                savePicker.FileTypeChoices.Add("ross", new List<string>() { ".ross"});
             else if (CurrentPathData.PathType == PatternType.BAZELEY)
-                savePicker.FileTypeChoices.Add("Bazely", new List<string>() { ".baz"});
+                savePicker.FileTypeChoices.Add("bazely", new List<string>() { ".baz"});
             else if (CurrentPathData.PathType == PatternType.BARREL)
-                savePicker.FileTypeChoices.Add("Barrel", new List<string>() { ".bar"});
+                savePicker.FileTypeChoices.Add("barrel", new List<string>() { ".bar"});
             //savePicker.FileTypeChoices.Add("Xml", new List<string>() { ".xml" });
 
             // Default file name if the user does not type one in or select a file to replace
@@ -743,14 +742,7 @@ namespace Geometric_Chuck
            
         }
 
-        public void WriteColladaFile()
-        {
-            SimpleColladaGenerator gen = new SimpleColladaGenerator();
-            SimpleCollada.Save_File(gen.Create(CurrentPath));
-        }
-
-
-
+      
         public List<List<Point>> CurrentPathAsListofPoint
         {
             get

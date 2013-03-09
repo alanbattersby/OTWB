@@ -143,7 +143,7 @@ namespace Geometric_Chuck
         }
 
         [XmlIgnore]
-        public string Name { get { return string.Format("Ross#{0}", PatternIndex); } }
+        public string Name { get { return string.Format("ross#{0}", PatternIndex); } }
        
     }
 }

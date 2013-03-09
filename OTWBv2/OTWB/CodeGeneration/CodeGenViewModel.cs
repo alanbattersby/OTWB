@@ -46,7 +46,16 @@ namespace OTWB.CodeGeneration
         {
             get {return (double)BasicLib.GetSetting(SettingsNames.FEED_RATE_VALUE);   }
         }
-
+        public double SafeHeight
+        {
+            get { return (double)BasicLib.GetSetting(SettingsNames.SAFE_HEIGHT); }
+        }
+        public double CuttingDepth
+        {
+            get { return (double)BasicLib.GetSetting(SettingsNames.CUTTING_DEPTH); }
+        }
+  
+        
         ObservableCollection<GcodeFile> _code;
         public ObservableCollection<GcodeFile> Code
         {
@@ -337,15 +346,22 @@ namespace OTWB.CodeGeneration
         private void GenerateMain(CodeGenDataContext cntxt)
         {
             StringBuilder sb = new StringBuilder();
-            BindableCodeTemplate tmpl = Templates.Header_Template;
-            tmpl.DataContext = cntxt;
-            sb.AppendLine(tmpl.Text);
+            Bind(ref sb, Templates.Header_Template, cntxt);
+            //BindableCodeTemplate tmpl = Templates.Header_Template;
+            //tmpl.DataContext = cntxt;
+            //sb.AppendLine(tmpl.Text);
+            Bind(ref sb, Templates.Globals_Template, cntxt);
+            //tmpl = Templates.Globals_Template;
+            //tmpl.DataContext = cntxt;
+            //sb.AppendLine(tmpl.Text);
 
-            tmpl = _templates.MainProgramTemplate;
-            tmpl.DataContext = cntxt;
-            sb.AppendLine(tmpl.Text);
-            // now add main program
-            tmpl = _templates.MainFilenameTemplate;
+            Bind(ref sb, Templates.MainProgramTemplate, cntxt);
+            //tmpl = _templates.MainProgramTemplate;
+            //tmpl.DataContext = cntxt;
+            //sb.AppendLine(tmpl.Text);
+            Bind(ref sb, Templates.ProgramEndTemplate, cntxt);
+
+            BindableCodeTemplate tmpl = _templates.MainFilenameTemplate;
             tmpl.DataContext = cntxt;
             Code.Add(new GcodeFile(tmpl.Text, sb.ToString()));
         }
@@ -359,14 +375,18 @@ namespace OTWB.CodeGeneration
             foreach (List<Point> pl in CurrentPath)
             {
                 CurrentPathIndex = CurrentPath.IndexOf(pl);
+                BindableCodeTemplate tmpl;
                 StringBuilder sb = new StringBuilder();
-                BindableCodeTemplate tmpl = Templates.Header_Template;
-                tmpl.DataContext = cntxt;
-                sb.AppendLine(tmpl.Text);
+                Bind(ref sb, Templates.Header_Template, cntxt);
+                //BindableCodeTemplate tmpl = Templates.Header_Template;
+                //tmpl.DataContext = cntxt;
+                //sb.AppendLine(tmpl.Text);
+                
                 // add start of path 
-                tmpl = PathStartTemplate();
-                tmpl.DataContext = cntxt;
-                sb.AppendLine(tmpl.Text);
+                Bind(ref sb, PathStartTemplate(), cntxt);
+                //tmpl = PathStartTemplate();
+                //tmpl.DataContext = cntxt;
+                //sb.AppendLine(tmpl.Text);
                 // now generate points in path
                 List<ICoordinate> points = (this.UseRotaryTable)
                     ? MapToCylindricalList(pl) : MapToCartesianList(pl);
@@ -379,14 +399,16 @@ namespace OTWB.CodeGeneration
                     tmpl = (coord is Cartesian)
                          ?_templates.XY_Point_Template
                          :_templates.RA_Point_Template;
-                   
-                    tmpl.DataContext = cntxt;
-                    sb.AppendLine(tmpl.Text); 
+
+                    Bind(ref sb, tmpl, cntxt);
+                    //tmpl.DataContext = cntxt;
+                    //sb.AppendLine(tmpl.Text); 
                 }
                 // add end of path
-                tmpl = PathEndTemplate();
-                tmpl.DataContext = cntxt;
-                sb.AppendLine(tmpl.Text);
+                Bind(ref sb, PathEndTemplate(), cntxt);
+                //tmpl = PathEndTemplate();
+                //tmpl.DataContext = cntxt;
+                //sb.AppendLine(tmpl.Text);
 
                 // now deal with name
                 tmpl = _templates.SubFilenameTemplate;
@@ -395,19 +417,36 @@ namespace OTWB.CodeGeneration
             }
         }
 
+        void Bind(ref StringBuilder sb, BindableCodeTemplate t, CodeGenDataContext cntxt)
+        {
+            if (t.Include)
+            {
+                t.DataContext = cntxt;
+                sb.AppendLine(t.Text);
+            }
+        }
+
         void GenerateCodeInSingleFile(CodeGenDataContext cntxt)
         {
-           
+            BindableCodeTemplate tmpl;
             StringBuilder sb = new StringBuilder();
-            BindableCodeTemplate tmpl = Templates.Header_Template;
-            tmpl.DataContext = cntxt;
-            sb.AppendLine(tmpl.Text);
+            Bind(ref sb, Templates.Header_Template, cntxt);
+            Bind(ref sb, Templates.Globals_Template, cntxt);
+            //BindableCodeTemplate tmpl = Templates.Header_Template;
+            //tmpl.DataContext = cntxt;
+            //sb.AppendLine(tmpl.Text);
+
+            //BindableCodeTemplate tmpl = Templates.Globals_Template;
+            //tmpl.DataContext = cntxt;
+            //sb.AppendLine(tmpl.Text);
+
             foreach (List<Point> pl in CurrentPath)
             {
                 // add start of path 
-                tmpl = PathStartTemplate();
-                tmpl.DataContext = cntxt;
-                sb.AppendLine(tmpl.Text);
+                Bind(ref sb, PathStartTemplate(), cntxt);
+                //BindableCodeTemplate tmpl = PathStartTemplate();
+                //tmpl.DataContext = cntxt;
+                //sb.AppendLine(tmpl.Text);
                 // now generate points in path
                 List<ICoordinate> points = (this.UseRotaryTable)
                     ? MapToCylindricalList(pl) : MapToCartesianList(pl);
@@ -421,19 +460,22 @@ namespace OTWB.CodeGeneration
                          ? _templates.XY_Point_Template
                          : _templates.RA_Point_Template;
 
-                    tmpl.DataContext = cntxt;
-                    sb.AppendLine(tmpl.Text);
+                    Bind(ref sb, tmpl, cntxt);
+                    //tmpl.DataContext = cntxt;
+                    //sb.AppendLine(tmpl.Text);
                 }
                 // add end of path
-                tmpl = PathEndTemplate();
-                tmpl.DataContext = cntxt;
-                sb.AppendLine(tmpl.Text);
+                Bind(ref sb, PathEndTemplate(), cntxt);
+                //tmpl = PathEndTemplate();
+                //tmpl.DataContext = cntxt;
+                //sb.AppendLine(tmpl.Text);
             }
-               
-            tmpl = _templates.MainProgramTemplate;
-            tmpl.DataContext = cntxt;
-            sb.AppendLine(tmpl.Text);
 
+            Bind(ref sb, Templates.MainProgramTemplate, cntxt);
+            //tmpl = _templates.MainProgramTemplate;
+            //tmpl.DataContext = cntxt;
+            //sb.AppendLine(tmpl.Text);
+            Bind(ref sb, Templates.ProgramEndTemplate, cntxt);
             tmpl = _templates.MainFilenameTemplate;
             tmpl.DataContext = cntxt;
             // now add main program

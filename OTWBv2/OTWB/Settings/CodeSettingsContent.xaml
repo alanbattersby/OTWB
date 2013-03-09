@@ -46,7 +46,10 @@
                 <ComboBox x:Name="comboBox" ItemsSource="{Binding CodeTemplates.AllTemplates}" Width="340" HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Name}" />
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox IsChecked="{Binding Include, Mode=TwoWay}" />
+                                <TextBlock Text="{Binding Name}" />
+                            </StackPanel>
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>

@@ -181,7 +181,7 @@ namespace Geometric_Chuck.Spindle
 
         public string Name
         {
-            get { return string.Format("Barrel#{0}", PatternIndex); }
+            get { return string.Format("barrel#{0}", PatternIndex); }
         }
 
         public PatternType PathType

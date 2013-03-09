@@ -19,6 +19,8 @@ namespace OTWB.Settings
 
         // double values
         public static string FEED_RATE_VALUE = "FeedrateValue";
+        public static string SAFE_HEIGHT = "SafeHeight";
+        public static string CUTTING_DEPTH = "CuttingDepth";
 
         // string templates for code generation
         public static string XY_POINT_TEMPLATE = "XY_POINT_TEMPLATE";
@@ -30,10 +32,9 @@ namespace OTWB.Settings
         public static string PATH_END_TEMPLATE = "PATH_END_TEMPLATE";
         public static string PROGRAM_END_TEMPLATE = "PROGRAM_END_TEMPLATE";
         public static string MAIN_BODY_TEMPLATE = "MAIN_BODY_TEMPLATE";
-        public static string PROGRAM_END_COMMENT_TEMPLATE = "PROGRAM_END_COMMENT_TEMPLATE";
-        public static string SUB_END_COMMENT_TEMPLATE = "SUB_END_COMMENT_TEMPLATE";
         public static string PATH_NAME_TEMPLATE = "PATH_NAME_TEMPLATE";
         public static string HEADER_TEMPLATE = "HEADER_TEMPLATE";
+        public static string GLOBALS_TEMPLATE = "GLOBALS_TEMPLATE";
 
         // file name templates
         public static string SUB_FILE_NAME_TEMPLATE = "SUB_FILE_NAME_TEMPLATE";
@@ -51,12 +52,11 @@ namespace OTWB.Settings
                 PATH_END_TEMPLATE,
                 PROGRAM_END_TEMPLATE,
                 MAIN_BODY_TEMPLATE,
-                PROGRAM_END_COMMENT_TEMPLATE,
-                SUB_END_COMMENT_TEMPLATE,
                 PATH_NAME_TEMPLATE,
                 HEADER_TEMPLATE,
                 SUB_FILE_NAME_TEMPLATE,
-                MAIN_FILE_NAME_TEMPLATE
+                MAIN_FILE_NAME_TEMPLATE,
+                GLOBALS_TEMPLATE
             };
         }
     }
@@ -71,26 +71,39 @@ namespace OTWB.Settings
 
         public static string SUB_START_TEMPLATE_FORMAT 
 = @"o<{Binding SubPathName}> sub
-{Binding Gcodes.Linear_Move} Z 0 F{Binding Feedrate}
+{Binding Gcodes.Absolute_Moves}
+{Binding Gcodes.Rapid_Move} Z {Binding Safeheight} 
+{Binding Gcodes.Rapid_Move} X {Binding FirstPoint.X} Y {Binding FirstPoint.Y}
+{Binding Gcodes.Linear_Move} Z {Binding CuttingDepth} F {Binding Feedrate}
 ";
-        public static string SUB_END_TEMPLATE_FORMAT 
-= "o<{Binding SubPathName}> endsub";
+        public static string SUB_END_TEMPLATE_FORMAT
+= @"{Binding Gcodes.Rapid_Move} Z {Binding Safeheight} 
+o<{Binding SubPathName}> endsub
+";
         public static string PATH_START_TEMPLATE_FORMAT 
-= "(PATH {Binding CurrentPathName}  )";
-        public static string PATH_END_TEMPLATE_FORMAT 
-= "( END PATH {Binding CurrentPathName}  )";    
+= @"(PATH {Binding CurrentPathName}  )
+{Binding Gcodes.Absolute_Moves}
+{Binding Gcodes.Rapid_Move} Z {Binding Safeheight} 
+{Binding Gcodes.Rapid_Move} X {Binding FirstPoint.X} Y {Binding FirstPoint.Y}
+{Binding Gcodes.Linear_Move} Z {Binding Cuttingdepth} F {Binding Feedrate}
+";
+        public static string PATH_END_TEMPLATE_FORMAT
+= @" {Binding Gcodes.Rapid_Move} Z {Binding Safeheight} 
+( END PATH {Binding CurrentPathName}  )
+";    
         public static string PROGRAM_END_TEMPLATE_FORMAT 
-= "{Binding Mcodes.End_of_Program}";
-        public static string PROGRAM_END_COMMENT_FORMAT = "( *** End of Program *** )";
-        public static string SUB_END_COMMENT_FORMAT = "( *** End of Subroutine *** )";
-        public static string PATH_NAME_TEMPLATE_FORMAT = "{0}_{1}";       
-        public static string MAIN_PROGRAM_BODY_TEMPLATE
-= @" {Binding Gcodes.Rapid_Move} X{Binding FirstPoint.X}  Y{Binding FirstPoint.Y} F{Binding Feedrate}
+= @"{Binding Mcodes.End_of_Program}
+( *** End of Program *** )
+";
+        //public static string PATH_NAME_TEMPLATE_FORMAT = "{0}_{1}";       
+        public static string MAIN_PROGRAM_BODY_TEMPLATE_FORMAT
+= @"(****** Start of Main program *****) 
 o<{Binding SubPathName}> call 
-{Binding Mcodes.End_of_Program} ";
+";
 
-        public static string HEADER_TEMPLATE
-= @"(    Gcode Program                          )
+        public static string HEADER_TEMPLATE_FORMAT
+= @"(-----------------------------------------)
+(    Gcode Program                          )
 ( BY:    OTWB                               )
 ( ON:    {Binding Now}                      )
 ( Flags:                                    )
@@ -101,19 +114,27 @@ o<{Binding SubPathName}> call
 (                                           )
 ( Machine Settings                          )
 (   Feed rate   : {Binding Feedrate}        )
+(   Safe height : {Binding Safeheight}      )
+(   Cut depth   : {Binding Cuttingdepth}    )
 (   Accuracy    : {Binding DP}  dp          )
 (   Num Paths   : {Binding PathCount}       )
 (-------------------------------------------)
 ";
-        public static string SUB_FILE_NAME_TEMPLATE
- = @"{Binding PatternName}_path{Binding CurrentPathIndex}.ngc";
+        public static string GLOBALS_TEMPLATE_FORMAT
+= @"#<_safeheight> = {Binding Safeheight} 
+#<_cutdepth> = {Binding Cuttingdepth}
+";
+        public static string SUB_FILE_NAME_TEMPLATE_FORMAT
+ = @"{Binding PatternName}_{Binding CurrentPathIndex}.ngc";
 
-        public static string MAIN_FILE_NAME_TEMPLATE
+        public static string MAIN_FILE_NAME_TEMPLATE_FORMAT
 = @"{Binding PatternName}_main.ngc";
  
         // values
         public static int DECIMAL_PLACES_VALUE = 3;
         public static double FEED_RATE_VALUE = 100;
+        public static double SAFE_HEIGHT = 5;
+        public static double CUTTING_DEPTH = -1;
         public static bool USE_ROTARY_TABLE = false;
         public static bool USE_ABSOLUTE_MOVES = true;
         public static bool USE_SUBROUTINE = true;
@@ -125,6 +146,10 @@ o<{Binding SubPathName}> call
                 return DECIMAL_PLACES_VALUE;
             else if (name == SettingsNames.FEED_RATE_VALUE)
                 return FEED_RATE_VALUE;
+            else if (name == SettingsNames.CUTTING_DEPTH)
+                return CUTTING_DEPTH;
+            else if (name == SettingsNames.SAFE_HEIGHT)
+                return SAFE_HEIGHT;
             else if (name == SettingsNames.USE_ABSOLUTE_MOVES)
                 return USE_ABSOLUTE_MOVES;
             else if (name == SettingsNames.USE_ROTARY_TABLE)

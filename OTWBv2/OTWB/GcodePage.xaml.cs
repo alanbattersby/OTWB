@@ -52,7 +52,7 @@ namespace Geometric_Chuck
         {
             this.InitializeComponent();
             codeGen = new CodeGenViewModel();
-            CodeViewer.DataContext = codeGen.Code;
+            //CodeViewer.DataContext = codeGen.Code;
             DataContext = codeGen;
         }
 

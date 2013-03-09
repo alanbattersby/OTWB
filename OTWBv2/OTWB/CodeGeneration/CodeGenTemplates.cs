@@ -28,6 +28,13 @@ namespace OTWB.CodeGeneration
             set { SetProperty(ref _headerTemplate, value); }
         }
 
+        BindableCodeTemplate _globalsTemplate;
+        public BindableCodeTemplate Globals_Template
+        {
+            get { return _globalsTemplate; }
+            set { SetProperty(ref _globalsTemplate, value); }
+        }
+
         BindableCodeTemplate _pointTemplate;
         public BindableCodeTemplate XY_Point_Template
         {
@@ -91,20 +98,6 @@ namespace OTWB.CodeGeneration
             set { SetProperty(ref _main_filename_Template, value); }
         }
 
-        // Non Templated strings
-        BindableCodeTemplate _programEndComment;
-        public BindableCodeTemplate ProgramEndComment
-        {
-            get { return _programEndComment; }
-            set { SetProperty(ref _programEndComment, value); }
-        }
-
-        BindableCodeTemplate _subEndComment;
-        public BindableCodeTemplate SubEndComment
-        {
-            get { return _subEndComment; }
-            set { SetProperty(ref _subEndComment, value); }
-        }
 
         BindableCodeTemplate _mainProgramTemplate;
         public BindableCodeTemplate MainProgramTemplate
@@ -127,8 +120,13 @@ namespace OTWB.CodeGeneration
             _allTemplates = new List<BindableCodeTemplate>();
 
             BindableCodeTemplate template = new BindableCodeTemplate(SettingsNames.HEADER_TEMPLATE,
-                                            DefaultSettings.HEADER_TEMPLATE);
+                                            DefaultSettings.HEADER_TEMPLATE_FORMAT);
             Header_Template = template;
+            _allTemplates.Add(template);
+
+            template = new BindableCodeTemplate(SettingsNames.GLOBALS_TEMPLATE,
+                                            DefaultSettings.GLOBALS_TEMPLATE_FORMAT);
+            Globals_Template = template;
             _allTemplates.Add(template);
 
             template = new BindableCodeTemplate(SettingsNames.XY_POINT_TEMPLATE,
@@ -161,33 +159,23 @@ namespace OTWB.CodeGeneration
             PathEndTemplate = template;
             _allTemplates.Add(template);
 
-            template = new BindableCodeTemplate(SettingsNames.PATH_NAME_TEMPLATE,
-                                            DefaultSettings.PATH_NAME_TEMPLATE_FORMAT);
-            PathNameTemplate = template;
-            _allTemplates.Add(template);
-
-            template = new BindableCodeTemplate(SettingsNames.SUB_END_COMMENT_TEMPLATE,
-                                            DefaultSettings.SUB_END_COMMENT_FORMAT);
-            SubEndComment = template;
-            _allTemplates.Add(template);
-
-            template = new BindableCodeTemplate(SettingsNames.PROGRAM_END_COMMENT_TEMPLATE,
-                                                DefaultSettings.PROGRAM_END_COMMENT_FORMAT);
-            ProgramEndComment = template;
-            _allTemplates.Add(template);
-
-             template = new BindableCodeTemplate(SettingsNames.MAIN_BODY_TEMPLATE,
-                                          DefaultSettings.MAIN_PROGRAM_BODY_TEMPLATE);
+            template = new BindableCodeTemplate(SettingsNames.MAIN_BODY_TEMPLATE,
+                                          DefaultSettings.MAIN_PROGRAM_BODY_TEMPLATE_FORMAT);
             MainProgramTemplate= template;
             _allTemplates.Add(template);
 
+            template = new BindableCodeTemplate(SettingsNames.PROGRAM_END_TEMPLATE,
+                                        DefaultSettings.PROGRAM_END_TEMPLATE_FORMAT);
+            ProgramEndTemplate = template;
+            _allTemplates.Add(template);
+
             template = new BindableCodeTemplate(SettingsNames.SUB_FILE_NAME_TEMPLATE,
-                                         DefaultSettings.SUB_FILE_NAME_TEMPLATE);
+                                         DefaultSettings.SUB_FILE_NAME_TEMPLATE_FORMAT);
             SubFilenameTemplate = template;
             _allTemplates.Add(template);
 
             template = new BindableCodeTemplate(SettingsNames.MAIN_FILE_NAME_TEMPLATE,
-                                         DefaultSettings.MAIN_FILE_NAME_TEMPLATE);
+                                         DefaultSettings.MAIN_FILE_NAME_TEMPLATE_FORMAT);
             MainFilenameTemplate = template;
             _allTemplates.Add(template);
         }

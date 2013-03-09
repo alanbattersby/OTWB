@@ -117,7 +117,6 @@
     <Compile Include="Settings\CodeSettingsContent.xaml.cs">
       <DependentUpon>CodeSettingsContent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ColladaGenerator.cs" />
     <Compile Include="Common\PathListIndexConverter.cs" />
     <Compile Include="Common\RadianToAngleConverter.cs" />
     <Compile Include="Common\Range.cs" />
@@ -345,12 +344,6 @@
     <Reference Include="TCD.Mathematics">
       <HintPath>..\packages\TCD.Mathematics.1.2.0\lib\portable-net4+sl4+wp7+win8\TCD.Mathematics.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Collada_Main\Collada_Main.csproj">
-      <Project>{9e818283-9cdb-418a-a46b-3cf11bdbbf26}</Project>
-      <Name>Collada_Main</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CodeGenerators\" />

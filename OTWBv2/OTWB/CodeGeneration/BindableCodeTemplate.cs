@@ -57,6 +57,13 @@ namespace OTWB.CodeGeneration
         TextBlock txt;  // the text block to be constructed
         List<CodeLineItem> Items { get; set; }
 
+        bool _include;
+        public bool Include
+        {
+            get { return _include; }
+            set { SetProperty(ref _include, value); }
+        }
+
         string _name;
         public string Name
         {
@@ -76,6 +83,7 @@ namespace OTWB.CodeGeneration
             txt = new TextBlock();
             Name = name;
             Template = tmpl;
+            Include = true;
         }
 
         /// <summary>

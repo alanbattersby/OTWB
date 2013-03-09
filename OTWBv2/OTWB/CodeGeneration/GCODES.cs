@@ -217,11 +217,11 @@ namespace OTWB.CodeGeneration
 		// G88 canned cycle: boring, spindle stop, manual out
 		// G89 canned cycle: boring, dwell, feed out
 
-        public static string Absolute_Dist
+        public static string Absolute_Moves
         {
             get { return "G90"; }
         }
-        public static string Incremental_Dist
+        public static string Incremental_Moves
         {
             get { return "G91"; }
         }

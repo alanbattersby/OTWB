@@ -52,7 +52,15 @@ namespace OTWB.CodeGeneration
         {
             get { return Context.FeedRate; }
         }
-       
+        public double Safeheight
+        {
+            get { return Context.SafeHeight; }
+        }
+        public double Cuttingdepth
+        {
+            get { return Context.CuttingDepth; }
+        }
+
         public int CurrentPathIndex
         {
             get { return Context.CurrentPathIndex; }
@@ -60,7 +68,12 @@ namespace OTWB.CodeGeneration
 
         public string PatternName
         {
-            get { return (Context.PathName.Substring(0, Context.PathName.IndexOf("."))); }
+            get {
+                if (Context.PathName.Contains("."))
+                    return (Context.PathName.Substring(0, Context.PathName.IndexOf(".")));
+                else
+                    return Context.PathName;
+            }
         }
 
         public string SubPathName

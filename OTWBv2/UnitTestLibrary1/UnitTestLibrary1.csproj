@@ -133,10 +133,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Collada_Main\Collada_Main.csproj">
-      <Project>{9e818283-9cdb-418a-a46b-3cf11bdbbf26}</Project>
-      <Name>Collada_Main</Name>
-    </ProjectReference>
     <ProjectReference Include="..\OTWB\OTWB.csproj">
       <Project>{53fcb0dc-2454-444c-a3f9-ef3f615b0917}</Project>
       <Name>OTWB</Name>

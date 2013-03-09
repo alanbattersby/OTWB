@@ -16,14 +16,8 @@
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\UnitTestLibrary1.dll">
       <PackagePath>UnitTestLibrary1.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\Collada_Main\bin\Debug\Collada_Main.dll">
-      <PackagePath>Collada_Main.dll</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\UnitTestLibrary1.pdb">
       <PackagePath>UnitTestLibrary1.pdb</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\Collada_Main\bin\Debug\Collada_Main.pdb">
-      <PackagePath>Collada_Main.pdb</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Geometric Chuck.pdb">
       <PackagePath>Geometric Chuck.pdb</PackagePath>

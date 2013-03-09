@@ -50,7 +50,7 @@ namespace Geometric_Chuck
         }
 
         [XmlIgnore]
-        public string Name { get { return string.Format("Wheel#{0}", PatternIndex); } }
+        public string Name { get { return string.Format("wheel#{0}", PatternIndex); } }
 
         public WheelsData(int indx)
         {

@@ -25,21 +25,21 @@ namespace OTWB.Coordinates
 		public double X
 		{
 			get { return _x ; }
-			set { _x = Math.Round(value); }
+			set { _x = Math.Round(value,DP); }
 		}
 		
 		[XmlElement]
 		public double Y
 		{
 			get { return _y ; }
-			set { _y = Math.Round(value); }
+			set { _y = Math.Round(value,DP); }
 		}
 		
 		[XmlElement]
 		public double Z
 		{
 			get { return _z ; }
-			set { _z = Math.Round(value); }
+			set { _z = Math.Round(value,DP); }
 		}
 		
 		[XmlElement]
@@ -53,7 +53,7 @@ namespace OTWB.Coordinates
 		public double Depth
 		{
 			get { return _z; }	
-			set { _z = Math.Round(value); }
+			set { _z = Math.Round(value,DP); }
 		}
 		
 		public bool PointAtInfinity
@@ -120,17 +120,17 @@ namespace OTWB.Coordinates
 		public void Add(ICoordinate c1)
 		{
 			Cartesian v1 = c1.toCartesian3;
-			X += Math.Round(v1.X);
-			Y += Math.Round(v1.Y);
-			Z += Math.Round(v1.Z);
+			X += Math.Round(v1.X,DP);
+			Y += Math.Round(v1.Y,DP);
+			Z += Math.Round(v1.Z,DP);
 		}
 		
 		public void Subtract(ICoordinate c)
 		{
 			Cartesian v1 = c.toCartesian3;
-			X -= Math.Round(v1.X);
-			Y -= Math.Round(v1.Y);
-			Z -= Math.Round(v1.Z);
+			X -= Math.Round(v1.X,DP);
+			Y -= Math.Round(v1.Y,DP);
+			Z -= Math.Round(v1.Z,DP);
 		}
 		
 		public override string ToString ()
@@ -168,10 +168,10 @@ namespace OTWB.Coordinates
 		public bool Equals (Cartesian v)
 		{
 			
-			double e =  1.0 / Math.Pow(10,4);
-			double vx = Math.Round(Math.Abs(_x - v._x));
-			double vy = Math.Round(Math.Abs(_y - v._y));
-			double vz = Math.Round(Math.Abs(_z - v._z));
+			double e =  1.0 / Math.Pow(10,DP);
+			double vx = Math.Round(Math.Abs(_x - v._x),DP);
+			double vy = Math.Round(Math.Abs(_y - v._y),DP);
+			double vz = Math.Round(Math.Abs(_z - v._z),DP);
 					
 			bool same = (vx < e) && (vy < e) && (vz < e);
 			return same;

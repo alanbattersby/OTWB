@@ -223,24 +223,7 @@ namespace Geometric_Chuck
             }
         }
 
-        //private void Wheels_Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (this.Frame != null)
-        //    {
-        //        //viewModel.CleanUpForPageChange();
-        //        this.Frame.Navigate(typeof(Wheels), viewModel);
-        //    }
-        //}
-
-        //private void Spindle_Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (this.Frame != null)
-        //    {
-        //        //viewModel.CleanUpForPageChange();
-        //        this.Frame.Navigate(typeof(SpindlePage), viewModel);
-        //    }
-        //}
-
+      
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             // Edit the stage selected in the viewer
@@ -272,7 +255,7 @@ namespace Geometric_Chuck
 
         private void Test_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.WriteColladaFile();
+           
         }
 
         private void Grid_Click(object sender, RoutedEventArgs e)

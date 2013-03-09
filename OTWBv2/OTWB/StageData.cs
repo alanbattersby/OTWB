@@ -100,7 +100,7 @@ namespace Geometric_Chuck
         }
 
         [XmlIgnore]
-        public string Name { get { return string.Format("Bazely#{0}", PatternIndex); } }
+        public string Name { get { return string.Format("bazely#{0}", PatternIndex); } }
 
         string _script;
         public string Script 
