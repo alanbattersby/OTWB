@@ -1,4 +1,5 @@
-﻿using Geometric_Chuck.Common;
+﻿using OTWB.Common;
+using OTWB.Coordinates;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
 
-namespace Geometric_Chuck
+namespace OTWB
 {
-    public class Extent : BindableBase
+    public class Extent2D : BindableBase
     {
         public double MinX { get; set; }
         public double MinY { get; set; }
@@ -55,7 +56,7 @@ namespace Geometric_Chuck
             get { return MaxY - MinY; }
         }
 
-        public Extent(double minX = double.MaxValue, 
+        public Extent2D(double minX = double.MaxValue, 
                       double maxX = double.MinValue, 
                       double minY = double.MaxValue, 
                       double maxY = double.MinValue)
@@ -66,12 +67,12 @@ namespace Geometric_Chuck
             MaxY = maxY;
         }
 
-        public Extent() : this (double.MaxValue, double.MinValue, double.MaxValue, double.MinValue)
+        public Extent2D() : this (double.MaxValue, double.MinValue, double.MaxValue, double.MinValue)
         {}
 
-        public static Extent EmptyExtent
+        public static Extent2D EmptyExtent
         {
-            get { return new Extent(); }
+            get { return new Extent2D(); }
         }
 
         public void MakeEmptyExtent()
@@ -102,6 +103,18 @@ namespace Geometric_Chuck
            else if (p.Y < MinY)
                MinY = p.Y;
         }
+        public void Update(Cartesian p)
+        {
+            if (p.X > MaxX)
+                MaxX = p.X;
+            else if (p.X < MinX)
+                MinX = p.X;
+            if (p.Y > MaxY)
+                MaxY = p.Y;
+            else if (p.Y < MinY)
+                MinY = p.Y;
+        }
+ 
         public Point Centre
         {
             get
@@ -121,6 +134,18 @@ namespace Geometric_Chuck
         public override string ToString()
         {
             return string.Format("minX = {0} , maxX={1} , minY = {2} , maxY = {3}", MinX, MaxX, MinY, MaxY);
+        }
+
+        public void Merge(Extent2D ext)
+        {
+            if (ext.MaxX > MaxX)
+                MaxX = ext.MaxX;
+            if (ext.MinX < MinX)
+                MinX = ext.MinX;
+            if (ext.MaxY > MaxY)
+                MaxY = ext.MaxY;
+            if (ext.MinY < MinY)
+                MinY = ext.MinY;
         }
     }
 }

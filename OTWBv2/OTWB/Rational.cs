@@ -1,4 +1,4 @@
-﻿using Geometric_Chuck.Common;
+﻿using OTWB.Common;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Geometric_Chuck
+namespace OTWB
 {
     public class Rational : BindableBase
     {

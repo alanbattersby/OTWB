@@ -1,8 +1,8 @@
 ﻿<UserControl
-    x:Class="Geometric_Chuck.MyControls.RangeControl"
+    x:Class="OTWB.MyControls.RangeControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Geometric_Chuck.MyControls"
+    xmlns:local="using:OTWB.MyControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Callistro="using:Callisto.Controls"
@@ -24,8 +24,8 @@
         <TextBlock Text="Increment" Grid.Row="1" Style="{StaticResource ItemTextStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
         <TextBlock Text="End" Grid.Row="2" Style="{StaticResource ItemTextStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
 
-        <Callistro:NumericUpDown Grid.Column="1" Margin="0,0,0,5" Value="{Binding Start, Mode=TwoWay}" />
-        <Callistro:NumericUpDown Grid.Column="1" Value="{Binding Inc, Mode=TwoWay}" Grid.Row="1" Margin="0,0,0,5" />
-        <Callistro:NumericUpDown Grid.Column="1" Value="{Binding End, Mode=TwoWay}" Grid.Row="2" Maximum="200" />
+        <Callistro:NumericUpDown x:Name="Start" Grid.Column="1" Margin="0,0,0,5" Value="{Binding Start, Mode=TwoWay}" />
+        <Callistro:NumericUpDown x:Name="Inc" Grid.Column="1" Value="{Binding Inc, Mode=TwoWay}" Grid.Row="1" Margin="0,0,0,5" />
+        <Callistro:NumericUpDown x:Name="End" Grid.Column="1" Value="{Binding End, Mode=TwoWay}" Grid.Row="2"  />
     </Grid>
 </UserControl>

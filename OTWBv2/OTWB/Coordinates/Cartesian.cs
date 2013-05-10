@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Windows.Foundation;
 
 namespace OTWB.Coordinates
 {
@@ -11,7 +12,7 @@ namespace OTWB.Coordinates
 	{
 		double _x,_y,_z;		// 	
 		int _wn;			// winding number
-
+     
         static int DP
         {
             get
@@ -73,11 +74,42 @@ namespace OTWB.Coordinates
 		[XmlIgnore]
 		public double Length 
 		{
-			get { return (double)Math.Sqrt(_x * _x + _y * _y + _z * _z); }
+			get { return Math.Sqrt(_x * _x + _y * _y + _z * _z); }
 		}
-		
-	
-		
+
+        [XmlIgnore]
+        public double XYLength
+        {
+            get
+            {
+                return Math.Round(Math.Sqrt(_x * _x + _y * _y),DP);
+            }
+        }
+
+        [XmlIgnore]
+        public double Angle
+        {
+            get
+            {
+                double a = Pol(_x, _y);
+                return Math.Round(a + 360 * WindingNumber,DP);
+            }
+        }
+
+        public static double Pol(double x, double y)
+        {
+            if (y >= 0)
+            {
+                double r = Math.Sqrt(x * x + y * y);
+                if (Math.Abs(r) < BasicLib.EPS)
+                    return 0;
+                else
+                    return Math.Round(BasicLib.ToDegrees * Math.Acos(x / r), DP);
+            }
+            else
+                return (double)(180 + Pol(-x, -y));
+        }
+
 		public Cartesian (Cartesian c)
             : this(c.X,c.Y,c.Z){}
 		
@@ -94,7 +126,9 @@ namespace OTWB.Coordinates
         public Cartesian(double x, double y, double z) : this(x,y,z,0) {}
 			
 		public Cartesian() : this(0,0,0) {}
-		
+
+        public Cartesian(Point point) : this(point.X, point.Y,0) {}
+        		
 		public Cylindrical toCylindrical
 		{
 			get {
@@ -111,7 +145,12 @@ namespace OTWB.Coordinates
 		{
 			get { return new Spherical(this); }	
 		}
-		
+
+        public Point AsPoint
+        {
+            get { return new Point(X, Y); }
+        }
+
 		public bool Equals( ICoordinate c)
 		{
 			return this.Equals(c.toCartesian3);

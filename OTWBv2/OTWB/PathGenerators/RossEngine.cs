@@ -1,4 +1,6 @@
-﻿using Geometric_Chuck.Interfaces;
+﻿using OTWB.Collections;
+using OTWB.Interfaces;
+using OTWB.PathGenerators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,7 @@ using Windows.UI;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Shapes;
 
-namespace Geometric_Chuck.PathGenerators
+namespace OTWB.PathGenerators
 {
     class RossEngine : IPathGenerator
     {
@@ -18,15 +20,28 @@ namespace Geometric_Chuck.PathGenerators
             return p * Math.Atan(1.0) / 45.0;
         }
 
-        public PolygonCollection CreatePaths(IPathData pathdata, double inc)
+        public ToolPath CreateToolPath(PathData pd, double inc)
         {
-            PolygonCollection pc = new PolygonCollection();
+            ToolPath tp;
+            RossData rd = (RossData)pd;
+            if (rd.Ex2 == 0)
+                tp = new ToolPath(RossCalculate1(rd, inc));
+            else
+                tp = new ToolPath(RossCalculate2(rd, inc));
+
+            tp.Translate(tp.Extent.Centre);
+            return tp;
+        }
+
+        public ShapeCollection CreatePaths(PathData pathdata, double inc)
+        {
+            ShapeCollection pc = new ShapeCollection();
             pc.PatternName = pathdata.Name;
-            pc.AddPoly(Path(pathdata, inc));
+            pc.AddShape(Path(pathdata, inc));
             return pc;
         }
 
-        Windows.UI.Xaml.Shapes.Polygon Path(IPathData pd, double inc)
+        Windows.UI.Xaml.Shapes.Polygon Path(PathData pd, double inc)
         {
             CompositeTransform ct = new CompositeTransform();
             ct.ScaleX = ct.ScaleY = 1;
@@ -47,7 +62,7 @@ namespace Geometric_Chuck.PathGenerators
         }
         private void CentrePolygon(ref Windows.UI.Xaml.Shapes.Polygon poly)
         {
-            var CurrentExtent = new Extent(double.MaxValue, double.MinValue, double.MaxValue, double.MinValue);
+            var CurrentExtent = new Extent2D(double.MaxValue, double.MinValue, double.MaxValue, double.MinValue);
             foreach (Point p in poly.Points)
                 CurrentExtent.Update(p);
             Point cntr = CurrentExtent.Centre;

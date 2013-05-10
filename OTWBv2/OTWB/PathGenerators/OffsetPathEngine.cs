@@ -1,5 +1,6 @@
-﻿using Geometric_Chuck.Interfaces;
-using Geometric_Chuck.Spindle;
+﻿using OTWB.Interfaces;
+using OTWB.Spindle;
+using OTWB.PathGenerators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,28 +10,36 @@ using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Shapes;
+using OTWB.Collections;
 
-namespace Geometric_Chuck.PathGenerators
+namespace OTWB.PathGenerators
 {
     class OffsetPathEngine : IPathGenerator
     {
+        public ToolPath CreateToolPath(PathData pd, double inc)
+        {
+            ToolPath tp;
+            Barrel b = pd as Barrel;
+            tp = new ToolPath(b.BarrelOutline((int)(1/inc)));
+            return tp;
+        }
         /// <summary>
         /// In this class the second parameter is the number of paths
         /// </summary>
         /// <param name="pathdata"></param>
         /// <param name="increment"></param>
         /// <returns></returns>
-        public PolygonCollection CreatePaths(IPathData pathdata, double increment)
+        public ShapeCollection CreatePaths(PathData pathdata, double increment)
         {
-            PolygonCollection pc = new PolygonCollection();
+            ShapeCollection pc = new ShapeCollection();
             pc.PatternName = pathdata.Name;
-            if (pathdata.PathType == PatternType.BARREL)
+            if (pathdata.PathType == PatternType.barrel)
             {
                 Barrel b = pathdata as Barrel;
                 RadialOffsetPath path = b.OutlineAsOffsets((int)(1/increment));
                 Polygon poly = CreatePolygonFrom(path, b.ToolPosition);
                 (poly.RenderTransform as CompositeTransform).Rotation = b.Phase;
-                pc.AddPoly(poly);
+                pc.AddShape(poly);
             }
             return pc;
         }

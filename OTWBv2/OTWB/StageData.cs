@@ -1,4 +1,5 @@
-﻿using Geometric_Chuck.Common;
+﻿using OTWB.Common;
+using OTWB.PathGenerators;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,14 +12,14 @@ using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.UI.Xaml.Media;
 
-namespace Geometric_Chuck
+namespace OTWB
 {
     public enum PatternType
     {
-        BAZELEY, ROSS, WHEELS, BARREL, NONE
+        bazley, ross, wheels, barrel, braid, latticeRim, latticeFace, NONE
     }
 
-    [KnownType(typeof(Geometric_Chuck.BazelyStageData))]
+    [KnownType(typeof(OTWB.BazelyStageData))]
     public class BazelyStageData : BindableBase
     {
         double _vnum;
@@ -77,9 +78,9 @@ namespace Geometric_Chuck
 
     // A chuck has a pattern Number which is also its name
     // It comprises of several stages
-    [KnownType(typeof(Geometric_Chuck.BazelyChuck))]
-    [KnownType(typeof(Geometric_Chuck.BazelyStageData))]
-    public class BazelyChuck : BindableBase, Interfaces.IPathData
+    [KnownType(typeof(OTWB.BazelyChuck))]
+    [KnownType(typeof(OTWB.BazelyStageData))]
+    public class BazelyChuck : PathGenData
     {
 
         [XmlArray ("Pattern")]
@@ -92,16 +93,6 @@ namespace Geometric_Chuck
             set { SetProperty(ref _sr,value,"SR"); }    
         }
 
-        int _patternIndex;
-        public int PatternIndex 
-        {
-            get { return _patternIndex; }
-            set { SetProperty(ref _patternIndex, value, "PatternIndex"); } 
-        }
-
-        [XmlIgnore]
-        public string Name { get { return string.Format("bazely#{0}", PatternIndex); } }
-
         string _script;
         public string Script 
         {
@@ -109,9 +100,8 @@ namespace Geometric_Chuck
             set { SetProperty(ref _script, value, "Script"); } 
         }
 
-        public PatternType PathType { get { return PatternType.BAZELEY; } }
 
-        public BazelyChuck()
+        public BazelyChuck() : base(PatternType.bazley,0,1)
         {
             Stages = new ObservableCollection<BazelyStageData>();
             SR = 0;
@@ -133,12 +123,8 @@ namespace Geometric_Chuck
             }
         }
 
-        public double SuggestedMaxTurns
-        {
-            get { return 1.0; }
-        }
-
         public BazelyChuck(int pnum, String[] data)
+            : base(PatternType.bazley,0,1)
         {
             PatternIndex = pnum;
             try

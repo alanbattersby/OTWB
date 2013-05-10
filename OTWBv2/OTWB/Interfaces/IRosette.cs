@@ -1,4 +1,4 @@
-﻿using Geometric_Chuck.Spindle;
+﻿using OTWB.Spindle;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
 
-namespace Geometric_Chuck.Interfaces
+namespace OTWB.Interfaces
 {
     interface IRosette
     {

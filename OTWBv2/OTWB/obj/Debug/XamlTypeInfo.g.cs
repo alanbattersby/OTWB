@@ -9,7 +9,7 @@
 
 
 
-namespace Geometric_Chuck
+namespace OTWB
 {
     public partial class App : global::Windows.UI.Xaml.Markup.IXamlMetadataProvider
     {
@@ -120,71 +120,109 @@ namespace OTWB.OTWB_XamlTypeInfo
             }
         }
 
-        private object Activate_0_LayoutAwarePage() { return new global::Geometric_Chuck.Common.LayoutAwarePage(); }
+        private object Activate_0_LatticeSizeConverter() { return new global::OTWB.Common.LatticeSizeConverter(); }
 
-        private object Activate_1_StartPage() { return new global::Geometric_Chuck.StartPage(); }
+        private object Activate_1_NumericUpDown() { return new global::Callisto.Controls.NumericUpDown(); }
 
-        private object Activate_2_GcodePage() { return new global::Geometric_Chuck.GcodePage(); }
+        private object Activate_2_RangeControl() { return new global::OTWB.MyControls.RangeControl(); }
 
-        private object Activate_3_CodeSettingsContent() { return new global::OTWB.Settings.CodeSettingsContent(); }
+        private object Activate_3_LatticeFaceLayoutSettingsContent() { return new global::OTWB.Settings.LatticeFaceLayoutSettingsContent(); }
 
-        private object Activate_4_CodeGenTemplates() { return new global::OTWB.CodeGeneration.CodeGenTemplates(); }
+        private object Activate_4_BraidLayoutSettingsContent() { return new global::OTWB.Settings.BraidLayoutSettingsContent(); }
 
-        private object Activate_6_PathListIndexConverter() { return new global::Geometric_Chuck.Common.PathListIndexConverter(); }
+        private object Activate_5_CartesianGridControl() { return new global::OTWB.MyControls.CartesianGridControl(); }
 
-        private object Activate_7_PolyPointsConverter() { return new global::Geometric_Chuck.Common.PolyPointsConverter(); }
+        private object Activate_6_NewProfileControl() { return new global::OTWB.MyControls.NewProfileControl(); }
 
-        private object Activate_8_CoordTemplateSelector() { return new global::OTWB.Coordinates.CoordTemplateSelector(); }
+        private object Activate_7_Profile() { return new global::OTWB.Profiles.Profile(); }
 
-        private object Activate_9_PointsControl() { return new global::Geometric_Chuck.MyControls.PointsControl(); }
+        private object Activate_9_ProfileDisplay() { return new global::OTWB.Profiles.ProfileDisplay(); }
 
-        private object Activate_10_NumericUpDown() { return new global::Callisto.Controls.NumericUpDown(); }
+        private object Activate_10_CartesianGrid() { return new global::OTWB.CartesianGrid(); }
 
-        private object Activate_11_RangeControl() { return new global::Geometric_Chuck.MyControls.RangeControl(); }
+        private object Activate_11_Grid() { return new global::OTWB.Grid(); }
 
-        private object Activate_12_GridControl() { return new global::Geometric_Chuck.MyControls.GridControl(); }
+        private object Activate_12_LayoutAwarePage() { return new global::OTWB.Common.LayoutAwarePage(); }
 
-        private object Activate_13_NewRosetteFlyoutControl() { return new global::Geometric_Chuck.MyControls.NewRosetteFlyoutControl(); }
+        private object Activate_13_ProfilePage() { return new global::OTWB.ProfilePage(); }
 
-        private object Activate_14_Rosette() { return new global::Geometric_Chuck.Spindle.Rosette(); }
+        private object Activate_14_LatticeRimLayoutSettingsContent() { return new global::OTWB.Settings.LatticeRimLayoutSettingsContent(); }
 
-        private object Activate_15_RossControl() { return new global::Geometric_Chuck.MyControls.RossControl(); }
+        private object Activate_15_ClipToBoundsControl() { return new global::OTWB.MyControls.ClipToBoundsControl(); }
 
-        private object Activate_16_RadianToAngleConverter() { return new global::Geometric_Chuck.Common.RadianToAngleConverter(); }
+        private object Activate_16_LatticeDisplay() { return new global::OTWB.Lattice.LatticeDisplay(); }
 
-        private object Activate_17_RosetteTemplateSelector() { return new global::Geometric_Chuck.Spindle.RosetteTemplateSelector(); }
+        private object Activate_17_LatticeData() { return new global::OTWB.Lattice.LatticeData(); }
 
-        private object Activate_18_SpindleDataDisplay() { return new global::Geometric_Chuck.SpindleDataDisplay(); }
+        private object Activate_18_PathGenData() { return new global::OTWB.PathGenerators.PathGenData(); }
 
-        private object Activate_19_EnumNameConverter() { return new global::TCD.Controls.EnumNameConverter(); }
+        private object Activate_19_Minus1Converter() { return new global::OTWB.Common.Minus1Converter(); }
 
-        private object Activate_20_PathDisplay() { return new global::Geometric_Chuck.PathDisplay(); }
+        private object Activate_20_PathDisplay() { return new global::OTWB.PathDisplay(); }
 
-        private object Activate_21_RadialGrid() { return new global::Geometric_Chuck.RadialGrid(); }
+        private object Activate_21_RadialGrid() { return new global::OTWB.RadialGrid(); }
 
-        private object Activate_22_Grid() { return new global::Geometric_Chuck.Grid(); }
+        private object Activate_22_ViewModel() { return new global::OTWB.ViewModel(); }
 
-        private object Activate_23_PolygonCollection() { return new global::Geometric_Chuck.PolygonCollection(); }
+        private object Activate_23_ShapeCollection() { return new global::OTWB.Collections.ShapeCollection(); }
 
-        private object Activate_24_BasicLib() { return new global::Geometric_Chuck.BasicLib(); }
+        private object Activate_24_BasicLib() { return new global::OTWB.BasicLib(); }
 
-        private object Activate_25_SpindlePage() { return new global::Geometric_Chuck.SpindlePage(); }
+        private object Activate_25_LatticeRimPage() { return new global::OTWB.LatticeRimPage(); }
 
-        private object Activate_26_WheelDataControl() { return new global::Geometric_Chuck.Controls.WheelDataControl(); }
+        private object Activate_26_StartPage() { return new global::OTWB.StartPage(); }
 
-        private object Activate_27_Wheels() { return new global::Geometric_Chuck.Wheels(); }
+        private object Activate_27_GcodePage() { return new global::OTWB.GcodePage(); }
 
-        private object Activate_28_BSDControl() { return new global::Geometric_Chuck.MyControls.BSDControl(); }
+        private object Activate_28_CodeSettingsContent() { return new global::OTWB.Settings.CodeSettingsContent(); }
 
-        private object Activate_29_RossPage() { return new global::Geometric_Chuck.RossPage(); }
+        private object Activate_29_PathListIndexConverter() { return new global::OTWB.Common.PathListIndexConverter(); }
 
-        private object Activate_30_PointIndexConverter() { return new global::Geometric_Chuck.Common.PointIndexConverter(); }
+        private object Activate_30_ShapePointsConverter() { return new global::OTWB.Common.ShapePointsConverter(); }
 
-        private object Activate_31_PatternPathListNameConverter() { return new global::Geometric_Chuck.Common.PatternPathListNameConverter(); }
+        private object Activate_31_CoordTemplateSelector() { return new global::OTWB.Coordinates.CoordTemplateSelector(); }
 
-        private object Activate_32_BooleanToVisibilityConverter() { return new global::Geometric_Chuck.Common.BooleanToVisibilityConverter(); }
+        private object Activate_32_PointsControl() { return new global::OTWB.MyControls.PointsControl(); }
 
-        private object Activate_33_MainPage() { return new global::Geometric_Chuck.MainPage(); }
+        private object Activate_33_GridControl() { return new global::OTWB.MyControls.GridControl(); }
+
+        private object Activate_34_NewRosetteControl() { return new global::OTWB.MyControls.NewRosetteControl(); }
+
+        private object Activate_35_Rosette() { return new global::OTWB.Spindle.Rosette(); }
+
+        private object Activate_36_RossControl() { return new global::OTWB.MyControls.RossControl(); }
+
+        private object Activate_37_RadianToAngleConverter() { return new global::OTWB.Common.RadianToAngleConverter(); }
+
+        private object Activate_38_RosetteTemplateSelector() { return new global::OTWB.Spindle.RosetteTemplateSelector(); }
+
+        private object Activate_39_SpindleDataDisplay() { return new global::OTWB.SpindleDataDisplay(); }
+
+        private object Activate_40_SpindlePage() { return new global::OTWB.SpindlePage(); }
+
+        private object Activate_41_WheelDataControl() { return new global::OTWB.Controls.WheelDataControl(); }
+
+        private object Activate_42_Wheels() { return new global::OTWB.Wheels(); }
+
+        private object Activate_43_BSDControl() { return new global::OTWB.MyControls.BSDControl(); }
+
+        private object Activate_44_BraidDisplay() { return new global::OTWB.Braid.BraidDisplay(); }
+
+        private object Activate_45_BraidData() { return new global::OTWB.Braid.BraidData(); }
+
+        private object Activate_46_BraidPage() { return new global::OTWB.BraidPage(); }
+
+        private object Activate_47_LatticeFacePage() { return new global::OTWB.LatticeFacePage(); }
+
+        private object Activate_48_RossPage() { return new global::OTWB.RossPage(); }
+
+        private object Activate_49_PointIndexConverter() { return new global::OTWB.Common.PointIndexConverter(); }
+
+        private object Activate_50_PatternPathListNameConverter() { return new global::OTWB.Common.PatternPathListNameConverter(); }
+
+        private object Activate_51_BooleanToVisibilityConverter() { return new global::OTWB.Common.BooleanToVisibilityConverter(); }
+
+        private object Activate_52_MainPage() { return new global::OTWB.MainPage(); }
 
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(string typeName)
@@ -194,36 +232,8 @@ namespace OTWB.OTWB_XamlTypeInfo
 
             switch (typeName)
             {
-            case "Windows.UI.Xaml.Controls.Page":
-                xamlType = new global::OTWB.OTWB_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.Page));
-                break;
-
-            case "Windows.UI.Xaml.Controls.UserControl":
-                xamlType = new global::OTWB.OTWB_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.UserControl));
-                break;
-
             case "Object":
                 xamlType = new global::OTWB.OTWB_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::System.Object));
-                break;
-
-            case "Boolean":
-                xamlType = new global::OTWB.OTWB_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::System.Boolean));
-                break;
-
-            case "Windows.UI.Xaml.Controls.DataTemplateSelector":
-                xamlType = new global::OTWB.OTWB_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.DataTemplateSelector));
-                break;
-
-            case "Windows.UI.Xaml.DataTemplate":
-                xamlType = new global::OTWB.OTWB_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.DataTemplate));
-                break;
-
-            case "String":
-                xamlType = new global::OTWB.OTWB_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::System.String));
-                break;
-
-            case "Int32":
-                xamlType = new global::OTWB.OTWB_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::System.Int32));
                 break;
 
             case "Windows.UI.Xaml.Controls.TextBox":
@@ -234,79 +244,301 @@ namespace OTWB.OTWB_XamlTypeInfo
                 xamlType = new global::OTWB.OTWB_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::System.Double));
                 break;
 
-            case "Geometric_Chuck.Common.LayoutAwarePage":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.Common.LayoutAwarePage), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_LayoutAwarePage;
+            case "Int32":
+                xamlType = new global::OTWB.OTWB_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::System.Int32));
+                break;
+
+            case "Windows.UI.Xaml.Controls.UserControl":
+                xamlType = new global::OTWB.OTWB_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.UserControl));
+                break;
+
+            case "Windows.UI.Xaml.Media.SolidColorBrush":
+                xamlType = new global::OTWB.OTWB_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Media.SolidColorBrush));
+                break;
+
+            case "Windows.UI.Xaml.Controls.Page":
+                xamlType = new global::OTWB.OTWB_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.Page));
+                break;
+
+            case "Windows.UI.Xaml.Controls.ContentControl":
+                xamlType = new global::OTWB.OTWB_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.ContentControl));
+                break;
+
+            case "Boolean":
+                xamlType = new global::OTWB.OTWB_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::System.Boolean));
+                break;
+
+            case "String":
+                xamlType = new global::OTWB.OTWB_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::System.String));
+                break;
+
+            case "Windows.UI.Xaml.Controls.DataTemplateSelector":
+                xamlType = new global::OTWB.OTWB_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.DataTemplateSelector));
+                break;
+
+            case "Windows.UI.Xaml.DataTemplate":
+                xamlType = new global::OTWB.OTWB_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.DataTemplate));
+                break;
+
+            case "OTWB.Common.LatticeSizeConverter":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Common.LatticeSizeConverter), GetXamlTypeByName("Object"));
+                userType.Activator = Activate_0_LatticeSizeConverter;
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.StartPage":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.StartPage), GetXamlTypeByName("Geometric_Chuck.Common.LayoutAwarePage"));
-                userType.Activator = Activate_1_StartPage;
+            case "Callisto.Controls.NumericUpDown":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Callisto.Controls.NumericUpDown), GetXamlTypeByName("Windows.UI.Xaml.Controls.TextBox"));
+                userType.Activator = Activate_1_NumericUpDown;
+                userType.AddMemberName("Value");
+                AddToMapOfTypeToStandardName(typeof(global::System.Double),
+                                                   "Double");
+                userType.AddMemberName("Maximum");
+                AddToMapOfTypeToStandardName(typeof(global::System.Double),
+                                                   "Double");
+                userType.AddMemberName("Minimum");
+                AddToMapOfTypeToStandardName(typeof(global::System.Double),
+                                                   "Double");
+                userType.AddMemberName("DecimalPlaces");
+                AddToMapOfTypeToStandardName(typeof(global::System.Int32),
+                                                   "Int32");
+                userType.AddMemberName("Increment");
+                AddToMapOfTypeToStandardName(typeof(global::System.Double),
+                                                   "Double");
+                userType.AddMemberName("Delay");
+                AddToMapOfTypeToStandardName(typeof(global::System.Int32),
+                                                   "Int32");
+                userType.AddMemberName("Interval");
+                AddToMapOfTypeToStandardName(typeof(global::System.Int32),
+                                                   "Int32");
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.GcodePage":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.GcodePage), GetXamlTypeByName("Geometric_Chuck.Common.LayoutAwarePage"));
-                userType.Activator = Activate_2_GcodePage;
+            case "OTWB.MyControls.RangeControl":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.MyControls.RangeControl), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_2_RangeControl;
+                userType.AddMemberName("RangeEndMax");
+                AddToMapOfTypeToStandardName(typeof(global::System.Double),
+                                                   "Double");
+                userType.AddMemberName("RangeEndMin");
+                AddToMapOfTypeToStandardName(typeof(global::System.Double),
+                                                   "Double");
+                userType.AddMemberName("RangeIncMax");
+                AddToMapOfTypeToStandardName(typeof(global::System.Double),
+                                                   "Double");
+                userType.AddMemberName("RangeStartMax");
+                AddToMapOfTypeToStandardName(typeof(global::System.Double),
+                                                   "Double");
+                userType.AddMemberName("RangeStartMin");
+                AddToMapOfTypeToStandardName(typeof(global::System.Double),
+                                                   "Double");
+                userType.AddMemberName("RangeIncMin");
+                AddToMapOfTypeToStandardName(typeof(global::System.Double),
+                                                   "Double");
+                xamlType = userType;
+                break;
+
+            case "OTWB.Settings.LatticeFaceLayoutSettingsContent":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Settings.LatticeFaceLayoutSettingsContent), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_3_LatticeFaceLayoutSettingsContent;
+                xamlType = userType;
+                break;
+
+            case "OTWB.Settings.BraidLayoutSettingsContent":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Settings.BraidLayoutSettingsContent), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_4_BraidLayoutSettingsContent;
+                xamlType = userType;
+                break;
+
+            case "OTWB.MyControls.CartesianGridControl":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.MyControls.CartesianGridControl), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_5_CartesianGridControl;
+                xamlType = userType;
+                break;
+
+            case "OTWB.MyControls.NewProfileControl":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.MyControls.NewProfileControl), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_6_NewProfileControl;
+                userType.AddMemberName("NewProfile");
+                xamlType = userType;
+                break;
+
+            case "OTWB.Profiles.Profile":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Profiles.Profile), GetXamlTypeByName("OTWB.Common.BindableBase"));
+                userType.Activator = Activate_7_Profile;
+                xamlType = userType;
+                break;
+
+            case "OTWB.Common.BindableBase":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Common.BindableBase), GetXamlTypeByName("Object"));
+                xamlType = userType;
+                break;
+
+            case "OTWB.Profiles.ProfileDisplay":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Profiles.ProfileDisplay), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_9_ProfileDisplay;
+                userType.AddMemberName("Profile");
+                userType.AddMemberName("Grid");
+                userType.AddMemberName("CanvasBackgroundBrush");
+                xamlType = userType;
+                break;
+
+            case "OTWB.CartesianGrid":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.CartesianGrid), GetXamlTypeByName("OTWB.Grid"));
+                userType.Activator = Activate_10_CartesianGrid;
+                xamlType = userType;
+                break;
+
+            case "OTWB.Grid":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Grid), GetXamlTypeByName("OTWB.Common.BindableBase"));
+                userType.Activator = Activate_11_Grid;
+                xamlType = userType;
+                break;
+
+            case "OTWB.Common.LayoutAwarePage":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Common.LayoutAwarePage), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_12_LayoutAwarePage;
+                xamlType = userType;
+                break;
+
+            case "OTWB.ProfilePage":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.ProfilePage), GetXamlTypeByName("OTWB.Common.LayoutAwarePage"));
+                userType.Activator = Activate_13_ProfilePage;
+                xamlType = userType;
+                break;
+
+            case "OTWB.Settings.LatticeRimLayoutSettingsContent":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Settings.LatticeRimLayoutSettingsContent), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_14_LatticeRimLayoutSettingsContent;
+                xamlType = userType;
+                break;
+
+            case "OTWB.MyControls.ClipToBoundsControl":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.MyControls.ClipToBoundsControl), GetXamlTypeByName("Windows.UI.Xaml.Controls.ContentControl"));
+                userType.Activator = Activate_15_ClipToBoundsControl;
+                xamlType = userType;
+                break;
+
+            case "OTWB.Lattice.LatticeDisplay":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Lattice.LatticeDisplay), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_16_LatticeDisplay;
+                userType.AddMemberName("Lattice");
+                xamlType = userType;
+                break;
+
+            case "OTWB.Lattice.LatticeData":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Lattice.LatticeData), GetXamlTypeByName("OTWB.PathGenerators.PathGenData"));
+                userType.Activator = Activate_17_LatticeData;
+                xamlType = userType;
+                break;
+
+            case "OTWB.PathGenerators.PathGenData":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.PathGenerators.PathGenData), GetXamlTypeByName("OTWB.Common.BindableBase"));
+                userType.Activator = Activate_18_PathGenData;
+                xamlType = userType;
+                break;
+
+            case "OTWB.Common.Minus1Converter":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Common.Minus1Converter), GetXamlTypeByName("Object"));
+                userType.Activator = Activate_19_Minus1Converter;
+                xamlType = userType;
+                break;
+
+            case "OTWB.PathDisplay":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.PathDisplay), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_20_PathDisplay;
+                userType.AddMemberName("Grid");
+                userType.AddMemberName("Viewmodel");
+                userType.AddMemberName("PathWidth");
+                AddToMapOfTypeToStandardName(typeof(global::System.Double),
+                                                   "Double");
+                userType.AddMemberName("Showgrid");
+                AddToMapOfTypeToStandardName(typeof(global::System.Boolean),
+                                                   "Boolean");
+                userType.AddMemberName("ShowWorkOutline");
+                AddToMapOfTypeToStandardName(typeof(global::System.Boolean),
+                                                   "Boolean");
+                userType.AddMemberName("CurrentPath");
+                userType.AddMemberName("CanvasBackgroundBrush");
+                xamlType = userType;
+                break;
+
+            case "OTWB.RadialGrid":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.RadialGrid), GetXamlTypeByName("OTWB.Grid"));
+                userType.Activator = Activate_21_RadialGrid;
+                xamlType = userType;
+                break;
+
+            case "OTWB.ViewModel":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.ViewModel), GetXamlTypeByName("OTWB.Common.BindableBase"));
+                userType.Activator = Activate_22_ViewModel;
+                xamlType = userType;
+                break;
+
+            case "OTWB.Collections.ShapeCollection":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Collections.ShapeCollection), GetXamlTypeByName("OTWB.Common.BindableBase"));
+                userType.Activator = Activate_23_ShapeCollection;
+                xamlType = userType;
+                break;
+
+            case "OTWB.BasicLib":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.BasicLib), GetXamlTypeByName("Object"));
+                userType.Activator = Activate_24_BasicLib;
+                userType.AddMemberName("Setting");
+                AddToMapOfTypeToStandardName(typeof(global::System.Object),
+                                                   "Object");
+                xamlType = userType;
+                break;
+
+            case "OTWB.LatticeRimPage":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.LatticeRimPage), GetXamlTypeByName("OTWB.Common.LayoutAwarePage"));
+                userType.Activator = Activate_25_LatticeRimPage;
+                xamlType = userType;
+                break;
+
+            case "OTWB.StartPage":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.StartPage), GetXamlTypeByName("OTWB.Common.LayoutAwarePage"));
+                userType.Activator = Activate_26_StartPage;
+                xamlType = userType;
+                break;
+
+            case "OTWB.GcodePage":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.GcodePage), GetXamlTypeByName("OTWB.Common.LayoutAwarePage"));
+                userType.Activator = Activate_27_GcodePage;
                 xamlType = userType;
                 break;
 
             case "OTWB.Settings.CodeSettingsContent":
                 userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Settings.CodeSettingsContent), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_3_CodeSettingsContent;
-                userType.AddMemberName("CodeTemplates");
-                userType.AddMemberName("UseRotaryTable");
-                AddToMapOfTypeToStandardName(typeof(global::System.Boolean),
-                                                   "Boolean");
-                userType.AddMemberName("UseAbsoluteMoves");
-                AddToMapOfTypeToStandardName(typeof(global::System.Boolean),
-                                                   "Boolean");
-                userType.AddMemberName("UseSubroutine");
-                AddToMapOfTypeToStandardName(typeof(global::System.Boolean),
-                                                   "Boolean");
-                userType.AddMemberName("UseSingleFile");
-                AddToMapOfTypeToStandardName(typeof(global::System.Boolean),
-                                                   "Boolean");
+                userType.Activator = Activate_28_CodeSettingsContent;
                 xamlType = userType;
                 break;
 
-            case "OTWB.CodeGeneration.CodeGenTemplates":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.CodeGeneration.CodeGenTemplates), GetXamlTypeByName("Geometric_Chuck.Common.BindableBase"));
-                userType.Activator = Activate_4_CodeGenTemplates;
+            case "OTWB.Common.PathListIndexConverter":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Common.PathListIndexConverter), GetXamlTypeByName("Object"));
+                userType.Activator = Activate_29_PathListIndexConverter;
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.Common.BindableBase":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.Common.BindableBase), GetXamlTypeByName("Object"));
-                xamlType = userType;
-                break;
-
-            case "Geometric_Chuck.Common.PathListIndexConverter":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.Common.PathListIndexConverter), GetXamlTypeByName("Object"));
-                userType.Activator = Activate_6_PathListIndexConverter;
-                xamlType = userType;
-                break;
-
-            case "Geometric_Chuck.Common.PolyPointsConverter":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.Common.PolyPointsConverter), GetXamlTypeByName("Object"));
-                userType.Activator = Activate_7_PolyPointsConverter;
+            case "OTWB.Common.ShapePointsConverter":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Common.ShapePointsConverter), GetXamlTypeByName("Object"));
+                userType.Activator = Activate_30_ShapePointsConverter;
                 xamlType = userType;
                 break;
 
             case "OTWB.Coordinates.CoordTemplateSelector":
                 userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Coordinates.CoordTemplateSelector), GetXamlTypeByName("Windows.UI.Xaml.Controls.DataTemplateSelector"));
-                userType.Activator = Activate_8_CoordTemplateSelector;
+                userType.Activator = Activate_31_CoordTemplateSelector;
                 userType.AddMemberName("PointTemplate");
                 userType.AddMemberName("CylindricalTemplate");
                 userType.AddMemberName("CartesianTemplate");
+                userType.AddMemberName("DefaultTemplate");
                 userType.AddMemberName("SphericalTemplate");
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.MyControls.PointsControl":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.MyControls.PointsControl), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_9_PointsControl;
+            case "OTWB.MyControls.PointsControl":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.MyControls.PointsControl), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_32_PointsControl;
                 userType.AddMemberName("Title");
                 AddToMapOfTypeToStandardName(typeof(global::System.String),
                                                    "String");
@@ -316,73 +548,40 @@ namespace OTWB.OTWB_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case "Callisto.Controls.NumericUpDown":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Callisto.Controls.NumericUpDown), GetXamlTypeByName("Windows.UI.Xaml.Controls.TextBox"));
-                userType.Activator = Activate_10_NumericUpDown;
-                userType.AddMemberName("Value");
-                AddToMapOfTypeToStandardName(typeof(global::System.Double),
-                                                   "Double");
-                userType.AddMemberName("Maximum");
-                AddToMapOfTypeToStandardName(typeof(global::System.Double),
-                                                   "Double");
-                userType.AddMemberName("Delay");
-                AddToMapOfTypeToStandardName(typeof(global::System.Int32),
-                                                   "Int32");
-                userType.AddMemberName("Interval");
-                AddToMapOfTypeToStandardName(typeof(global::System.Int32),
-                                                   "Int32");
-                userType.AddMemberName("Minimum");
-                AddToMapOfTypeToStandardName(typeof(global::System.Double),
-                                                   "Double");
-                userType.AddMemberName("Increment");
-                AddToMapOfTypeToStandardName(typeof(global::System.Double),
-                                                   "Double");
-                userType.AddMemberName("DecimalPlaces");
-                AddToMapOfTypeToStandardName(typeof(global::System.Int32),
-                                                   "Int32");
+            case "OTWB.MyControls.GridControl":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.MyControls.GridControl), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_33_GridControl;
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.MyControls.RangeControl":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.MyControls.RangeControl), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_11_RangeControl;
-                xamlType = userType;
-                break;
-
-            case "Geometric_Chuck.MyControls.GridControl":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.MyControls.GridControl), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_12_GridControl;
-                xamlType = userType;
-                break;
-
-            case "Geometric_Chuck.MyControls.NewRosetteFlyoutControl":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.MyControls.NewRosetteFlyoutControl), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_13_NewRosetteFlyoutControl;
+            case "OTWB.MyControls.NewRosetteControl":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.MyControls.NewRosetteControl), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_34_NewRosetteControl;
                 userType.AddMemberName("NewRosette");
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.Spindle.Rosette":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.Spindle.Rosette), GetXamlTypeByName("Geometric_Chuck.Common.BindableBase"));
-                userType.Activator = Activate_14_Rosette;
+            case "OTWB.Spindle.Rosette":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Spindle.Rosette), GetXamlTypeByName("OTWB.Common.BindableBase"));
+                userType.Activator = Activate_35_Rosette;
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.MyControls.RossControl":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.MyControls.RossControl), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_15_RossControl;
+            case "OTWB.MyControls.RossControl":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.MyControls.RossControl), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_36_RossControl;
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.Common.RadianToAngleConverter":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.Common.RadianToAngleConverter), GetXamlTypeByName("Object"));
-                userType.Activator = Activate_16_RadianToAngleConverter;
+            case "OTWB.Common.RadianToAngleConverter":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Common.RadianToAngleConverter), GetXamlTypeByName("Object"));
+                userType.Activator = Activate_37_RadianToAngleConverter;
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.Spindle.RosetteTemplateSelector":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.Spindle.RosetteTemplateSelector), GetXamlTypeByName("Windows.UI.Xaml.Controls.DataTemplateSelector"));
-                userType.Activator = Activate_17_RosetteTemplateSelector;
+            case "OTWB.Spindle.RosetteTemplateSelector":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Spindle.RosetteTemplateSelector), GetXamlTypeByName("Windows.UI.Xaml.Controls.DataTemplateSelector"));
+                userType.Activator = Activate_38_RosetteTemplateSelector;
                 userType.AddMemberName("TemplateA");
                 userType.AddMemberName("TemplateB");
                 userType.AddMemberName("TemplateC");
@@ -390,108 +589,89 @@ namespace OTWB.OTWB_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.SpindleDataDisplay":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.SpindleDataDisplay), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_18_SpindleDataDisplay;
+            case "OTWB.SpindleDataDisplay":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.SpindleDataDisplay), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_39_SpindleDataDisplay;
                 userType.AddMemberName("CurrentRosette");
                 xamlType = userType;
                 break;
 
-            case "TCD.Controls.EnumNameConverter":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::TCD.Controls.EnumNameConverter), GetXamlTypeByName("Object"));
-                userType.Activator = Activate_19_EnumNameConverter;
+            case "OTWB.SpindlePage":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.SpindlePage), GetXamlTypeByName("OTWB.Common.LayoutAwarePage"));
+                userType.Activator = Activate_40_SpindlePage;
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.PathDisplay":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.PathDisplay), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_20_PathDisplay;
-                userType.AddMemberName("Grid");
-                userType.AddMemberName("PathWidth");
-                AddToMapOfTypeToStandardName(typeof(global::System.Double),
-                                                   "Double");
-                userType.AddMemberName("CurrentPath");
+            case "OTWB.Controls.WheelDataControl":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Controls.WheelDataControl), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_41_WheelDataControl;
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.RadialGrid":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.RadialGrid), GetXamlTypeByName("Geometric_Chuck.Grid"));
-                userType.Activator = Activate_21_RadialGrid;
+            case "OTWB.Wheels":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Wheels), GetXamlTypeByName("OTWB.Common.LayoutAwarePage"));
+                userType.Activator = Activate_42_Wheels;
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.Grid":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.Grid), GetXamlTypeByName("Geometric_Chuck.Common.BindableBase"));
-                userType.Activator = Activate_22_Grid;
+            case "OTWB.MyControls.BSDControl":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.MyControls.BSDControl), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_43_BSDControl;
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.PolygonCollection":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.PolygonCollection), GetXamlTypeByName("Geometric_Chuck.Common.BindableBase"));
-                userType.Activator = Activate_23_PolygonCollection;
+            case "OTWB.Braid.BraidDisplay":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Braid.BraidDisplay), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_44_BraidDisplay;
+                userType.AddMemberName("Braid");
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.BasicLib":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.BasicLib), GetXamlTypeByName("Object"));
-                userType.Activator = Activate_24_BasicLib;
-                userType.AddMemberName("Setting");
-                AddToMapOfTypeToStandardName(typeof(global::System.Object),
-                                                   "Object");
+            case "OTWB.Braid.BraidData":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Braid.BraidData), GetXamlTypeByName("OTWB.PathGenerators.PathGenData"));
+                userType.Activator = Activate_45_BraidData;
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.SpindlePage":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.SpindlePage), GetXamlTypeByName("Geometric_Chuck.Common.LayoutAwarePage"));
-                userType.Activator = Activate_25_SpindlePage;
+            case "OTWB.BraidPage":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.BraidPage), GetXamlTypeByName("OTWB.Common.LayoutAwarePage"));
+                userType.Activator = Activate_46_BraidPage;
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.Controls.WheelDataControl":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.Controls.WheelDataControl), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_26_WheelDataControl;
+            case "OTWB.LatticeFacePage":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.LatticeFacePage), GetXamlTypeByName("OTWB.Common.LayoutAwarePage"));
+                userType.Activator = Activate_47_LatticeFacePage;
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.Wheels":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.Wheels), GetXamlTypeByName("Geometric_Chuck.Common.LayoutAwarePage"));
-                userType.Activator = Activate_27_Wheels;
+            case "OTWB.RossPage":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.RossPage), GetXamlTypeByName("OTWB.Common.LayoutAwarePage"));
+                userType.Activator = Activate_48_RossPage;
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.MyControls.BSDControl":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.MyControls.BSDControl), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_28_BSDControl;
+            case "OTWB.Common.PointIndexConverter":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Common.PointIndexConverter), GetXamlTypeByName("Object"));
+                userType.Activator = Activate_49_PointIndexConverter;
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.RossPage":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.RossPage), GetXamlTypeByName("Geometric_Chuck.Common.LayoutAwarePage"));
-                userType.Activator = Activate_29_RossPage;
+            case "OTWB.Common.PatternPathListNameConverter":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Common.PatternPathListNameConverter), GetXamlTypeByName("Object"));
+                userType.Activator = Activate_50_PatternPathListNameConverter;
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.Common.PointIndexConverter":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.Common.PointIndexConverter), GetXamlTypeByName("Object"));
-                userType.Activator = Activate_30_PointIndexConverter;
+            case "OTWB.Common.BooleanToVisibilityConverter":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.Common.BooleanToVisibilityConverter), GetXamlTypeByName("Object"));
+                userType.Activator = Activate_51_BooleanToVisibilityConverter;
                 xamlType = userType;
                 break;
 
-            case "Geometric_Chuck.Common.PatternPathListNameConverter":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.Common.PatternPathListNameConverter), GetXamlTypeByName("Object"));
-                userType.Activator = Activate_31_PatternPathListNameConverter;
-                xamlType = userType;
-                break;
-
-            case "Geometric_Chuck.Common.BooleanToVisibilityConverter":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.Common.BooleanToVisibilityConverter), GetXamlTypeByName("Object"));
-                userType.Activator = Activate_32_BooleanToVisibilityConverter;
-                xamlType = userType;
-                break;
-
-            case "Geometric_Chuck.MainPage":
-                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Geometric_Chuck.MainPage), GetXamlTypeByName("Geometric_Chuck.Common.LayoutAwarePage"));
-                userType.Activator = Activate_33_MainPage;
+            case "OTWB.MainPage":
+                userType = new global::OTWB.OTWB_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::OTWB.MainPage), GetXamlTypeByName("OTWB.Common.LayoutAwarePage"));
+                userType.Activator = Activate_52_MainPage;
                 xamlType = userType;
                 break;
 
@@ -509,8 +689,6 @@ namespace OTWB.OTWB_XamlTypeInfo
                     _otherProviders = new global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider>();
                     global::Windows.UI.Xaml.Markup.IXamlMetadataProvider provider;
                     provider = new global::Callisto.Callisto_XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
-                    _otherProviders.Add(provider); 
-                    provider = new global::TCD.Controls.TCD_Controls__W8__XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
                     _otherProviders.Add(provider); 
                 }
                 return _otherProviders;
@@ -545,279 +723,389 @@ namespace OTWB.OTWB_XamlTypeInfo
             return null;
         }
 
-        private object get_0_CodeSettingsContent_CodeTemplates(object instance)
-        {
-            var that = (global::OTWB.Settings.CodeSettingsContent)instance;
-            return that.CodeTemplates;
-        }
-        private void set_0_CodeSettingsContent_CodeTemplates(object instance, object Value)
-        {
-            var that = (global::OTWB.Settings.CodeSettingsContent)instance;
-            that.CodeTemplates = (global::OTWB.CodeGeneration.CodeGenTemplates)Value;
-        }
-        private object get_1_CodeSettingsContent_UseRotaryTable(object instance)
-        {
-            var that = (global::OTWB.Settings.CodeSettingsContent)instance;
-            return that.UseRotaryTable;
-        }
-        private void set_1_CodeSettingsContent_UseRotaryTable(object instance, object Value)
-        {
-            var that = (global::OTWB.Settings.CodeSettingsContent)instance;
-            that.UseRotaryTable = (global::System.Boolean)Value;
-        }
-        private object get_2_CodeSettingsContent_UseAbsoluteMoves(object instance)
-        {
-            var that = (global::OTWB.Settings.CodeSettingsContent)instance;
-            return that.UseAbsoluteMoves;
-        }
-        private void set_2_CodeSettingsContent_UseAbsoluteMoves(object instance, object Value)
-        {
-            var that = (global::OTWB.Settings.CodeSettingsContent)instance;
-            that.UseAbsoluteMoves = (global::System.Boolean)Value;
-        }
-        private object get_3_CodeSettingsContent_UseSubroutine(object instance)
-        {
-            var that = (global::OTWB.Settings.CodeSettingsContent)instance;
-            return that.UseSubroutine;
-        }
-        private void set_3_CodeSettingsContent_UseSubroutine(object instance, object Value)
-        {
-            var that = (global::OTWB.Settings.CodeSettingsContent)instance;
-            that.UseSubroutine = (global::System.Boolean)Value;
-        }
-        private object get_4_CodeSettingsContent_UseSingleFile(object instance)
-        {
-            var that = (global::OTWB.Settings.CodeSettingsContent)instance;
-            return that.UseSingleFile;
-        }
-        private void set_4_CodeSettingsContent_UseSingleFile(object instance, object Value)
-        {
-            var that = (global::OTWB.Settings.CodeSettingsContent)instance;
-            that.UseSingleFile = (global::System.Boolean)Value;
-        }
-        private object get_5_CoordTemplateSelector_PointTemplate(object instance)
-        {
-            var that = (global::OTWB.Coordinates.CoordTemplateSelector)instance;
-            return that.PointTemplate;
-        }
-        private void set_5_CoordTemplateSelector_PointTemplate(object instance, object Value)
-        {
-            var that = (global::OTWB.Coordinates.CoordTemplateSelector)instance;
-            that.PointTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
-        }
-        private object get_6_CoordTemplateSelector_CylindricalTemplate(object instance)
-        {
-            var that = (global::OTWB.Coordinates.CoordTemplateSelector)instance;
-            return that.CylindricalTemplate;
-        }
-        private void set_6_CoordTemplateSelector_CylindricalTemplate(object instance, object Value)
-        {
-            var that = (global::OTWB.Coordinates.CoordTemplateSelector)instance;
-            that.CylindricalTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
-        }
-        private object get_7_CoordTemplateSelector_CartesianTemplate(object instance)
-        {
-            var that = (global::OTWB.Coordinates.CoordTemplateSelector)instance;
-            return that.CartesianTemplate;
-        }
-        private void set_7_CoordTemplateSelector_CartesianTemplate(object instance, object Value)
-        {
-            var that = (global::OTWB.Coordinates.CoordTemplateSelector)instance;
-            that.CartesianTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
-        }
-        private object get_8_CoordTemplateSelector_SphericalTemplate(object instance)
-        {
-            var that = (global::OTWB.Coordinates.CoordTemplateSelector)instance;
-            return that.SphericalTemplate;
-        }
-        private void set_8_CoordTemplateSelector_SphericalTemplate(object instance, object Value)
-        {
-            var that = (global::OTWB.Coordinates.CoordTemplateSelector)instance;
-            that.SphericalTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
-        }
-        private object get_9_PointsControl_Title(object instance)
-        {
-            var that = (global::Geometric_Chuck.MyControls.PointsControl)instance;
-            return that.Title;
-        }
-        private void set_9_PointsControl_Title(object instance, object Value)
-        {
-            var that = (global::Geometric_Chuck.MyControls.PointsControl)instance;
-            that.Title = (global::System.String)Value;
-        }
-        private object get_10_PointsControl_SelectedPath(object instance)
-        {
-            var that = (global::Geometric_Chuck.MyControls.PointsControl)instance;
-            return that.SelectedPath;
-        }
-        private void set_10_PointsControl_SelectedPath(object instance, object Value)
-        {
-            var that = (global::Geometric_Chuck.MyControls.PointsControl)instance;
-            that.SelectedPath = (global::System.Int32)Value;
-        }
-        private object get_11_NumericUpDown_Value(object instance)
+        private object get_0_NumericUpDown_Value(object instance)
         {
             var that = (global::Callisto.Controls.NumericUpDown)instance;
             return that.Value;
         }
-        private void set_11_NumericUpDown_Value(object instance, object Value)
+        private void set_0_NumericUpDown_Value(object instance, object Value)
         {
             var that = (global::Callisto.Controls.NumericUpDown)instance;
             that.Value = (global::System.Double)Value;
         }
-        private object get_12_NumericUpDown_Maximum(object instance)
+        private object get_1_NumericUpDown_Maximum(object instance)
         {
             var that = (global::Callisto.Controls.NumericUpDown)instance;
             return that.Maximum;
         }
-        private void set_12_NumericUpDown_Maximum(object instance, object Value)
+        private void set_1_NumericUpDown_Maximum(object instance, object Value)
         {
             var that = (global::Callisto.Controls.NumericUpDown)instance;
             that.Maximum = (global::System.Double)Value;
         }
-        private object get_13_NumericUpDown_Delay(object instance)
-        {
-            var that = (global::Callisto.Controls.NumericUpDown)instance;
-            return that.Delay;
-        }
-        private void set_13_NumericUpDown_Delay(object instance, object Value)
-        {
-            var that = (global::Callisto.Controls.NumericUpDown)instance;
-            that.Delay = (global::System.Int32)Value;
-        }
-        private object get_14_NumericUpDown_Interval(object instance)
-        {
-            var that = (global::Callisto.Controls.NumericUpDown)instance;
-            return that.Interval;
-        }
-        private void set_14_NumericUpDown_Interval(object instance, object Value)
-        {
-            var that = (global::Callisto.Controls.NumericUpDown)instance;
-            that.Interval = (global::System.Int32)Value;
-        }
-        private object get_15_NumericUpDown_Minimum(object instance)
+        private object get_2_NumericUpDown_Minimum(object instance)
         {
             var that = (global::Callisto.Controls.NumericUpDown)instance;
             return that.Minimum;
         }
-        private void set_15_NumericUpDown_Minimum(object instance, object Value)
+        private void set_2_NumericUpDown_Minimum(object instance, object Value)
         {
             var that = (global::Callisto.Controls.NumericUpDown)instance;
             that.Minimum = (global::System.Double)Value;
         }
-        private object get_16_NumericUpDown_Increment(object instance)
-        {
-            var that = (global::Callisto.Controls.NumericUpDown)instance;
-            return that.Increment;
-        }
-        private void set_16_NumericUpDown_Increment(object instance, object Value)
-        {
-            var that = (global::Callisto.Controls.NumericUpDown)instance;
-            that.Increment = (global::System.Double)Value;
-        }
-        private object get_17_NumericUpDown_DecimalPlaces(object instance)
+        private object get_3_NumericUpDown_DecimalPlaces(object instance)
         {
             var that = (global::Callisto.Controls.NumericUpDown)instance;
             return that.DecimalPlaces;
         }
-        private void set_17_NumericUpDown_DecimalPlaces(object instance, object Value)
+        private void set_3_NumericUpDown_DecimalPlaces(object instance, object Value)
         {
             var that = (global::Callisto.Controls.NumericUpDown)instance;
             that.DecimalPlaces = (global::System.Int32)Value;
         }
-        private object get_18_NewRosetteFlyoutControl_NewRosette(object instance)
+        private object get_4_NumericUpDown_Increment(object instance)
         {
-            var that = (global::Geometric_Chuck.MyControls.NewRosetteFlyoutControl)instance;
-            return that.NewRosette;
+            var that = (global::Callisto.Controls.NumericUpDown)instance;
+            return that.Increment;
         }
-        private void set_18_NewRosetteFlyoutControl_NewRosette(object instance, object Value)
+        private void set_4_NumericUpDown_Increment(object instance, object Value)
         {
-            var that = (global::Geometric_Chuck.MyControls.NewRosetteFlyoutControl)instance;
-            that.NewRosette = (global::Geometric_Chuck.Spindle.Rosette)Value;
+            var that = (global::Callisto.Controls.NumericUpDown)instance;
+            that.Increment = (global::System.Double)Value;
         }
-        private object get_19_RosetteTemplateSelector_TemplateA(object instance)
+        private object get_5_NumericUpDown_Delay(object instance)
         {
-            var that = (global::Geometric_Chuck.Spindle.RosetteTemplateSelector)instance;
-            return that.TemplateA;
+            var that = (global::Callisto.Controls.NumericUpDown)instance;
+            return that.Delay;
         }
-        private void set_19_RosetteTemplateSelector_TemplateA(object instance, object Value)
+        private void set_5_NumericUpDown_Delay(object instance, object Value)
         {
-            var that = (global::Geometric_Chuck.Spindle.RosetteTemplateSelector)instance;
-            that.TemplateA = (global::Windows.UI.Xaml.DataTemplate)Value;
+            var that = (global::Callisto.Controls.NumericUpDown)instance;
+            that.Delay = (global::System.Int32)Value;
         }
-        private object get_20_RosetteTemplateSelector_TemplateB(object instance)
+        private object get_6_NumericUpDown_Interval(object instance)
         {
-            var that = (global::Geometric_Chuck.Spindle.RosetteTemplateSelector)instance;
-            return that.TemplateB;
+            var that = (global::Callisto.Controls.NumericUpDown)instance;
+            return that.Interval;
         }
-        private void set_20_RosetteTemplateSelector_TemplateB(object instance, object Value)
+        private void set_6_NumericUpDown_Interval(object instance, object Value)
         {
-            var that = (global::Geometric_Chuck.Spindle.RosetteTemplateSelector)instance;
-            that.TemplateB = (global::Windows.UI.Xaml.DataTemplate)Value;
+            var that = (global::Callisto.Controls.NumericUpDown)instance;
+            that.Interval = (global::System.Int32)Value;
         }
-        private object get_21_RosetteTemplateSelector_TemplateC(object instance)
+        private object get_7_RangeControl_RangeEndMax(object instance)
         {
-            var that = (global::Geometric_Chuck.Spindle.RosetteTemplateSelector)instance;
-            return that.TemplateC;
+            var that = (global::OTWB.MyControls.RangeControl)instance;
+            return that.RangeEndMax;
         }
-        private void set_21_RosetteTemplateSelector_TemplateC(object instance, object Value)
+        private void set_7_RangeControl_RangeEndMax(object instance, object Value)
         {
-            var that = (global::Geometric_Chuck.Spindle.RosetteTemplateSelector)instance;
-            that.TemplateC = (global::Windows.UI.Xaml.DataTemplate)Value;
+            var that = (global::OTWB.MyControls.RangeControl)instance;
+            that.RangeEndMax = (global::System.Double)Value;
         }
-        private object get_22_RosetteTemplateSelector_TemplateD(object instance)
+        private object get_8_RangeControl_RangeEndMin(object instance)
         {
-            var that = (global::Geometric_Chuck.Spindle.RosetteTemplateSelector)instance;
-            return that.TemplateD;
+            var that = (global::OTWB.MyControls.RangeControl)instance;
+            return that.RangeEndMin;
         }
-        private void set_22_RosetteTemplateSelector_TemplateD(object instance, object Value)
+        private void set_8_RangeControl_RangeEndMin(object instance, object Value)
         {
-            var that = (global::Geometric_Chuck.Spindle.RosetteTemplateSelector)instance;
-            that.TemplateD = (global::Windows.UI.Xaml.DataTemplate)Value;
+            var that = (global::OTWB.MyControls.RangeControl)instance;
+            that.RangeEndMin = (global::System.Double)Value;
         }
-        private object get_23_SpindleDataDisplay_CurrentRosette(object instance)
+        private object get_9_RangeControl_RangeIncMax(object instance)
         {
-            var that = (global::Geometric_Chuck.SpindleDataDisplay)instance;
-            return that.CurrentRosette;
+            var that = (global::OTWB.MyControls.RangeControl)instance;
+            return that.RangeIncMax;
         }
-        private object get_24_PathDisplay_Grid(object instance)
+        private void set_9_RangeControl_RangeIncMax(object instance, object Value)
         {
-            var that = (global::Geometric_Chuck.PathDisplay)instance;
+            var that = (global::OTWB.MyControls.RangeControl)instance;
+            that.RangeIncMax = (global::System.Double)Value;
+        }
+        private object get_10_RangeControl_RangeStartMax(object instance)
+        {
+            var that = (global::OTWB.MyControls.RangeControl)instance;
+            return that.RangeStartMax;
+        }
+        private void set_10_RangeControl_RangeStartMax(object instance, object Value)
+        {
+            var that = (global::OTWB.MyControls.RangeControl)instance;
+            that.RangeStartMax = (global::System.Double)Value;
+        }
+        private object get_11_RangeControl_RangeStartMin(object instance)
+        {
+            var that = (global::OTWB.MyControls.RangeControl)instance;
+            return that.RangeStartMin;
+        }
+        private void set_11_RangeControl_RangeStartMin(object instance, object Value)
+        {
+            var that = (global::OTWB.MyControls.RangeControl)instance;
+            that.RangeStartMin = (global::System.Double)Value;
+        }
+        private object get_12_RangeControl_RangeIncMin(object instance)
+        {
+            var that = (global::OTWB.MyControls.RangeControl)instance;
+            return that.RangeIncMin;
+        }
+        private void set_12_RangeControl_RangeIncMin(object instance, object Value)
+        {
+            var that = (global::OTWB.MyControls.RangeControl)instance;
+            that.RangeIncMin = (global::System.Double)Value;
+        }
+        private object get_13_NewProfileControl_NewProfile(object instance)
+        {
+            var that = (global::OTWB.MyControls.NewProfileControl)instance;
+            return that.NewProfile;
+        }
+        private void set_13_NewProfileControl_NewProfile(object instance, object Value)
+        {
+            var that = (global::OTWB.MyControls.NewProfileControl)instance;
+            that.NewProfile = (global::OTWB.Profiles.Profile)Value;
+        }
+        private object get_14_ProfileDisplay_Profile(object instance)
+        {
+            var that = (global::OTWB.Profiles.ProfileDisplay)instance;
+            return that.Profile;
+        }
+        private void set_14_ProfileDisplay_Profile(object instance, object Value)
+        {
+            var that = (global::OTWB.Profiles.ProfileDisplay)instance;
+            that.Profile = (global::OTWB.Profiles.Profile)Value;
+        }
+        private object get_15_ProfileDisplay_Grid(object instance)
+        {
+            var that = (global::OTWB.Profiles.ProfileDisplay)instance;
             return that.Grid;
         }
-        private void set_24_PathDisplay_Grid(object instance, object Value)
+        private void set_15_ProfileDisplay_Grid(object instance, object Value)
         {
-            var that = (global::Geometric_Chuck.PathDisplay)instance;
-            that.Grid = (global::Geometric_Chuck.RadialGrid)Value;
+            var that = (global::OTWB.Profiles.ProfileDisplay)instance;
+            that.Grid = (global::OTWB.CartesianGrid)Value;
         }
-        private object get_25_PathDisplay_PathWidth(object instance)
+        private object get_16_ProfileDisplay_CanvasBackgroundBrush(object instance)
         {
-            var that = (global::Geometric_Chuck.PathDisplay)instance;
+            var that = (global::OTWB.Profiles.ProfileDisplay)instance;
+            return that.CanvasBackgroundBrush;
+        }
+        private object get_17_LatticeDisplay_Lattice(object instance)
+        {
+            var that = (global::OTWB.Lattice.LatticeDisplay)instance;
+            return that.Lattice;
+        }
+        private void set_17_LatticeDisplay_Lattice(object instance, object Value)
+        {
+            var that = (global::OTWB.Lattice.LatticeDisplay)instance;
+            that.Lattice = (global::OTWB.Lattice.LatticeData)Value;
+        }
+        private object get_18_PathDisplay_Grid(object instance)
+        {
+            var that = (global::OTWB.PathDisplay)instance;
+            return that.Grid;
+        }
+        private void set_18_PathDisplay_Grid(object instance, object Value)
+        {
+            var that = (global::OTWB.PathDisplay)instance;
+            that.Grid = (global::OTWB.RadialGrid)Value;
+        }
+        private object get_19_PathDisplay_Viewmodel(object instance)
+        {
+            var that = (global::OTWB.PathDisplay)instance;
+            return that.Viewmodel;
+        }
+        private void set_19_PathDisplay_Viewmodel(object instance, object Value)
+        {
+            var that = (global::OTWB.PathDisplay)instance;
+            that.Viewmodel = (global::OTWB.ViewModel)Value;
+        }
+        private object get_20_PathDisplay_PathWidth(object instance)
+        {
+            var that = (global::OTWB.PathDisplay)instance;
             return that.PathWidth;
         }
-        private void set_25_PathDisplay_PathWidth(object instance, object Value)
+        private void set_20_PathDisplay_PathWidth(object instance, object Value)
         {
-            var that = (global::Geometric_Chuck.PathDisplay)instance;
+            var that = (global::OTWB.PathDisplay)instance;
             that.PathWidth = (global::System.Double)Value;
         }
-        private object get_26_PathDisplay_CurrentPath(object instance)
+        private object get_21_PathDisplay_Showgrid(object instance)
         {
-            var that = (global::Geometric_Chuck.PathDisplay)instance;
+            var that = (global::OTWB.PathDisplay)instance;
+            return that.Showgrid;
+        }
+        private void set_21_PathDisplay_Showgrid(object instance, object Value)
+        {
+            var that = (global::OTWB.PathDisplay)instance;
+            that.Showgrid = (global::System.Boolean)Value;
+        }
+        private object get_22_PathDisplay_ShowWorkOutline(object instance)
+        {
+            var that = (global::OTWB.PathDisplay)instance;
+            return that.ShowWorkOutline;
+        }
+        private void set_22_PathDisplay_ShowWorkOutline(object instance, object Value)
+        {
+            var that = (global::OTWB.PathDisplay)instance;
+            that.ShowWorkOutline = (global::System.Boolean)Value;
+        }
+        private object get_23_PathDisplay_CurrentPath(object instance)
+        {
+            var that = (global::OTWB.PathDisplay)instance;
             return that.CurrentPath;
         }
-        private void set_26_PathDisplay_CurrentPath(object instance, object Value)
+        private void set_23_PathDisplay_CurrentPath(object instance, object Value)
         {
-            var that = (global::Geometric_Chuck.PathDisplay)instance;
-            that.CurrentPath = (global::Geometric_Chuck.PolygonCollection)Value;
+            var that = (global::OTWB.PathDisplay)instance;
+            that.CurrentPath = (global::OTWB.Collections.ShapeCollection)Value;
         }
-        private object get_27_BasicLib_Setting(object instance)
+        private object get_24_PathDisplay_CanvasBackgroundBrush(object instance)
         {
-            return global::Geometric_Chuck.BasicLib.GetSetting((global::System.String)instance);
+            var that = (global::OTWB.PathDisplay)instance;
+            return that.CanvasBackgroundBrush;
         }
-        private void set_27_BasicLib_Setting(object instance, object Value)
+        private object get_25_BasicLib_Setting(object instance)
         {
-            global::Geometric_Chuck.BasicLib.SetSetting((global::System.String)instance, (System.Object)Value);
+            return global::OTWB.BasicLib.GetSetting((global::System.String)instance);
+        }
+        private void set_25_BasicLib_Setting(object instance, object Value)
+        {
+            global::OTWB.BasicLib.SetSetting((global::System.String)instance, (System.Object)Value);
                     }
+        private object get_26_CoordTemplateSelector_PointTemplate(object instance)
+        {
+            var that = (global::OTWB.Coordinates.CoordTemplateSelector)instance;
+            return that.PointTemplate;
+        }
+        private void set_26_CoordTemplateSelector_PointTemplate(object instance, object Value)
+        {
+            var that = (global::OTWB.Coordinates.CoordTemplateSelector)instance;
+            that.PointTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_27_CoordTemplateSelector_CylindricalTemplate(object instance)
+        {
+            var that = (global::OTWB.Coordinates.CoordTemplateSelector)instance;
+            return that.CylindricalTemplate;
+        }
+        private void set_27_CoordTemplateSelector_CylindricalTemplate(object instance, object Value)
+        {
+            var that = (global::OTWB.Coordinates.CoordTemplateSelector)instance;
+            that.CylindricalTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_28_CoordTemplateSelector_CartesianTemplate(object instance)
+        {
+            var that = (global::OTWB.Coordinates.CoordTemplateSelector)instance;
+            return that.CartesianTemplate;
+        }
+        private void set_28_CoordTemplateSelector_CartesianTemplate(object instance, object Value)
+        {
+            var that = (global::OTWB.Coordinates.CoordTemplateSelector)instance;
+            that.CartesianTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_29_CoordTemplateSelector_DefaultTemplate(object instance)
+        {
+            var that = (global::OTWB.Coordinates.CoordTemplateSelector)instance;
+            return that.DefaultTemplate;
+        }
+        private void set_29_CoordTemplateSelector_DefaultTemplate(object instance, object Value)
+        {
+            var that = (global::OTWB.Coordinates.CoordTemplateSelector)instance;
+            that.DefaultTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_30_CoordTemplateSelector_SphericalTemplate(object instance)
+        {
+            var that = (global::OTWB.Coordinates.CoordTemplateSelector)instance;
+            return that.SphericalTemplate;
+        }
+        private void set_30_CoordTemplateSelector_SphericalTemplate(object instance, object Value)
+        {
+            var that = (global::OTWB.Coordinates.CoordTemplateSelector)instance;
+            that.SphericalTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_31_PointsControl_Title(object instance)
+        {
+            var that = (global::OTWB.MyControls.PointsControl)instance;
+            return that.Title;
+        }
+        private void set_31_PointsControl_Title(object instance, object Value)
+        {
+            var that = (global::OTWB.MyControls.PointsControl)instance;
+            that.Title = (global::System.String)Value;
+        }
+        private object get_32_PointsControl_SelectedPath(object instance)
+        {
+            var that = (global::OTWB.MyControls.PointsControl)instance;
+            return that.SelectedPath;
+        }
+        private void set_32_PointsControl_SelectedPath(object instance, object Value)
+        {
+            var that = (global::OTWB.MyControls.PointsControl)instance;
+            that.SelectedPath = (global::System.Int32)Value;
+        }
+        private object get_33_NewRosetteControl_NewRosette(object instance)
+        {
+            var that = (global::OTWB.MyControls.NewRosetteControl)instance;
+            return that.NewRosette;
+        }
+        private void set_33_NewRosetteControl_NewRosette(object instance, object Value)
+        {
+            var that = (global::OTWB.MyControls.NewRosetteControl)instance;
+            that.NewRosette = (global::OTWB.Spindle.Rosette)Value;
+        }
+        private object get_34_RosetteTemplateSelector_TemplateA(object instance)
+        {
+            var that = (global::OTWB.Spindle.RosetteTemplateSelector)instance;
+            return that.TemplateA;
+        }
+        private void set_34_RosetteTemplateSelector_TemplateA(object instance, object Value)
+        {
+            var that = (global::OTWB.Spindle.RosetteTemplateSelector)instance;
+            that.TemplateA = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_35_RosetteTemplateSelector_TemplateB(object instance)
+        {
+            var that = (global::OTWB.Spindle.RosetteTemplateSelector)instance;
+            return that.TemplateB;
+        }
+        private void set_35_RosetteTemplateSelector_TemplateB(object instance, object Value)
+        {
+            var that = (global::OTWB.Spindle.RosetteTemplateSelector)instance;
+            that.TemplateB = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_36_RosetteTemplateSelector_TemplateC(object instance)
+        {
+            var that = (global::OTWB.Spindle.RosetteTemplateSelector)instance;
+            return that.TemplateC;
+        }
+        private void set_36_RosetteTemplateSelector_TemplateC(object instance, object Value)
+        {
+            var that = (global::OTWB.Spindle.RosetteTemplateSelector)instance;
+            that.TemplateC = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_37_RosetteTemplateSelector_TemplateD(object instance)
+        {
+            var that = (global::OTWB.Spindle.RosetteTemplateSelector)instance;
+            return that.TemplateD;
+        }
+        private void set_37_RosetteTemplateSelector_TemplateD(object instance, object Value)
+        {
+            var that = (global::OTWB.Spindle.RosetteTemplateSelector)instance;
+            that.TemplateD = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_38_SpindleDataDisplay_CurrentRosette(object instance)
+        {
+            var that = (global::OTWB.SpindleDataDisplay)instance;
+            return that.CurrentRosette;
+        }
+        private object get_39_BraidDisplay_Braid(object instance)
+        {
+            var that = (global::OTWB.Braid.BraidDisplay)instance;
+            return that.Braid;
+        }
+        private void set_39_BraidDisplay_Braid(object instance, object Value)
+        {
+            var that = (global::OTWB.Braid.BraidDisplay)instance;
+            that.Braid = (global::OTWB.Braid.BraidData)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
@@ -826,180 +1114,252 @@ namespace OTWB.OTWB_XamlTypeInfo
 
             switch (longMemberName)
             {
-            case "OTWB.Settings.CodeSettingsContent.CodeTemplates":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Settings.CodeSettingsContent");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "CodeTemplates", "OTWB.CodeGeneration.CodeGenTemplates");
-                xamlMember.Getter = get_0_CodeSettingsContent_CodeTemplates;
-                xamlMember.Setter = set_0_CodeSettingsContent_CodeTemplates;
-                break;
-            case "OTWB.Settings.CodeSettingsContent.UseRotaryTable":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Settings.CodeSettingsContent");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "UseRotaryTable", "Boolean");
-                xamlMember.Getter = get_1_CodeSettingsContent_UseRotaryTable;
-                xamlMember.Setter = set_1_CodeSettingsContent_UseRotaryTable;
-                break;
-            case "OTWB.Settings.CodeSettingsContent.UseAbsoluteMoves":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Settings.CodeSettingsContent");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "UseAbsoluteMoves", "Boolean");
-                xamlMember.Getter = get_2_CodeSettingsContent_UseAbsoluteMoves;
-                xamlMember.Setter = set_2_CodeSettingsContent_UseAbsoluteMoves;
-                break;
-            case "OTWB.Settings.CodeSettingsContent.UseSubroutine":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Settings.CodeSettingsContent");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "UseSubroutine", "Boolean");
-                xamlMember.Getter = get_3_CodeSettingsContent_UseSubroutine;
-                xamlMember.Setter = set_3_CodeSettingsContent_UseSubroutine;
-                break;
-            case "OTWB.Settings.CodeSettingsContent.UseSingleFile":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Settings.CodeSettingsContent");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "UseSingleFile", "Boolean");
-                xamlMember.Getter = get_4_CodeSettingsContent_UseSingleFile;
-                xamlMember.Setter = set_4_CodeSettingsContent_UseSingleFile;
-                break;
-            case "OTWB.Coordinates.CoordTemplateSelector.PointTemplate":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Coordinates.CoordTemplateSelector");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "PointTemplate", "Windows.UI.Xaml.DataTemplate");
-                xamlMember.Getter = get_5_CoordTemplateSelector_PointTemplate;
-                xamlMember.Setter = set_5_CoordTemplateSelector_PointTemplate;
-                break;
-            case "OTWB.Coordinates.CoordTemplateSelector.CylindricalTemplate":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Coordinates.CoordTemplateSelector");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "CylindricalTemplate", "Windows.UI.Xaml.DataTemplate");
-                xamlMember.Getter = get_6_CoordTemplateSelector_CylindricalTemplate;
-                xamlMember.Setter = set_6_CoordTemplateSelector_CylindricalTemplate;
-                break;
-            case "OTWB.Coordinates.CoordTemplateSelector.CartesianTemplate":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Coordinates.CoordTemplateSelector");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "CartesianTemplate", "Windows.UI.Xaml.DataTemplate");
-                xamlMember.Getter = get_7_CoordTemplateSelector_CartesianTemplate;
-                xamlMember.Setter = set_7_CoordTemplateSelector_CartesianTemplate;
-                break;
-            case "OTWB.Coordinates.CoordTemplateSelector.SphericalTemplate":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Coordinates.CoordTemplateSelector");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "SphericalTemplate", "Windows.UI.Xaml.DataTemplate");
-                xamlMember.Getter = get_8_CoordTemplateSelector_SphericalTemplate;
-                xamlMember.Setter = set_8_CoordTemplateSelector_SphericalTemplate;
-                break;
-            case "Geometric_Chuck.MyControls.PointsControl.Title":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Geometric_Chuck.MyControls.PointsControl");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "Title", "String");
-                xamlMember.Getter = get_9_PointsControl_Title;
-                xamlMember.Setter = set_9_PointsControl_Title;
-                break;
-            case "Geometric_Chuck.MyControls.PointsControl.SelectedPath":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Geometric_Chuck.MyControls.PointsControl");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "SelectedPath", "Int32");
-                xamlMember.Getter = get_10_PointsControl_SelectedPath;
-                xamlMember.Setter = set_10_PointsControl_SelectedPath;
-                break;
             case "Callisto.Controls.NumericUpDown.Value":
                 userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Callisto.Controls.NumericUpDown");
                 xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "Value", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_11_NumericUpDown_Value;
-                xamlMember.Setter = set_11_NumericUpDown_Value;
+                xamlMember.Getter = get_0_NumericUpDown_Value;
+                xamlMember.Setter = set_0_NumericUpDown_Value;
                 break;
             case "Callisto.Controls.NumericUpDown.Maximum":
                 userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Callisto.Controls.NumericUpDown");
                 xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "Maximum", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_12_NumericUpDown_Maximum;
-                xamlMember.Setter = set_12_NumericUpDown_Maximum;
-                break;
-            case "Callisto.Controls.NumericUpDown.Delay":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Callisto.Controls.NumericUpDown");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "Delay", "Int32");
-                xamlMember.Getter = get_13_NumericUpDown_Delay;
-                xamlMember.Setter = set_13_NumericUpDown_Delay;
-                break;
-            case "Callisto.Controls.NumericUpDown.Interval":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Callisto.Controls.NumericUpDown");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "Interval", "Int32");
-                xamlMember.Getter = get_14_NumericUpDown_Interval;
-                xamlMember.Setter = set_14_NumericUpDown_Interval;
+                xamlMember.Getter = get_1_NumericUpDown_Maximum;
+                xamlMember.Setter = set_1_NumericUpDown_Maximum;
                 break;
             case "Callisto.Controls.NumericUpDown.Minimum":
                 userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Callisto.Controls.NumericUpDown");
                 xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "Minimum", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_15_NumericUpDown_Minimum;
-                xamlMember.Setter = set_15_NumericUpDown_Minimum;
-                break;
-            case "Callisto.Controls.NumericUpDown.Increment":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Callisto.Controls.NumericUpDown");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "Increment", "Double");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_16_NumericUpDown_Increment;
-                xamlMember.Setter = set_16_NumericUpDown_Increment;
+                xamlMember.Getter = get_2_NumericUpDown_Minimum;
+                xamlMember.Setter = set_2_NumericUpDown_Minimum;
                 break;
             case "Callisto.Controls.NumericUpDown.DecimalPlaces":
                 userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Callisto.Controls.NumericUpDown");
                 xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "DecimalPlaces", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_17_NumericUpDown_DecimalPlaces;
-                xamlMember.Setter = set_17_NumericUpDown_DecimalPlaces;
+                xamlMember.Getter = get_3_NumericUpDown_DecimalPlaces;
+                xamlMember.Setter = set_3_NumericUpDown_DecimalPlaces;
                 break;
-            case "Geometric_Chuck.MyControls.NewRosetteFlyoutControl.NewRosette":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Geometric_Chuck.MyControls.NewRosetteFlyoutControl");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "NewRosette", "Geometric_Chuck.Spindle.Rosette");
-                xamlMember.Getter = get_18_NewRosetteFlyoutControl_NewRosette;
-                xamlMember.Setter = set_18_NewRosetteFlyoutControl_NewRosette;
+            case "Callisto.Controls.NumericUpDown.Increment":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Callisto.Controls.NumericUpDown");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "Increment", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_4_NumericUpDown_Increment;
+                xamlMember.Setter = set_4_NumericUpDown_Increment;
                 break;
-            case "Geometric_Chuck.Spindle.RosetteTemplateSelector.TemplateA":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Geometric_Chuck.Spindle.RosetteTemplateSelector");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "TemplateA", "Windows.UI.Xaml.DataTemplate");
-                xamlMember.Getter = get_19_RosetteTemplateSelector_TemplateA;
-                xamlMember.Setter = set_19_RosetteTemplateSelector_TemplateA;
+            case "Callisto.Controls.NumericUpDown.Delay":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Callisto.Controls.NumericUpDown");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "Delay", "Int32");
+                xamlMember.Getter = get_5_NumericUpDown_Delay;
+                xamlMember.Setter = set_5_NumericUpDown_Delay;
                 break;
-            case "Geometric_Chuck.Spindle.RosetteTemplateSelector.TemplateB":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Geometric_Chuck.Spindle.RosetteTemplateSelector");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "TemplateB", "Windows.UI.Xaml.DataTemplate");
-                xamlMember.Getter = get_20_RosetteTemplateSelector_TemplateB;
-                xamlMember.Setter = set_20_RosetteTemplateSelector_TemplateB;
+            case "Callisto.Controls.NumericUpDown.Interval":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Callisto.Controls.NumericUpDown");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "Interval", "Int32");
+                xamlMember.Getter = get_6_NumericUpDown_Interval;
+                xamlMember.Setter = set_6_NumericUpDown_Interval;
                 break;
-            case "Geometric_Chuck.Spindle.RosetteTemplateSelector.TemplateC":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Geometric_Chuck.Spindle.RosetteTemplateSelector");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "TemplateC", "Windows.UI.Xaml.DataTemplate");
-                xamlMember.Getter = get_21_RosetteTemplateSelector_TemplateC;
-                xamlMember.Setter = set_21_RosetteTemplateSelector_TemplateC;
+            case "OTWB.MyControls.RangeControl.RangeEndMax":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.MyControls.RangeControl");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "RangeEndMax", "Double");
+                xamlMember.Getter = get_7_RangeControl_RangeEndMax;
+                xamlMember.Setter = set_7_RangeControl_RangeEndMax;
                 break;
-            case "Geometric_Chuck.Spindle.RosetteTemplateSelector.TemplateD":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Geometric_Chuck.Spindle.RosetteTemplateSelector");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "TemplateD", "Windows.UI.Xaml.DataTemplate");
-                xamlMember.Getter = get_22_RosetteTemplateSelector_TemplateD;
-                xamlMember.Setter = set_22_RosetteTemplateSelector_TemplateD;
+            case "OTWB.MyControls.RangeControl.RangeEndMin":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.MyControls.RangeControl");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "RangeEndMin", "Double");
+                xamlMember.Getter = get_8_RangeControl_RangeEndMin;
+                xamlMember.Setter = set_8_RangeControl_RangeEndMin;
                 break;
-            case "Geometric_Chuck.SpindleDataDisplay.CurrentRosette":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Geometric_Chuck.SpindleDataDisplay");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "CurrentRosette", "Geometric_Chuck.Spindle.Rosette");
-                xamlMember.Getter = get_23_SpindleDataDisplay_CurrentRosette;
+            case "OTWB.MyControls.RangeControl.RangeIncMax":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.MyControls.RangeControl");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "RangeIncMax", "Double");
+                xamlMember.Getter = get_9_RangeControl_RangeIncMax;
+                xamlMember.Setter = set_9_RangeControl_RangeIncMax;
+                break;
+            case "OTWB.MyControls.RangeControl.RangeStartMax":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.MyControls.RangeControl");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "RangeStartMax", "Double");
+                xamlMember.Getter = get_10_RangeControl_RangeStartMax;
+                xamlMember.Setter = set_10_RangeControl_RangeStartMax;
+                break;
+            case "OTWB.MyControls.RangeControl.RangeStartMin":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.MyControls.RangeControl");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "RangeStartMin", "Double");
+                xamlMember.Getter = get_11_RangeControl_RangeStartMin;
+                xamlMember.Setter = set_11_RangeControl_RangeStartMin;
+                break;
+            case "OTWB.MyControls.RangeControl.RangeIncMin":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.MyControls.RangeControl");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "RangeIncMin", "Double");
+                xamlMember.Getter = get_12_RangeControl_RangeIncMin;
+                xamlMember.Setter = set_12_RangeControl_RangeIncMin;
+                break;
+            case "OTWB.MyControls.NewProfileControl.NewProfile":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.MyControls.NewProfileControl");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "NewProfile", "OTWB.Profiles.Profile");
+                xamlMember.Getter = get_13_NewProfileControl_NewProfile;
+                xamlMember.Setter = set_13_NewProfileControl_NewProfile;
+                break;
+            case "OTWB.Profiles.ProfileDisplay.Profile":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Profiles.ProfileDisplay");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "Profile", "OTWB.Profiles.Profile");
+                xamlMember.Getter = get_14_ProfileDisplay_Profile;
+                xamlMember.Setter = set_14_ProfileDisplay_Profile;
+                break;
+            case "OTWB.Profiles.ProfileDisplay.Grid":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Profiles.ProfileDisplay");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "Grid", "OTWB.CartesianGrid");
+                xamlMember.Getter = get_15_ProfileDisplay_Grid;
+                xamlMember.Setter = set_15_ProfileDisplay_Grid;
+                break;
+            case "OTWB.Profiles.ProfileDisplay.CanvasBackgroundBrush":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Profiles.ProfileDisplay");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "CanvasBackgroundBrush", "Windows.UI.Xaml.Media.SolidColorBrush");
+                xamlMember.Getter = get_16_ProfileDisplay_CanvasBackgroundBrush;
                 xamlMember.SetIsReadOnly();
                 break;
-            case "Geometric_Chuck.PathDisplay.Grid":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Geometric_Chuck.PathDisplay");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "Grid", "Geometric_Chuck.RadialGrid");
-                xamlMember.Getter = get_24_PathDisplay_Grid;
-                xamlMember.Setter = set_24_PathDisplay_Grid;
+            case "OTWB.Lattice.LatticeDisplay.Lattice":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Lattice.LatticeDisplay");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "Lattice", "OTWB.Lattice.LatticeData");
+                xamlMember.Getter = get_17_LatticeDisplay_Lattice;
+                xamlMember.Setter = set_17_LatticeDisplay_Lattice;
                 break;
-            case "Geometric_Chuck.PathDisplay.PathWidth":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Geometric_Chuck.PathDisplay");
+            case "OTWB.PathDisplay.Grid":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.PathDisplay");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "Grid", "OTWB.RadialGrid");
+                xamlMember.Getter = get_18_PathDisplay_Grid;
+                xamlMember.Setter = set_18_PathDisplay_Grid;
+                break;
+            case "OTWB.PathDisplay.Viewmodel":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.PathDisplay");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "Viewmodel", "OTWB.ViewModel");
+                xamlMember.Getter = get_19_PathDisplay_Viewmodel;
+                xamlMember.Setter = set_19_PathDisplay_Viewmodel;
+                break;
+            case "OTWB.PathDisplay.PathWidth":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.PathDisplay");
                 xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "PathWidth", "Double");
-                xamlMember.Getter = get_25_PathDisplay_PathWidth;
-                xamlMember.Setter = set_25_PathDisplay_PathWidth;
+                xamlMember.Getter = get_20_PathDisplay_PathWidth;
+                xamlMember.Setter = set_20_PathDisplay_PathWidth;
                 break;
-            case "Geometric_Chuck.PathDisplay.CurrentPath":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Geometric_Chuck.PathDisplay");
-                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "CurrentPath", "Geometric_Chuck.PolygonCollection");
-                xamlMember.Getter = get_26_PathDisplay_CurrentPath;
-                xamlMember.Setter = set_26_PathDisplay_CurrentPath;
+            case "OTWB.PathDisplay.Showgrid":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.PathDisplay");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "Showgrid", "Boolean");
+                xamlMember.Getter = get_21_PathDisplay_Showgrid;
+                xamlMember.Setter = set_21_PathDisplay_Showgrid;
                 break;
-            case "Geometric_Chuck.BasicLib.Setting":
-                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Geometric_Chuck.BasicLib");
+            case "OTWB.PathDisplay.ShowWorkOutline":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.PathDisplay");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "ShowWorkOutline", "Boolean");
+                xamlMember.Getter = get_22_PathDisplay_ShowWorkOutline;
+                xamlMember.Setter = set_22_PathDisplay_ShowWorkOutline;
+                break;
+            case "OTWB.PathDisplay.CurrentPath":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.PathDisplay");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "CurrentPath", "OTWB.Collections.ShapeCollection");
+                xamlMember.Getter = get_23_PathDisplay_CurrentPath;
+                xamlMember.Setter = set_23_PathDisplay_CurrentPath;
+                break;
+            case "OTWB.PathDisplay.CanvasBackgroundBrush":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.PathDisplay");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "CanvasBackgroundBrush", "Windows.UI.Xaml.Media.SolidColorBrush");
+                xamlMember.Getter = get_24_PathDisplay_CanvasBackgroundBrush;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "OTWB.BasicLib.Setting":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.BasicLib");
                 xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "Setting", "Object");
                 xamlMember.SetTargetTypeName("String");
                 xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_27_BasicLib_Setting;
-                xamlMember.Setter = set_27_BasicLib_Setting;
+                xamlMember.Getter = get_25_BasicLib_Setting;
+                xamlMember.Setter = set_25_BasicLib_Setting;
+                break;
+            case "OTWB.Coordinates.CoordTemplateSelector.PointTemplate":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Coordinates.CoordTemplateSelector");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "PointTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_26_CoordTemplateSelector_PointTemplate;
+                xamlMember.Setter = set_26_CoordTemplateSelector_PointTemplate;
+                break;
+            case "OTWB.Coordinates.CoordTemplateSelector.CylindricalTemplate":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Coordinates.CoordTemplateSelector");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "CylindricalTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_27_CoordTemplateSelector_CylindricalTemplate;
+                xamlMember.Setter = set_27_CoordTemplateSelector_CylindricalTemplate;
+                break;
+            case "OTWB.Coordinates.CoordTemplateSelector.CartesianTemplate":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Coordinates.CoordTemplateSelector");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "CartesianTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_28_CoordTemplateSelector_CartesianTemplate;
+                xamlMember.Setter = set_28_CoordTemplateSelector_CartesianTemplate;
+                break;
+            case "OTWB.Coordinates.CoordTemplateSelector.DefaultTemplate":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Coordinates.CoordTemplateSelector");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "DefaultTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_29_CoordTemplateSelector_DefaultTemplate;
+                xamlMember.Setter = set_29_CoordTemplateSelector_DefaultTemplate;
+                break;
+            case "OTWB.Coordinates.CoordTemplateSelector.SphericalTemplate":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Coordinates.CoordTemplateSelector");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "SphericalTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_30_CoordTemplateSelector_SphericalTemplate;
+                xamlMember.Setter = set_30_CoordTemplateSelector_SphericalTemplate;
+                break;
+            case "OTWB.MyControls.PointsControl.Title":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.MyControls.PointsControl");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "Title", "String");
+                xamlMember.Getter = get_31_PointsControl_Title;
+                xamlMember.Setter = set_31_PointsControl_Title;
+                break;
+            case "OTWB.MyControls.PointsControl.SelectedPath":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.MyControls.PointsControl");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "SelectedPath", "Int32");
+                xamlMember.Getter = get_32_PointsControl_SelectedPath;
+                xamlMember.Setter = set_32_PointsControl_SelectedPath;
+                break;
+            case "OTWB.MyControls.NewRosetteControl.NewRosette":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.MyControls.NewRosetteControl");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "NewRosette", "OTWB.Spindle.Rosette");
+                xamlMember.Getter = get_33_NewRosetteControl_NewRosette;
+                xamlMember.Setter = set_33_NewRosetteControl_NewRosette;
+                break;
+            case "OTWB.Spindle.RosetteTemplateSelector.TemplateA":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Spindle.RosetteTemplateSelector");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "TemplateA", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_34_RosetteTemplateSelector_TemplateA;
+                xamlMember.Setter = set_34_RosetteTemplateSelector_TemplateA;
+                break;
+            case "OTWB.Spindle.RosetteTemplateSelector.TemplateB":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Spindle.RosetteTemplateSelector");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "TemplateB", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_35_RosetteTemplateSelector_TemplateB;
+                xamlMember.Setter = set_35_RosetteTemplateSelector_TemplateB;
+                break;
+            case "OTWB.Spindle.RosetteTemplateSelector.TemplateC":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Spindle.RosetteTemplateSelector");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "TemplateC", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_36_RosetteTemplateSelector_TemplateC;
+                xamlMember.Setter = set_36_RosetteTemplateSelector_TemplateC;
+                break;
+            case "OTWB.Spindle.RosetteTemplateSelector.TemplateD":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Spindle.RosetteTemplateSelector");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "TemplateD", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_37_RosetteTemplateSelector_TemplateD;
+                xamlMember.Setter = set_37_RosetteTemplateSelector_TemplateD;
+                break;
+            case "OTWB.SpindleDataDisplay.CurrentRosette":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.SpindleDataDisplay");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "CurrentRosette", "OTWB.Spindle.Rosette");
+                xamlMember.Getter = get_38_SpindleDataDisplay_CurrentRosette;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "OTWB.Braid.BraidDisplay.Braid":
+                userType = (global::OTWB.OTWB_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OTWB.Braid.BraidDisplay");
+                xamlMember = new global::OTWB.OTWB_XamlTypeInfo.XamlMember(this, "Braid", "OTWB.Braid.BraidData");
+                xamlMember.Getter = get_39_BraidDisplay_Braid;
+                xamlMember.Setter = set_39_BraidDisplay_Braid;
                 break;
             }
             return xamlMember;

@@ -1,5 +1,6 @@
-﻿using Geometric_Chuck.Common;
-using Geometric_Chuck.Interfaces;
+﻿using OTWB.Common;
+using OTWB.Interfaces;
+using OTWB.PathGenerators;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Geometric_Chuck
+namespace OTWB
 {
     public class WheelStageData : BindableBase
     {
@@ -37,20 +38,16 @@ namespace Geometric_Chuck
     }
 
     [XmlRoot("WheelsData")]
-    public class WheelsData : IPathData, INotifyPropertyChanged
+    public class WheelsData : PathGenData
     {
         public event EventHandler PathDataChanged;
-        public event PropertyChangedEventHandler PropertyChanged;
-
+      
         ObservableCollection<WheelStageData> _stages;
         public ObservableCollection<WheelStageData> Stages
         {
             get { return _stages; }
             set { _stages = value; }
         }
-
-        [XmlIgnore]
-        public string Name { get { return string.Format("wheel#{0}", PatternIndex); } }
 
         public WheelsData(int indx)
         {
@@ -59,21 +56,6 @@ namespace Geometric_Chuck
         }
        
         public WheelsData() : this(0) {}
-
-        [XmlElement]
-        public PatternType PathType
-        {
-            get { return PatternType.WHEELS; }
-            set { }
-        }
-
-        int _index;
-        [XmlElement]
-        public int PatternIndex
-        {
-            get {  return _index; }
-            set { _index = value; }
-        }
 
         public void FixUp()
         {
@@ -123,17 +105,6 @@ namespace Geometric_Chuck
             }
         }
 
-        double _suggestedMaxTurns;
-
-        public double SuggestedMaxTurns
-        {
-            get { return _suggestedMaxTurns; }
-            set { 
-                    _suggestedMaxTurns = value;
-                    if (PropertyChanged != null)
-                        PropertyChanged(this, new PropertyChangedEventArgs("SuggestedMaxTurns"));
-                }
-        }
     }
 
    

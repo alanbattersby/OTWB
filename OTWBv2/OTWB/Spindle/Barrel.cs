@@ -1,5 +1,7 @@
-﻿using Geometric_Chuck.Common;
-using Geometric_Chuck.Interfaces;
+﻿using OTWB.Collections;
+using OTWB.Common;
+using OTWB.Interfaces;
+using OTWB.PathGenerators;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,14 +14,14 @@ using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
 
-namespace Geometric_Chuck.Spindle
+namespace OTWB.Spindle
 {
     /// <summary>
     /// A barrel holds a collection of Rosettes
     /// </summary>
     
    [XmlRoot("Barrel")]
-    public class Barrel : BindableBase, IPathData
+    public class Barrel : PathGenData
     {
         public enum CombineMethod
         {
@@ -61,19 +63,47 @@ namespace Geometric_Chuck.Spindle
             set { SetProperty(ref _rosettes, value, "Rosettes"); }
         }
 
-        public Barrel(int pi)
+        public Barrel(int pi) : 
+            base(PatternType.barrel,pi,1)
         {
             Rosettes = new ObservableCollection<Rosette>();
             CombinationRule = CombineMethod.BLEND;
-            PatternIndex = pi;
             ToolPosition = 0;
         }
         public Barrel() : this(0) { }
 
-        public PolygonCollection Path(double inc)
+        public ShapeCollection Path(double inc)
         {
-            PolygonCollection pc = new PolygonCollection();
-            pc.AddPoly(Outline(inc));
+            ShapeCollection pc = new ShapeCollection();
+            pc.AddShape(Outline(inc));
+            return pc;
+        }
+
+        public PointCollection BarrelOutline(double inc)
+        {
+            PointCollection pc = new PointCollection();
+            double phse = rad * Phase;
+            double lastr = 0;
+            double r;
+            double tp;
+            double a = 0;
+            Point pd;
+            int N = (int)Math.Floor(1.0 / inc);
+            for (double i = 1; i < N; i++)
+            {
+                double f = i * inc;
+                r = CalcR(f, 0);
+                a = f * twopi + phse;
+                tp = ToolPosition + r - lastr;
+                pd = new Point(tp * Math.Cos(a), tp * Math.Sin(a));
+                pc.Add(pd);
+                lastr = r;
+            }
+            r = CalcR(1.0, 0);
+            a = twopi + phse;
+            tp = ToolPosition + r - lastr;
+            pd = new Point(tp * Math.Cos(a), tp * Math.Sin(a));
+            pc.Add(pd);
             return pc;
         }
 
@@ -179,28 +209,7 @@ namespace Geometric_Chuck.Spindle
             return r;
         }
 
-        public string Name
-        {
-            get { return string.Format("barrel#{0}", PatternIndex); }
-        }
-
-        public PatternType PathType
-        {
-            get { return PatternType.BARREL; }
-        }
-
-        int _patternindx;
-        public int PatternIndex
-        {
-            get { return _patternindx;}
-            set { SetProperty(ref _patternindx, value, "PatternIndex"); }
-        }
-
-        public double SuggestedMaxTurns
-        {
-            get { return 1; }
-        }
-
+    
         public void Add(Rosette ros)
         {
             ros.PropertyChanged += ros_PropertyChanged;

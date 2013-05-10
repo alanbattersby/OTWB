@@ -1,5 +1,6 @@
 ﻿using Callisto.Controls;
 using Callisto.Controls.SettingsManagement;
+using OTWB.CodeGeneration;
 using OTWB.Settings;
 using System;
 using System.Collections.Generic;
@@ -21,14 +22,16 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
 
-namespace Geometric_Chuck
+namespace OTWB
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
     sealed partial class App : Application
     {
-        private ViewModel viewModel { get; set; }
+        public static ViewModel viewModel { get; set; }
+        public static CodeGenDataContext CodeSettingsContext { get; set; }
+
         public static Callisto.Controls.Common.VisualElement VisualElements;
 
         /// <summary>
@@ -37,9 +40,7 @@ namespace Geometric_Chuck
         /// </summary>
         public App()
         {
-            this.InitializeComponent();
-            viewModel = new ViewModel();
-           
+            this.InitializeComponent();      
             this.Suspending += OnSuspending;
         }
 
@@ -70,8 +71,9 @@ namespace Geometric_Chuck
         /// <param name="args">Details about the launch request and process.</param>
         protected async override void OnLaunched(LaunchActivatedEventArgs args)
         {
-            AppSettings.Current.AddCommand<CodeSettingsContent>("App Registered", SettingsFlyout.SettingsFlyoutWidth.Wide);
-
+            AppSettings.Current.AddCommand<CodeSettingsContent>("Code Settings", SettingsFlyout.SettingsFlyoutWidth.Wide);
+            viewModel = new ViewModel();
+            CodeSettingsContext = new CodeGenDataContext();
             VisualElements = await Callisto.Controls.Common.AppManifestHelper.GetManifestVisualElementsAsync();
             Frame rootFrame = Window.Current.Content as Frame;
 
@@ -82,11 +84,11 @@ namespace Geometric_Chuck
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
-                Geometric_Chuck.Common.SuspensionManager.RegisterFrame(rootFrame, "appFrame");
+                OTWB.Common.SuspensionManager.RegisterFrame(rootFrame, "appFrame");
                 if (args.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     //TODO: Load state from previously suspended application
-                    await Geometric_Chuck.Common.SuspensionManager.RestoreAsync();
+                    await OTWB.Common.SuspensionManager.RestoreAsync();
                 }
 
                 // Place the frame in the current Window
@@ -98,7 +100,7 @@ namespace Geometric_Chuck
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                if (!rootFrame.Navigate(typeof(StartPage), viewModel)) // args.Arguments))
+                if (!rootFrame.Navigate(typeof(StartPage), args.Arguments))
                 {
                     throw new Exception("Failed to create initial page");
                 }
@@ -116,10 +118,17 @@ namespace Geometric_Chuck
         /// <param name="e">Details about the suspend request.</param>
         private async void OnSuspending(object sender, SuspendingEventArgs e)
         {
-            var deferral = e.SuspendingOperation.GetDeferral();
-            //TODO: Save application state and stop any background activity
-            await Geometric_Chuck.Common.SuspensionManager.SaveAsync();
-            deferral.Complete();
+            try
+            {
+                var deferral = e.SuspendingOperation.GetDeferral();
+                //TODO: Save application state and stop any background activity
+                await OTWB.Common.SuspensionManager.SaveAsync();
+                deferral.Complete();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.InnerException);
+            }
         }
     }
 }

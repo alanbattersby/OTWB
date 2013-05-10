@@ -1,4 +1,4 @@
-﻿using Geometric_Chuck.Common;
+﻿using OTWB.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Windows.Foundation;
 
-namespace Geometric_Chuck.Spindle
+namespace OTWB.Spindle
 {
     public class SquareWave : Wave
     {

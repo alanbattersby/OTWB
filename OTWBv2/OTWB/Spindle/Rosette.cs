@@ -1,4 +1,4 @@
-﻿using Geometric_Chuck.Common;
+﻿using OTWB.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +8,9 @@ using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
 using System.Xml.Serialization;
-using Geometric_Chuck.Interfaces;
+using OTWB.Interfaces;
 
-namespace Geometric_Chuck.Spindle
+namespace OTWB.Spindle
 {
     [XmlInclude(typeof(SpurGear))]
     [XmlInclude(typeof(Poly))]

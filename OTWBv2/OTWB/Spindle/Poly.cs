@@ -1,4 +1,4 @@
-﻿using Geometric_Chuck.Common;
+﻿using OTWB.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
 
-namespace Geometric_Chuck.Spindle
+namespace OTWB.Spindle
 {
     public class Poly : Rosette
     {

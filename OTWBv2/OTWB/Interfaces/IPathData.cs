@@ -6,13 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Geometric_Chuck.Interfaces
+namespace OTWB.Interfaces
 {
-    public interface IPathData : INotifyPropertyChanged
+    public interface PathData : INotifyPropertyChanged
     {
         string Name { get; }
-        PatternType PathType { get; }
+        PatternType PathType { get; set; }
         int PatternIndex { get; set; }
-        double SuggestedMaxTurns { get; }
+        double SuggestedMaxTurns { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OTWB.Collections;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -10,7 +11,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Shapes;
 
-namespace Geometric_Chuck.Common
+namespace OTWB.Common
 {
     public class PatternPathListNameConverter : IValueConverter
     {
@@ -20,11 +21,11 @@ namespace Geometric_Chuck.Common
             Debug.WriteLine("PatternPathListNameConverter Converting {0}", value.GetType());
             if (value == null)
                 return null;
-            if (value is PolygonCollection)
+            if (value is ShapeCollection)
             {
                 //Debug.WriteLine("Converting list length {0} Type {1}", 
                 //    (value as PolygonCollection).Count, (value as PolygonCollection).PatternType);
-                return (value as PolygonCollection).PathNames;
+                return (value as ShapeCollection).PathNames;
             }
             return "oops";
         }
@@ -64,17 +65,17 @@ namespace Geometric_Chuck.Common
         {
 
             List<string> indxs = new List<string>();
-            if ((value == null) || (!(value is PolygonCollection)))
+            if ((value == null) || (!(value is ShapeCollection)))
             {
                 indxs.Add("Error");
             }
             else
             {
-                PolygonCollection pc = value as PolygonCollection;
+                ShapeCollection pc = value as ShapeCollection;
                 if (pc.Count == 0)
                     indxs.Add("Empty Path");
                 else
-                    foreach (Polygon p in pc.Polygons)
+                    foreach (Shape p in pc.Shapes)
                         indxs.Add(p.Name);
             }
             return indxs;
@@ -107,15 +108,15 @@ namespace Geometric_Chuck.Common
         }
     }
 
-    public class PolyPointsConverter : IValueConverter
+    public class ShapePointsConverter : IValueConverter
     {
         object IValueConverter.Convert(object value, Type targetType, object parameter, string language)
         {
 
-            if (value is PolygonCollection)
+            if (value is ShapeCollection)
             {
-                PolygonCollection pc = value as PolygonCollection;
-                return pc[0].Points;
+                ShapeCollection pc = value as ShapeCollection;
+                return GetPoints(pc[0]);
             }
             return new PointCollection();
         }
@@ -123,6 +124,15 @@ namespace Geometric_Chuck.Common
         object IValueConverter.ConvertBack(object value, Type targetType, object parameter, string language)
         {
             throw new NotImplementedException();
+        }
+
+        //TODO add code for other shapes
+        PointCollection GetPoints(Shape s)
+        {
+            if (s is Polygon)
+                return (s as Polygon).Points;
+            else
+                return new PointCollection();
         }
     }
 }

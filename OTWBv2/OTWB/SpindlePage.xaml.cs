@@ -1,15 +1,16 @@
-﻿using Geometric_Chuck.Interfaces;
-using Geometric_Chuck.MyControls;
-using Geometric_Chuck.Spindle;
+﻿using Callisto.Controls;
+using OTWB.Interfaces;
+using OTWB.MyControls;
+using OTWB.Spindle;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using TCD.Controls;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
+using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -17,16 +18,17 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
-namespace Geometric_Chuck
+namespace OTWB
 {
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class SpindlePage : Geometric_Chuck.Common.LayoutAwarePage
+    public sealed partial class SpindlePage : OTWB.Common.LayoutAwarePage
     {
         ViewModel viewModel;
         public SpindlePage()
@@ -59,40 +61,66 @@ namespace Geometric_Chuck
 
         private void Add_Rosette_Click(object sender, RoutedEventArgs e)
         {
-            // Create a flyout to specify rosette type
-            Flyout f = new Flyout(
-             new SolidColorBrush(Colors.White),//the foreground color of all flyouts
-             (Brush)App.Current.Resources["ApplicationPageBackgroundThemeBrush"],//the background color of all flyouts
-             new SolidColorBrush(Color.FromArgb(255, 255, 0, 0)),//the theme brush of the app
-             "New Rosette",
-             FlyoutDimension.Narrow,//switch between narrow and wide depending on the check box
-             new NewRosetteFlyoutControl());
-            f.OnClosing += f_OnClosing;
-            f.ShowAsync();
+            NewRosetteControl nc = new NewRosetteControl();
+            nc.RosetteChosen += nc_RosetteChosen;
+            
+            SettingsFlyout settings = new SettingsFlyout();
+            // set the desired width.  If you leave this out, you will get Narrow (346px)
+            settings.FlyoutWidth = Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth.Narrow;
+
+            // optionally change header and content background colors away from defaults (recommended)
+            // if using Callisto's AppManifestHelper you can grab the element from some member var you held it in
+            settings.HeaderBrush = new SolidColorBrush(App.VisualElements.BackgroundColor);
+            settings.HeaderText = "Points"; // string.Format("{0}", App.VisualElements.DisplayName);
+            settings.ContentBackgroundBrush = BarrelPathDisplay.CanvasBackgroundBrush;
+            // provide some logo (preferrably the smallogo the app uses)
+            BitmapImage bmp = new BitmapImage(App.VisualElements.SmallLogoUri);
+            settings.SmallLogoImageSource = bmp;
+            settings.Content = nc;
+            // open it
+            settings.IsOpen = true;
         }
 
-        void f_OnClosing(object sender, CloseReason reason, System.ComponentModel.CancelEventArgs cancelEventArgs)
+        async void nc_RosetteChosen(object sender, Rosette e)
         {
-            if (sender is Flyout)
+            if ((viewModel.CurrentPathData != null) &&
+                   (viewModel.CurrentPathData is Barrel))
             {
-                if (reason == CloseReason.BackButton)
-                {
-                    if (!cancelEventArgs.Cancel)
-                    {
-                        NewRosetteFlyoutControl c = (NewRosetteFlyoutControl)(sender as Flyout).Content;
-                        Rosette ros = c.NewRosette;
-                        if ((viewModel.CurrentPathData != null) &&
-                            (viewModel.CurrentPathData is Barrel))
-                            (viewModel.CurrentPathData as Barrel).Add(ros);
-                        else
-                        {
-
-                        }
-                    }
-                }
+                (viewModel.CurrentPathData as Barrel).Add(e);
                 ReCalculate();
             }
+            else
+            {
+                MessageDialog md = new MessageDialog("Failed to add new Rosette",
+                                                     "OOps");
+                await md.ShowAsync();
+            }
+                
         }
+
+       
+        //void f_OnClosing(object sender, CloseReason reason, System.ComponentModel.CancelEventArgs cancelEventArgs)
+        //{
+        //    if (sender is Flyout)
+        //    {
+        //        if (reason == CloseReason.BackButton)
+        //        {
+        //            if (!cancelEventArgs.Cancel)
+        //            {
+        //                NewRosetteControl c = (NewRosetteControl)(sender as Flyout).Content;
+        //                Rosette ros = c.NewRosette;
+        //                if ((viewModel.CurrentPathData != null) &&
+        //                    (viewModel.CurrentPathData is Barrel))
+        //                    (viewModel.CurrentPathData as Barrel).Add(ros);
+        //                else
+        //                {
+
+        //                }
+        //            }
+        //        }
+        //        ReCalculate();
+        //    }
+        //}
 
         private void Remove_Rosette_click(object sender, RoutedEventArgs e)
         {
@@ -101,12 +129,32 @@ namespace Geometric_Chuck
             ReCalculate();
         }
 
+        private void ProgressBarVisible(bool visible)
+        {
+            //ProgressRing0.Visibility = visible ? Visibility.Visible : Visibility.Collapsed;
+            ProgressRing0.IsActive = visible;
+        }
+
+        private async void GeneratePaths()
+        {
+           
+            ProgressBarVisible(true);
+            await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                viewModel.CreatePaths();
+                BarrelPathDisplay.CurrentPath = viewModel.CurrentPath;
+                BarrelPathDisplay.ShowPaths();
+            });
+            ProgressBarVisible(false);
+        }
+
         private void ReCalculate()
         {
-            viewModel.CreatePaths();
-            BarrelPathDisplay.CurrentPath = viewModel.CurrentPath;
-            BarrelPathDisplay.ShowPaths();
-
+            if (viewModel != null) 
+                 GeneratePaths();
+            //viewModel.CreatePaths();
+            //BarrelPathDisplay.CurrentPath = viewModel.CurrentPath;
+            //BarrelPathDisplay.ShowPaths();
         }
 
         private async void ExportPaths_Click(object sender, RoutedEventArgs e)
@@ -140,7 +188,7 @@ namespace Geometric_Chuck
 
         private void Import_Spindle_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.ImportPattern(PatternType.BARREL);
+            viewModel.ImportPattern(PatternType.barrel);
             BarrelChoices.SelectedIndex = viewModel.SelectedPathIndex;
         }
 
@@ -162,13 +210,14 @@ namespace Geometric_Chuck
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            viewModel = (ViewModel)e.Parameter;
+            //viewModel = (ViewModel)e.Parameter;
+            viewModel = App.viewModel;
+            viewModel.SetupPattern(PatternType.barrel, null, -1);
             this.DataContext = viewModel;
-            viewModel.SetupPattern(PatternType.BARREL, null, -1);
-
             BarrelChoices.SelectedIndex = viewModel.SelectedPathIndex;
             BarrelChoices.SelectionChanged += BarrelChoices_SelectionChanged;
-            BarrelChoices.SelectedItem = viewModel.BarrelPatterns[0];
+
+            IncrementCombo.SelectedItem = viewModel.Increment;
             ReCalculate();
         }
 
@@ -177,7 +226,7 @@ namespace Geometric_Chuck
             if (BarrelChoices.SelectedValue != null)
             {
                 Barrel choice = (Barrel)BarrelChoices.SelectedValue;
-                comboBox3.SetUpItems(choice.CombinationRule);
+                //comboBox3.SetUpItems(choice.CombinationRule);
                 choice.PropertyChanged += choice_PropertyChanged;
                 viewModel.CurrentPathData = choice;
                   
@@ -229,46 +278,52 @@ namespace Geometric_Chuck
         {
             GridControl gc = new GridControl();
             gc.DataContext = BarrelPathDisplay.Grid;
-            Flyout f = new Flyout(
-              new SolidColorBrush(Colors.White),//the foreground color of all flyouts
-              (Brush)App.Current.Resources["ApplicationPageBackgroundThemeBrush"],//the background color of all flyouts
-              new SolidColorBrush(Color.FromArgb(255, 255, 0, 0)),//the theme brush of the app
-              "Change Grid Size",
-              FlyoutDimension.Narrow,//switch between narrow and wide depending on the check box
-              gc);
-            f.DataContext = BarrelPathDisplay.Grid;
-            f.Name = "GridControl";
-            f.OnClosing += g_OnClosing;
-            f.ShowAsync();
-        }
+            SettingsFlyout settings = new SettingsFlyout();
+            // set the desired width.  If you leave this out, you will get Narrow (346px)
+            settings.FlyoutWidth = Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth.Narrow;
 
-        void g_OnClosing(object sender, CloseReason reason, System.ComponentModel.CancelEventArgs cancelEventArgs)
-        {
-            //BazelyPathDisplay.UpdateGrid();
-            ReCalculate();
+            // optionally change header and content background colors away from defaults (recommended)
+            // if using Callisto's AppManifestHelper you can grab the element from some member var you held it in
+            settings.HeaderBrush = new SolidColorBrush(BarrelPathDisplay.Grid.Foreground);
+            settings.HeaderText = "Change Grid Size"; // string.Format("{0}", App.VisualElements.DisplayName);
+            settings.ContentBackgroundBrush = BarrelPathDisplay.CanvasBackgroundBrush;
+            // provide some logo (preferrably the smallogo the app uses)
+            BitmapImage bmp = new BitmapImage(App.VisualElements.SmallLogoUri);
+            settings.SmallLogoImageSource = bmp;
+            settings.Content = gc;
+            // open it
+            settings.IsOpen = true;
         }
 
         private void Points_Click(object sender, RoutedEventArgs e)
         {
             if (BarrelPathDisplay.CurrentPath.Count == 0) return;
             PointsControl pc = new PointsControl();
-            pc.DataContext = BarrelPathDisplay.CurrentPath.AllPoints;
+            pc.DataContext = viewModel.CurrentPath.AllPaths; //BazleyPathDisplay.CurrentPath.AllPoints;
             pc.SelectedPath = 0;
-            Flyout f = new Flyout(
-             new SolidColorBrush(Colors.White),//the foreground color of all flyouts
-             (Brush)App.Current.Resources["ApplicationPageBackgroundThemeBrush"],//the background color of all flyouts
-             new SolidColorBrush(Color.FromArgb(255, 255, 0, 0)),//the theme brush of the app
-             "Points",
-             FlyoutDimension.Narrow,//switch between narrow and wide depending on the check box
-             pc);
-            f.ShowAsync();
+            SettingsFlyout settings = new SettingsFlyout();
+            // set the desired width.  If you leave this out, you will get Narrow (346px)
+            settings.FlyoutWidth = Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth.Narrow;
+
+            // optionally change header and content background colors away from defaults (recommended)
+            // if using Callisto's AppManifestHelper you can grab the element from some member var you held it in
+            settings.HeaderBrush = new SolidColorBrush(App.VisualElements.BackgroundColor);
+            settings.HeaderText = "Points"; // string.Format("{0}", App.VisualElements.DisplayName);
+            settings.ContentBackgroundBrush = BarrelPathDisplay.CanvasBackgroundBrush;
+            // provide some logo (preferrably the smallogo the app uses)
+            BitmapImage bmp = new BitmapImage(App.VisualElements.SmallLogoUri);
+            settings.SmallLogoImageSource = bmp;
+            settings.Content = pc;
+            // open it
+            settings.IsOpen = true;
+
         }
 
         private void Gcode_Click(object sender, RoutedEventArgs e)
         {
             if (this.Frame != null)
             {
-                this.Frame.Navigate(typeof(GcodePage), viewModel);
+                this.Frame.Navigate(typeof(GcodePage));
             }
         }
 

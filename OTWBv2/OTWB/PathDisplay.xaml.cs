@@ -1,4 +1,6 @@
-﻿using Geometric_Chuck.Common;
+﻿using OTWB.Collections;
+using OTWB.Common;
+using OTWB.Lattice;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,14 +22,29 @@ using Windows.UI.Xaml.Shapes;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace Geometric_Chuck
+namespace OTWB
 {
     public sealed partial class PathDisplay : UserControl
     {
         private const string XAXIS = "XAXIS";
         private const string YAXIS = "YAXIS";
-        private PolygonCollection  _currentPath;
+        private ShapeCollection  _currentPath;
         public RadialGrid Grid { get; set; }
+        public Windows.UI.Xaml.Shapes.Path WorkOutline;
+
+        ViewModel _viewmodel;
+        public ViewModel Viewmodel
+        {
+            get { return _viewmodel; }
+            set 
+            { 
+                _viewmodel = value;
+                if (_viewmodel.CurrentPathData is LatticeData)
+                {
+                    CreateWorkOutline();
+                }
+            }
+        }
 
         double _pathwidth;
         public double PathWidth
@@ -40,15 +57,64 @@ namespace Geometric_Chuck
             }
         }
 
-        public PolygonCollection CurrentPath 
+        bool _showgrid;
+        public bool Showgrid
+        {
+            get { return _showgrid; }
+            set
+            {
+                _showgrid = value;
+                if (_showgrid)
+                    ShowGrid();
+                else
+                    HideGrid();
+            }
+        }
+
+        bool _showWorkOutline;
+        public bool ShowWorkOutline
+        {
+            get { return _showWorkOutline; }
+            set
+            {
+                _showWorkOutline = value;
+                if (_showWorkOutline)
+                    ShowWorkPieceOutline();
+                else
+                    HideWorkPieceOutline();
+            }
+        }
+       
+        public void CreateWorkOutline()
+        {
+            WorkOutline = new Windows.UI.Xaml.Shapes.Path();
+            GeometryGroup gg = new GeometryGroup();
+            Point origin = new Point(0, 0);
+            EllipseGeometry eg = new EllipseGeometry();
+            eg.Center = origin;
+            eg.RadiusX = eg.RadiusY = (_viewmodel.CurrentPathData as LatticeData).Layout.ClipRange.End;
+            gg.Children.Add(eg);
+            if ((_viewmodel.CurrentPathData as LatticeData).Layout.ClipRange.Start > 0)
+            {
+                eg = new EllipseGeometry();
+                eg.Center = origin;
+                eg.RadiusX = eg.RadiusY = (_viewmodel.CurrentPathData as LatticeData).Layout.ClipRange.Start;
+                gg.Children.Add(eg);
+            }
+            WorkOutline.Data = gg;
+            WorkOutline.StrokeThickness = 1 / ScaleFactor;
+            WorkOutline.Stroke = new SolidColorBrush(Colors.Wheat);
+            WorkOutline.StrokeDashArray = new DoubleCollection() { 5, 5 };
+            WorkOutline.Name = "WorkOutline";
+        }
+
+        public ShapeCollection CurrentPath 
         {
             set
             {
-                if (_currentPath != null)
-                    _currentPath.CollectionChanged -= CurrentPath_CollectionChanged;
+                //if (_currentPath != null)
+                //    _currentPath.CollectionChanged -= CurrentPath_CollectionChanged;
                 _currentPath = value;
-                if (_currentPath != null)
-                    _currentPath.CalculateExtent();
             }
 
             get
@@ -73,13 +139,19 @@ namespace Geometric_Chuck
                 ShowPaths();
             }
 
-        } 
-               
+        }
+
+        public SolidColorBrush CanvasBackgroundBrush
+        {
+            get { return (SolidColorBrush)PathDisplayCanvas.Background; }
+        }
+
         public PathDisplay()
         {
             this.InitializeComponent();
             _pathwidth = 1.0;
             Grid = new RadialGrid(new Range(0,10,100));
+            Grid.Foreground = Colors.Blue;
             Grid.PropertyChanged += Grid_PropertyChanged;
             double s = ScaleFactor;
             (PathDisplayCanvas.RenderTransform as CompositeTransform).ScaleX = s;
@@ -93,16 +165,10 @@ namespace Geometric_Chuck
             this.PointerWheelChanged += PathDisplay_PointerWheelChanged;
         }
 
-        public void UpdateGrid()
-        {
-            Grid.Update();
-            Replace(Grid.Outline);
-            ChangeScaleFactorTo(ScaleFactor);
-        }
-
         void Grid_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             // remove old grid and replace
+            Grid.Update();
             Replace(Grid.Outline);
             ChangeScaleFactorTo(ScaleFactor);
         }
@@ -113,38 +179,80 @@ namespace Geometric_Chuck
             if ((_currentPath != null) && (_currentPath.Count > 0))
             {
                 //Debug.WriteLine("Current path viable {0}", _currentPath.PatternName);
-                Clear();
-                if (_currentPath.PathExtent.IsMaxExtent)
-                    _currentPath.CalculateExtent();
-                //Debug.WriteLine("Extent is {0} ",CurrentPath.Extent.ToString());
-                double m = ScaleFactor;
-               // (PathDisplayCanvas.RenderTransform as CompositeTransform).ScaleX = m;
-                foreach (Polygon path in _currentPath.Polygons)
+                PathDisplayCanvas.Children.Clear();
+                if (_showgrid)
+                    PathDisplayCanvas.Children.Add(Grid.Outline);
+                if (_showWorkOutline)
+                    PathDisplayCanvas.Children.Add(WorkOutline);
+                try
                 {
-                    path.StrokeThickness = _pathwidth;
-                    //if (!double.IsInfinity(m))
-                    //{
-                    //    path.StrokeThickness = (Math.Abs(m) > 0) ? _pathwidth / m : _pathwidth;
-                    //}
-                    if (!this.PathDisplayCanvas.Children.Contains(path))
+                    foreach (Shape path in _currentPath.Shapes)
+                    {
+                        path.StrokeThickness = _pathwidth;
+                        path.Stroke = new SolidColorBrush(Colors.Red);
+                        path.StrokeEndLineCap = PenLineCap.Round;
                         this.PathDisplayCanvas.Children.Add(path);
-
-                    
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.InnerException);
                 }
             }
         }
 
-        public void Clear()
-        {
-            //ResourceLoader loader = new ResourceLoader();
-            //string name = loader.GetString("HILITE_POINT");
-            foreach (Shape s in PathDisplayCanvas.Children)
-            {
+        //private void Clip(Shape s)
+        //{
+        //    double r = _viewmodel.WorkDiameter / 2;
+        //    List<PathFigure> outside = new List<PathFigure>();
 
-                if (s is Polygon)
-                    PathDisplayCanvas.Children.Remove(s);
-            }
-        }
+        //    if (s is Windows.UI.Xaml.Shapes.Path)
+        //    {
+        //        Geometry g = (s as Windows.UI.Xaml.Shapes.Path).Data;
+        //        if (g is GeometryGroup)
+        //        {
+        //            foreach ( Geometry gc in (g as GeometryGroup).Children)
+        //            {
+        //                if (gc is PathGeometry)
+        //                {
+        //                    foreach (PathFigure pf in (gc as PathGeometry).Figures)
+        //                    {
+        //                        if (distance(pf.StartPoint) < r)
+        //                        {
+        //                            foreach (PathSegment ps in pf.Segments)
+        //                            {
+        //                                if (ps is PolyLineSegment)
+        //                                {
+        //                                    PolyLineSegment pls = ps as PolyLineSegment;
+        //                                    PointCollection pc = new PointCollection();
+        //                                    List<Point> lp = pls.Points.Where(p => distance(p) < r).ToList();
+        //                                    pls.Points.Clear();
+        //                                    foreach (Point p in lp)
+        //                                        pls.Points.Add(p);
+
+        //                                }
+        //                            }
+        //                        }
+        //                        else
+        //                        {
+        //                            outside.Add(pf);
+        //                        }
+
+        //                    }
+        //                    foreach (PathFigure pf in outside)
+        //                    {
+        //                        (gc as PathGeometry).Figures.Remove(pf);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+
+        //private double distance(Point p)
+        //{
+        //    return Math.Sqrt(p.X * p.X + p.Y * p.Y);
+        //}
 
         private void Replace(Shape s)
         {
@@ -186,39 +294,6 @@ namespace Geometric_Chuck
             
             PathDisplayCanvas.Children.Add(Xaxis);
             PathDisplayCanvas.Children.Add(Yaxis);
-        }
-
-        public void AddGrid()
-        {
-            //Grid grid = new Grid();
-            //PathCanvas.Children.Add(Grid.Outline);
-        }
-
-        public void AddHilightPoint(Point p)
-        {
-            double m = ScaleFactor;
-            if (m > 0)
-            {
-                ResourceLoader loader = new ResourceLoader();
-                Windows.UI.Xaml.Shapes.Path path = new Windows.UI.Xaml.Shapes.Path();
-                path.RenderTransform = CreateTransforms(0,0,1,1);
-                path.Name = loader.GetString("HILITE_POINT");
-                path.Stroke = new SolidColorBrush(Color.FromArgb(255, 0, 255, 255));
-                path.Fill = new SolidColorBrush(Color.FromArgb(255, 0, 255, 255)); ;
-                GeometryGroup g = new GeometryGroup();
-                EllipseGeometry eg = new EllipseGeometry();
-
-                eg.Center = p;
-                eg.RadiusX = eg.RadiusY = 1;
-                g.Children.Add(eg);
-                path.Data = g;
-
-                eg.RadiusX = 2/m;
-                eg.RadiusY = 2 / m;
-                (path.RenderTransform as CompositeTransform).ScaleX = m;
-                (path.RenderTransform as CompositeTransform).ScaleY = m;
-                Replace(path);
-            }
         }
 
         private double ScaleFactor
@@ -273,8 +348,8 @@ namespace Geometric_Chuck
 
                     foreach (Shape uie in PathDisplayCanvas.Children)
                     {
-                        if (!(uie is Polygon))
-                            uie.StrokeThickness = 1 / (s + inc);
+                        if (!(uie is Polygon) || uie.Name == "Workoutline")
+                            uie.StrokeThickness = _pathwidth / (s + inc);
                     }
                 }
             }
@@ -335,5 +410,62 @@ namespace Geometric_Chuck
             PathDisplayCanvas.Children.Clear();
         }
 
+        internal void ShowWorkPieceOutline()
+        {
+            foreach (UIElement uie in PathDisplayCanvas.Children)
+            {
+                if (uie is Windows.UI.Xaml.Shapes.Path)
+                {
+                    if ((uie as Windows.UI.Xaml.Shapes.Path) == WorkOutline)
+                    {
+                        return;
+                    }
+                }
+            }
+            if (_viewmodel != null)
+                PathDisplayCanvas.Children.Add(WorkOutline);
+        }
+
+        internal void HideWorkPieceOutline()
+        {
+            foreach (UIElement uie in PathDisplayCanvas.Children)
+            {
+                if (uie is Windows.UI.Xaml.Shapes.Path)
+                {
+                    if (uie == WorkOutline)
+                    {
+                        PathDisplayCanvas.Children.Remove(uie);
+                    }
+                }
+            }
+        }
+
+        internal void ShowGrid()
+        {        
+            foreach (UIElement uie in PathDisplayCanvas.Children)
+            {
+                if (uie is Windows.UI.Xaml.Shapes.Path)
+                {
+                    if ((uie as Windows.UI.Xaml.Shapes.Path) == Grid.Outline)
+                    {
+                        return;
+                    }
+                }
+            }
+            PathDisplayCanvas.Children.Add(Grid.Outline);
+        }
+        internal void HideGrid()
+        {
+            foreach (UIElement uie in PathDisplayCanvas.Children)
+            {
+                if (uie is Windows.UI.Xaml.Shapes.Path)
+                {
+                    if (uie == Grid.Outline)
+                    {
+                        PathDisplayCanvas.Children.Remove(uie);
+                    }
+                }
+            }
+        }
     }
 }

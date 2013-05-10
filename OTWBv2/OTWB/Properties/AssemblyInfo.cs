@@ -6,11 +6,11 @@ using System.Resources;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Geometric Chuck")]
+[assembly: AssemblyTitle("OTWB")]
 [assembly: AssemblyDescription("Generates patterns from geometric chuck settings described by Bazeley")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Geometric Chuck")]
+[assembly: AssemblyProduct("OTWB")]
 [assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

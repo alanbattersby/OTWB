@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Geometric_Chuck.Spindle
+namespace OTWB.Spindle
 {
     public class RosetteTemplateSelector : DataTemplateSelector
     {

@@ -14,13 +14,13 @@ using Windows.UI.Xaml.Navigation;
 
 // The Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234233
 
-namespace Geometric_Chuck
+namespace OTWB
 {
     /// <summary>
     /// A page that displays a collection of item previews.  In the Split Application this page
     /// is used to display and select one of the available groups.
     /// </summary>
-    public sealed partial class StartPage : Geometric_Chuck.Common.LayoutAwarePage
+    public sealed partial class StartPage : OTWB.Common.LayoutAwarePage
     {
         ViewModel viewModel;
 
@@ -47,7 +47,9 @@ namespace Geometric_Chuck
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            viewModel = (ViewModel)e.Parameter;
+            viewModel = App.viewModel;
+            if (ViewModel.NeedsInitialising)
+                viewModel.CreateData();
         }
 
         private void itemGridView_ItemClick(object sender, ItemClickEventArgs e)
@@ -57,7 +59,7 @@ namespace Geometric_Chuck
                 PageData page = (PageData)e.ClickedItem;
                 if (!page.IsCodePage)
                     viewModel.CleanUpForPageChange(true);
-                this.Frame.Navigate(page.PageType, viewModel);
+                this.Frame.Navigate(page.PageType, null);
             }
         }
 

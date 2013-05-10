@@ -1,10 +1,10 @@
-﻿using Geometric_Chuck.Interfaces;
+﻿using OTWB.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Geometric_Chuck.Spindle
+namespace OTWB.Spindle
 {
     public class OffsetPath<T>
     {

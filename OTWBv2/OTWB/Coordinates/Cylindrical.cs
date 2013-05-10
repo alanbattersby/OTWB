@@ -1,9 +1,7 @@
-using Geometric_Chuck;
-// Cylindrical.cs
-using Geometric_Chuck.Interfaces;
+using OTWB;
+using OTWB.Interfaces;
 using System;
 using System.Xml.Serialization;
-using TCD.Mathematics;
 using Windows.Foundation;
 
 namespace  OTWB.Coordinates
@@ -33,8 +31,8 @@ namespace  OTWB.Coordinates
 		[XmlIgnore]
 		public double AngleInRadians
 		{
-            get { return Math.Round(Geometric_Chuck.BasicLib.ToRadians * _a, DP); }
-			set { _a = Math.Round(Geometric_Chuck.BasicLib.ToDegrees * value,DP); }
+            get { return Math.Round(OTWB.BasicLib.ToRadians * _a, DP); }
+			set { _a = Math.Round(OTWB.BasicLib.ToDegrees * value,DP); }
 		}
 			
 		public Cylindrical(double r, double a, double d)
@@ -199,7 +197,12 @@ namespace  OTWB.Coordinates
 			else 
 				return (double)(180 + Pol(-x, -y));
 		}
-		
+
+        public static Cylindrical operator *(double s, Cylindrical c)
+        {
+            return new Cylindrical(s * c.Radius, c.Angle, c.Depth);
+        }
+
         //public void Transform (Transformation t)
         //{
         //    Cylindrical c = t.Transform(this.toCartesian3).toCylindrical;

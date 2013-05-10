@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Xml.Serialization;
 using System.ComponentModel;
-using Geometric_Chuck.Spindle;
+using OTWB.Spindle;
 using Windows.Foundation;
 
 
-namespace Geometric_Chuck.Spindle
+namespace OTWB.Spindle
 {
    
     public class SpurGear : Rosette

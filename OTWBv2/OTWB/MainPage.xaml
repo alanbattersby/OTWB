@@ -1,12 +1,12 @@
 ﻿<common:LayoutAwarePage
     x:Name="pageRoot"
-    x:Class="Geometric_Chuck.MainPage"
+    x:Class="OTWB.MainPage"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Geometric_Chuck"
-    xmlns:common="using:Geometric_Chuck.Common"
-    xmlns:mycontrols="using:Geometric_Chuck.MyControls"
+    xmlns:local="using:OTWB"
+    xmlns:common="using:OTWB.Common"
+    xmlns:mycontrols="using:OTWB.MyControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:tcd="using:TCD.Controls"
@@ -15,7 +15,7 @@
 
     <common:LayoutAwarePage.Resources>
 
-        <common:PolyPointsConverter x:Key="PolyPointsConverter"/>
+        <common:ShapePointsConverter x:Key="PolyPointsConverter"/>
         <common:PointIndexConverter x:Key="PathIndexConverter"/>
         <common:PatternPathListNameConverter x:Key="ChuckPathListNameConverter"/>
         <common:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
@@ -29,8 +29,6 @@
                 <StackPanel HorizontalAlignment="Left" Height="100" Width="1138" Orientation="Horizontal">
                     <Button AutomationProperties.Name="Save Pattern" Style="{StaticResource SaveAppBarButtonStyle}" Click="Save_Pattern_Click"/>
                     <Button AutomationProperties.Name="Export Path" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="Export_Path_Click" Style="{StaticResource SaveAppBarButtonStyle}"/>
-                    <Button AutomationProperties.Name="Edit Stage"  Click="Button_Click_3" Style="{StaticResource EditAppBarButtonStyle}" />
-                    <Button AutomationProperties.Name="Test"  Click="Test_Click" Style="{StaticResource UploadAppBarButtonStyle}" />
                     <Button AutomationProperties.Name="G Code" Click="Gcode_Click" Style="{StaticResource NextAppBarButtonStyle}"  />
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Width="214" RenderTransformOrigin="0,0">
@@ -66,7 +64,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
-            <TextBlock x:Name="pageTitle" Grid.Column="1" Text="Bazely " Style="{StaticResource PageHeaderTextStyle}"/>                  
+            <TextBlock x:Name="pageTitle" Grid.Column="1" Style="{StaticResource PageHeaderTextStyle}">
+            	<Run Text="Baz"/>
+            	<Run Text="ley"/>
+            </TextBlock>
         </Grid>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
         <StackPanel Width="310" Margin="20,0,0,0">
@@ -83,31 +84,26 @@
                         </ComboBox.ItemTemplate>
                     </ComboBox>
                 </StackPanel>
-                <StackPanel Margin="0,0,10,0">
-                    <StackPanel x:Name="BazelyChuckData" DataContext="{Binding SelectedItem, ElementName=PatternChoices}" Height="481">
+                <StackPanel Margin="0,0,10,0" Height="584">
+                    <StackPanel x:Name="BazelyChuckData" DataContext="{Binding SelectedItem, ElementName=PatternChoices}" Height="469">
                         <StackPanel x:Name="stackPanel" Orientation="Horizontal" >
                             <TextBlock Text="SR is " Margin="0,0,20,0" Style="{StaticResource SubheaderTextStyle}" Height="32"/>
                             <Controls:NumericUpDown Value="{Binding SR, Mode=TwoWay}" Width="141" DecimalPlaces="2" Minimum="-100" />
                         </StackPanel>
-                        <ListView Height="372"  x:Name="BazelyStageList" ItemsSource="{Binding SelectedItem.Stages, ElementName=PatternChoices}">
+                        <ListView Height="422"  x:Name="BazelyStageList" ItemsSource="{Binding SelectedItem.Stages, ElementName=PatternChoices}">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <mycontrols:BSDControl DataContext="{Binding}"/>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
-                        <StackPanel Height="146">
-                            <TextBlock Text="Script" Style="{StaticResource SubheaderTextStyle}" Height="112" />
-                            <TextBlock Text="" />
-                            <TextBlock x:Name="ScriptBlock" Text="{Binding Script}" />
-                        </StackPanel>
                     </StackPanel> 
-                    <StackPanel Orientation="Horizontal" >
+                    <StackPanel Margin="0">
+                    <StackPanel Orientation="Horizontal" Height="30" >
                         <TextBlock Text="Path Width" Style="{StaticResource ItemTextStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0" />
-                        <Controls:NumericUpDown Value="{Binding PathWidth, ElementName=BazelyPathDisplay, Mode=TwoWay}" DecimalPlaces="2" Minimum="0.1" Maximum="16" Increment="0.1" />          
+                        <Controls:NumericUpDown Value="{Binding PathWidth, ElementName=BazleyPathDisplay, Mode=TwoWay}" DecimalPlaces="2" Minimum="0.1" Maximum="16" Increment="0.1" />          
                     </StackPanel>
-                    <StackPanel Margin="0,10,0,0" Orientation="Horizontal" Height="52">
-                       
+                    <StackPanel Margin="0,10,0,0" Orientation="Horizontal" Height="38">             
                         <TextBlock Text="Increment" Style="{StaticResource ItemTextStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         <ComboBox x:Name="IncrementCombo" Margin="10,0,0,0" IsSynchronizedWithCurrentItem="False" ItemsSource="{Binding Increments}" RenderTransformOrigin="0.518,0.453" Width="119" HorizontalContentAlignment="Center" SelectionChanged="IncrementCombo_SelectionChanged" >
                             <ComboBox.DataContext>
@@ -115,11 +111,16 @@
                             </ComboBox.DataContext>
                         </ComboBox>
                     </StackPanel>
+                    </StackPanel>
                 </StackPanel>
-                <ProgressRing x:Name="ProgressRing1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,20,10,0" Height="28" IsActive="True"/>
-                <TextBlock x:Name="StatusBlock" Grid.Row="6" Margin="0,0,0,5"  Visibility="Collapsed"/>
+                <ProgressRing x:Name="ProgressRing1" Height="120" Margin="205,0,0,0" Width="105" >
+                    <ProgressRing.RenderTransform>
+                        <CompositeTransform ScaleY="-1"/>
+                    </ProgressRing.RenderTransform>
+                </ProgressRing>
+                <TextBlock x:Name="StatusBlock" Grid.Row="6" Margin="0,0,0,5"/>
             </StackPanel>
-            <local:PathDisplay x:Name="BazelyPathDisplay" Height="Auto" RenderTransformOrigin="0,0" Width="1030" Margin="0,-99,0,0"/>
+            <local:PathDisplay x:Name="BazleyPathDisplay" Height="Auto" RenderTransformOrigin="0,0" Width="1030" Margin="0,-99,0,0"/>
            
         </StackPanel>
         <VisualStateManager.VisualStateGroups>

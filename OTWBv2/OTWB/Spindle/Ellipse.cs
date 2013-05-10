@@ -1,4 +1,4 @@
-﻿using Geometric_Chuck.Common;
+﻿using OTWB.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Shapes;
 using Windows.UI;
 
-namespace Geometric_Chuck.Spindle
+namespace OTWB.Spindle
 {
     public class Ellipse : Rosette
     {

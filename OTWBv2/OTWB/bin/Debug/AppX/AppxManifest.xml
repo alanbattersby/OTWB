@@ -9,7 +9,7 @@
   -->
   <Identity Name="60969d84-db98-41ed-aee0-184d903cec8d" Publisher="CN=ALAN" Version="1.0.0.0" ProcessorArchitecture="neutral" />
   <Properties>
-    <DisplayName>Geometric_Chuck</DisplayName>
+    <DisplayName>OTWB</DisplayName>
     <PublisherDisplayName>ALAN</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -21,11 +21,23 @@
     <Resource Language="EN-US" />
   </Resources>
   <Applications>
-    <Application Id="App" Executable="Geometric Chuck.exe" EntryPoint="Geometric_Chuck.App">
-      <VisualElements DisplayName="Geometric Chuck" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Geometric Chuck" ForegroundText="light" BackgroundColor="#464646">
+    <Application Id="App" Executable="OTWB.exe" EntryPoint="OTWB.App">
+      <VisualElements DisplayName="OTWB" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Tools to generate paths and G code for ornamental turners" ForegroundText="light" BackgroundColor="#464646">
         <DefaultTile ShowName="allLogos" />
         <SplashScreen Image="Assets\SplashScreen.png" />
+        <InitialRotationPreference>
+          <Rotation Preference="landscape" />
+        </InitialRotationPreference>
       </VisualElements>
+      <Extensions>
+        <Extension Category="windows.fileOpenPicker">
+          <FileOpenPicker>
+            <SupportedFileTypes>
+              <SupportsAnyFileType />
+            </SupportedFileTypes>
+          </FileOpenPicker>
+        </Extension>
+      </Extensions>
     </Application>
   </Applications>
   <Capabilities>
@@ -34,9 +46,10 @@
   <build:Metadata>
     <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v4.5" />
     <build:Item Name="VisualStudio" Version="11.0" />
+    <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Express 2012 for Windows 8" />
     <build:Item Name="OperatingSystem" Version="6.2.9200.16384 (win8_rtm.120725-1247)" />
-    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="11.0.51106.1" />
-    <build:Item Name="Microsoft.Windows.UI.Xaml.Build.Tasks.dll" Version="11.0.51106.1" />
+    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="11.0.60315.1" />
+    <build:Item Name="Microsoft.Windows.UI.Xaml.Build.Tasks.dll" Version="11.0.60315.1" />
     <build:Item Name="MakePri.exe" Version="6.2.9200.16384 (win8_rtm.120725-1247)" />
   </build:Metadata>
 </Package>

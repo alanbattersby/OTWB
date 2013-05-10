@@ -21,19 +21,21 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Shapes;
 using Windows.System.Threading;
-using TCD.Controls;
-using Geometric_Chuck.MyControls;
+using OTWB.MyControls;
 using System.Diagnostics;
+using OTWB.PathGenerators;
+using Callisto.Controls;
+using Windows.UI.Xaml.Media.Imaging;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
-namespace Geometric_Chuck
+namespace OTWB
 {
      
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class MainPage : Geometric_Chuck.Common.LayoutAwarePage
+    public sealed partial class MainPage : OTWB.Common.LayoutAwarePage
     {
         private ViewModel viewModel;
    
@@ -55,8 +57,9 @@ namespace Geometric_Chuck
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            viewModel = (ViewModel)e.Parameter;
-            viewModel.SetupPattern(PatternType.BAZELEY, null, -1);
+            //viewModel = (ViewModel)e.Parameter;
+            viewModel = App.viewModel;
+            viewModel.SetupPattern(PatternType.bazley, null, -1);
             viewModel.CurrentPathData.PropertyChanged += CurrentPathData_PropertyChanged;
             this.DataContext = viewModel;
             IncrementCombo.SelectedValue = viewModel.Increment;
@@ -77,6 +80,7 @@ namespace Geometric_Chuck
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
+            viewModel.CurrentPathData.PropertyChanged -= CurrentPathData_PropertyChanged;
             //viewModel.CleanUpForPageChange();
         }
         /// <summary>
@@ -136,22 +140,28 @@ namespace Geometric_Chuck
             //pageState[patternData] = _PatternData;
         }
 
-        //private void Button_Click_1(object sender, RoutedEventArgs e)
-        //{
-            
-        //    if (this.Frame != null)
-        //    {
-        //        viewModel.CleanUpForPageChange(true);
-        //        this.Frame.Navigate(typeof(RossPage), viewModel);
-        //    }
-        //}
+        private void ProgressBarVisible(bool visible)
+        {
+            ProgressRing1.Visibility = visible ? Visibility.Visible : Visibility.Collapsed;
+            ProgressRing1.IsActive = visible;
+        }
+
+        private async void GeneratePaths()
+        {
+            ProgressBarVisible(true);
+            await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                viewModel.CreatePaths();
+                BazleyPathDisplay.CurrentPath = viewModel.CurrentPath;
+                BazleyPathDisplay.ShowPaths();
+            });
+            ProgressBarVisible(false);
+        }
+
 
         private void ReCalculate()
         {
-            viewModel.CreatePaths();
-            BazelyPathDisplay.CurrentPath = viewModel.CurrentPath;
-            BazelyPathDisplay.ShowPaths();
-            //PointsView.DataContext = viewModel.CurrentPath;
+            GeneratePaths();
         }
 
         private void IncrementCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -224,71 +234,55 @@ namespace Geometric_Chuck
         }
 
       
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            // Edit the stage selected in the viewer
-            BazelyStageData bsd = (BazelyStageData)BazelyStageList.SelectedItem;
-            bsd.PropertyChanged+=bsd_PropertyChanged;
-            BSDControl s = new BSDControl();
-            s.DataContext = bsd;
-            Flyout f = new Flyout(
-               new SolidColorBrush(Colors.White),//the foreground color of all flyouts
-               (Brush)App.Current.Resources["ApplicationPageBackgroundThemeBrush"],//the background color of all flyouts
-               new SolidColorBrush(Color.FromArgb(255, 255, 0, 0)),//the theme brush of the app
-               "Stage Data Editor",
-               FlyoutDimension.Narrow,//switch between narrow and wide depending on the check box
-               s);
-            f.OnClosing += f_OnClosing;
-            f.ShowAsync();
-        }
-
         private void bsd_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             ReCalculate();
         }
 
-        void f_OnClosing(object sender, CloseReason reason, System.ComponentModel.CancelEventArgs cancelEventArgs)
-        {
-            //BazelyPathDisplay.UpdateGrid();
-            ReCalculate();
-        }
-
-        private void Test_Click(object sender, RoutedEventArgs e)
-        {
-           
-        }
-
+             
         private void Grid_Click(object sender, RoutedEventArgs e)
         {
             GridControl gc = new GridControl();
-            gc.DataContext = BazelyPathDisplay.Grid;
-            Flyout f = new Flyout(
-              new SolidColorBrush(Colors.White),//the foreground color of all flyouts
-              (Brush)App.Current.Resources["ApplicationPageBackgroundThemeBrush"],//the background color of all flyouts
-              new SolidColorBrush(Color.FromArgb(255, 255, 0, 0)),//the theme brush of the app
-              "Change Grid Size",
-              FlyoutDimension.Narrow,//switch between narrow and wide depending on the check box
-              gc);
-            f.DataContext = BazelyPathDisplay.Grid;
-            f.Name = "GridControl";
-            f.OnClosing += f_OnClosing;
-            f.ShowAsync();
+            gc.DataContext = BazleyPathDisplay.Grid;
+            SettingsFlyout settings = new SettingsFlyout();
+            // set the desired width.  If you leave this out, you will get Narrow (346px)
+            settings.FlyoutWidth = Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth.Narrow;
+
+            // optionally change header and content background colors away from defaults (recommended)
+            // if using Callisto's AppManifestHelper you can grab the element from some member var you held it in
+            settings.HeaderBrush = new SolidColorBrush(BazleyPathDisplay.Grid.Foreground);
+            settings.HeaderText = "Change Grid Size"; // string.Format("{0}", App.VisualElements.DisplayName);
+            settings.ContentBackgroundBrush = BazleyPathDisplay.CanvasBackgroundBrush;
+            // provide some logo (preferrably the smallogo the app uses)
+            BitmapImage bmp = new BitmapImage(App.VisualElements.SmallLogoUri);
+            settings.SmallLogoImageSource = bmp;
+            settings.Content = gc;
+            // open it
+            settings.IsOpen = true;
         }
 
         private void Points_Click(object sender, RoutedEventArgs e)
         {
-            if (BazelyPathDisplay.CurrentPath.Count == 0) return;
+            if (BazleyPathDisplay.CurrentPath.Count == 0) return;
             PointsControl pc = new PointsControl();
-            pc.DataContext = BazelyPathDisplay.CurrentPath.AllPoints;
+            pc.DataContext = viewModel.CurrentPath.AllPaths; //BazleyPathDisplay.CurrentPath.AllPoints;
             pc.SelectedPath = 0;
-            Flyout f = new Flyout(
-             new SolidColorBrush(Colors.White),//the foreground color of all flyouts
-             (Brush)App.Current.Resources["ApplicationPageBackgroundThemeBrush"],//the background color of all flyouts
-             new SolidColorBrush(Color.FromArgb(255, 255, 0, 0)),//the theme brush of the app
-             "Points",
-             FlyoutDimension.Narrow,//switch between narrow and wide depending on the check box
-             pc);
-            f.ShowAsync();
+            SettingsFlyout settings = new SettingsFlyout();
+            // set the desired width.  If you leave this out, you will get Narrow (346px)
+            settings.FlyoutWidth = Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth.Narrow;
+
+            // optionally change header and content background colors away from defaults (recommended)
+            // if using Callisto's AppManifestHelper you can grab the element from some member var you held it in
+            settings.HeaderBrush = new SolidColorBrush(App.VisualElements.BackgroundColor);
+            settings.HeaderText = "Points"; // string.Format("{0}", App.VisualElements.DisplayName);
+            settings.ContentBackgroundBrush = new SolidColorBrush(Colors.Black);
+            // provide some logo (preferrably the smallogo the app uses)
+            BitmapImage bmp = new BitmapImage(App.VisualElements.SmallLogoUri);
+            settings.SmallLogoImageSource = bmp;
+            settings.Content = pc;
+            // open it
+            settings.IsOpen = true;
+
         }
 
         private void Save_Pattern_Click(object sender, RoutedEventArgs e)
@@ -303,7 +297,7 @@ namespace Geometric_Chuck
         {
             if (this.Frame != null)
             {
-                this.Frame.Navigate(typeof(GcodePage), viewModel);
+                this.Frame.Navigate(typeof(GcodePage));
             }
         }
 

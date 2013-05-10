@@ -1,4 +1,6 @@
-﻿using Geometric_Chuck.Interfaces;
+﻿using OTWB.Collections;
+using OTWB.Interfaces;
+using OTWB.PathGenerators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,19 +12,27 @@ using Windows.UI;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Shapes;
 
-namespace Geometric_Chuck.PathGenerators
+namespace OTWB.PathGenerators
 {
     class WheelsEngine : IPathGenerator
     {
-        public PolygonCollection CreatePaths(IPathData pathdata, double inc)
+        public ToolPath CreateToolPath(PathData pd, double inc)
         {
-            PolygonCollection pc = new PolygonCollection();
+            ToolPath tp;
+            WheelsData rd = (WheelsData)pd;
+            tp = new ToolPath(CalculateWheels(rd, inc));
+            return tp;
+        }
+
+        public ShapeCollection CreatePaths(PathData pathdata, double inc)
+        {
+            ShapeCollection pc = new ShapeCollection();
             pc.PatternName = pathdata.Name;
-            pc.AddPoly(Path(pathdata, inc));
+            pc.AddShape(Path(pathdata, inc));
             return pc;
         }
 
-        Windows.UI.Xaml.Shapes.Polygon Path(IPathData pd, 
+        Windows.UI.Xaml.Shapes.Polygon Path(PathData pd, 
                                             double inc)
         {
             CompositeTransform ct = new CompositeTransform();
@@ -56,17 +66,5 @@ namespace Geometric_Chuck.PathGenerators
             return pts;
         }
 
-        private void CentrePolygon(ref Polygon poly)
-        {
-            var CurrentExtent = new Extent(double.MaxValue, double.MinValue, double.MaxValue, double.MinValue);
-            foreach (Point p in poly.Points)
-                CurrentExtent.Update(p);
-            Point cntr = CurrentExtent.Centre;
-            for (var i = 0; i < poly.Points.Count(); i++)
-            {
-                poly.Points[i] = new Point(poly.Points[i].X - cntr.X,
-                                            poly.Points[i].Y - cntr.Y);
-            }
-        }
     }
 }

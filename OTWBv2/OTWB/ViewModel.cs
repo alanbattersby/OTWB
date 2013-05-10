@@ -1,6 +1,6 @@
-﻿using Geometric_Chuck.Common;
-using Geometric_Chuck.Interfaces;
-using Geometric_Chuck.PathGenerators;
+﻿using OTWB.Common;
+using OTWB.Interfaces;
+using OTWB.PathGenerators;
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -17,10 +17,15 @@ using Windows.Storage.Streams;
 using Windows.UI.Xaml.Shapes;
 using System.Diagnostics;
 using System.Xml;
-using Geometric_Chuck.Spindle;
+using OTWB.Spindle;
 using Windows.UI.Xaml.Media;
+using OTWB.Braid;
+using OTWB.Lattice;
+using OTWB.Collections;
+using OTWB.Profiles;
+using OTWB.Coordinates;
 
-namespace Geometric_Chuck
+namespace OTWB
 {
     /// <summary>
     /// This class is used to hold the data on all Bazeley and Ross 
@@ -29,6 +34,10 @@ namespace Geometric_Chuck
     public class ViewModel : BindableBase
     {
         public event EventHandler WheelsDataChanged;
+        public event EventHandler LatticeDataChanged;
+        public event EventHandler BraidDataChanged;
+
+        public static bool NeedsInitialising { get; set; }
 
         // Now we have the list of Bazeley patterns
         public ObservableCollection<BazelyChuck> _BazelyPatterns;
@@ -52,22 +61,22 @@ namespace Geometric_Chuck
             set { SetProperty(ref _WheelsPatterns, value, "WheelsPatterns"); }
         }
 
-        IPathData _lastBazelyPattern;
-        public IPathData LastBazelyPattern
+        PathData _lastBazleyPattern;
+        public PathData LastBazleyPattern
         {
-            get { return _lastBazelyPattern; }
-            set { SetProperty(ref _lastBazelyPattern, value, "LastBazelyPattern"); }
+            get { return _lastBazleyPattern; }
+            set { SetProperty(ref _lastBazleyPattern, value, "LastBazelyPattern"); }
         }
 
-        double _lastBazelyIncrement;
-        public double LastBazelyIncrement
+        double _lastBazleyIncrement;
+        public double LastBazleyIncrement
         {
-            get { return _lastBazelyIncrement; }
-            set { SetProperty(ref _lastBazelyIncrement, value, "LastBazelyIncrement"); }
+            get { return _lastBazleyIncrement; }
+            set { SetProperty(ref _lastBazleyIncrement, value, "LastBazelyIncrement"); }
         }
 
-        IPathData _lastRossPattern;
-        public IPathData LastRossPattern
+        PathData _lastRossPattern;
+        public PathData LastRossPattern
         {
             get { return _lastRossPattern; }
             set { SetProperty(ref _lastRossPattern, value, "LastRossPattern"); }
@@ -79,8 +88,8 @@ namespace Geometric_Chuck
             set { SetProperty(ref _lastRossIncrement, value, "LastBazelyIncrement"); }
         }
 
-        IPathData _lastWheelsPattern;
-        public IPathData LastWheelsPattern
+        PathData _lastWheelsPattern;
+        public PathData LastWheelsPattern
         {
             get { return _lastWheelsPattern; }
             set { SetProperty(ref _lastWheelsPattern, value, "LastWheelsPattern"); }
@@ -99,8 +108,8 @@ namespace Geometric_Chuck
             set { SetProperty(ref _BarrelsPatterns, value, "BarrelsPatterns"); }
         }
 
-        IPathData _lastBarrelPattern;
-        public IPathData LastBarrelPattern
+        PathData _lastBarrelPattern;
+        public PathData LastBarrelPattern
         {
             get { return _lastBarrelPattern; }
             set { SetProperty(ref _lastBarrelPattern, value, "LastBarrelPattern"); }
@@ -112,69 +121,131 @@ namespace Geometric_Chuck
             get { return _lastBarrelIncrement; }
             set { SetProperty(ref _lastBarrelIncrement, value, "LastBarrelIncrement"); }
         }
+
+        public ObservableCollection<LatticeData> _LatticePatterns;
+        public ObservableCollection<LatticeData> LatticePatterns
+        {
+            get { return _LatticePatterns; }
+            set { SetProperty(ref _LatticePatterns, value); }
+        }
+
+        PathData _lastLatticePattern;
+        public PathData LastLatticePattern
+        {
+            get { return _lastLatticePattern; }
+            set { SetProperty(ref _lastLatticePattern, value); }
+        }
+
+        double _lastLatticeIncrement;
+        public double LastLatticeIncrement
+        {
+            get { return _lastLatticeIncrement; }
+            set { SetProperty(ref _lastLatticeIncrement, value); }
+        }
+        public ObservableCollection<BraidData> _BraidPatterns;
+        public ObservableCollection<BraidData> BraidPatterns
+        {
+            get { return _BraidPatterns; }
+            set { SetProperty(ref _BraidPatterns, value); }
+        }
+
+        PathData _lastBraidPattern;
+        public PathData LastBraidPattern
+        {
+            get { return _lastBraidPattern; }
+            set { SetProperty(ref _lastBraidPattern, value); }
+        }
+
+        double _lastBraidIncrement;
+        public double LastBraidIncrement
+        {
+            get { return _lastBraidIncrement; }
+            set { SetProperty(ref _lastBraidIncrement, value); }
+        }
         //TODO add Other path options to Save and restore
         void SaveCurrentPathdata()
         {
             if (_currentPathData != null)
             {
-                if (_currentPathData.PathType == PatternType.BAZELEY)
+                if (_currentPathData.PathType == PatternType.bazley)
                 {
-                    LastBazelyPattern = _currentPathData;
-                    LastBazelyIncrement = Increment;
+                    LastBazleyPattern = _currentPathData;
+                    LastBazleyIncrement = Increment;
                 }
-                else if (_currentPathData.PathType == PatternType.ROSS)
+                else if (_currentPathData.PathType == PatternType.ross)
                 {
                     LastRossPattern = _currentPathData;
                     LastRossIncrement = Increment;
                 }
-                else if (_currentPathData.PathType == PatternType.WHEELS)
+                else if (_currentPathData.PathType == PatternType.wheels)
                 {
                     LastWheelsPattern = _currentPathData;
                     LastWheelsIncrement = Increment;
                 }
-                else if (_currentPathData.PathType == PatternType.BARREL)
+                else if (_currentPathData.PathType == PatternType.barrel)
                 {
                     LastBarrelPattern = _currentPathData;
                     LastBarrelIncrement = Increment;
                 }
-                else  // defaults to Bazely
+                else if ((_currentPathData.PathType == PatternType.latticeRim) ||
+                        (_currentPathData.PathType == PatternType.latticeFace))
                 {
-                    LastBazelyPattern = _currentPathData;
-                    LastBazelyIncrement = Increment;
+                    LastLatticePattern = _currentPathData;
+                    LastLatticeIncrement = Increment;
+                }
+                else if (_currentPathData.PathType == PatternType.braid)
+                {
+                    LastBraidPattern = _currentPathData;
+                    LastBraidIncrement = Increment;
+                }
+                else  // defaults to Bazley
+                {
+                    LastBazleyPattern = _currentPathData;
+                    LastBazleyIncrement = Increment;
                 }
             }
         }
         void RestoreLastPathdata(PatternType typ)
         {
-            if (typ == PatternType.BAZELEY)
+            if (typ == PatternType.bazley)
             {
-                _currentPathData = (_lastBazelyPattern != null) ? _lastBazelyPattern : BazeleyPatterns[0];
-                _increment = (_lastBazelyIncrement > 0) ? _lastBazelyIncrement : 0.001;
+                _currentPathData = (_lastBazleyPattern != null) ? _lastBazleyPattern : BazeleyPatterns[0];
+                _increment = (_lastBazleyIncrement > 0) ? _lastBazleyIncrement : 0.001;
             }
-            else if (typ == PatternType.ROSS)
+            else if (typ == PatternType.ross)
             {
                 _currentPathData = (_lastRossPattern != null) ? _lastRossPattern : RossPatterns[0];
                 _increment = (_lastRossIncrement > 0) ? _lastRossIncrement : 0.0005;
             }
-            else if (typ == PatternType.WHEELS)
+            else if (typ == PatternType.wheels)
             {
                 _currentPathData = (_lastWheelsPattern != null) ? _lastWheelsPattern : null;
                 _increment = (_lastWheelsIncrement > 0) ? _lastWheelsIncrement : 0.001;
             }
-            else if (typ == PatternType.BARREL)
+            else if (typ == PatternType.barrel)
             {
                 _currentPathData = (_lastBarrelPattern != null) ? _lastBarrelPattern : null;
                 _increment = (_lastBarrelIncrement > 0) ? _lastBarrelIncrement : 0.001;
             }
-            else  // defaults to Bazely
+            else if ((typ == PatternType.latticeRim) || (typ == PatternType.latticeFace))
             {
-                _currentPathData = (_lastBazelyPattern != null) ? _lastBazelyPattern : BazeleyPatterns[0];
-                _increment = (_lastBazelyIncrement > 0) ? _lastBazelyIncrement : 0.001;
+                _currentPathData = (_lastLatticePattern != null) ? _lastLatticePattern : null;
+                _increment = (_lastLatticeIncrement > 0) ? _lastLatticeIncrement : 0.01;
+            }
+            else if (typ == PatternType.braid)
+            {
+                _currentPathData = (_lastBraidPattern != null) ? _lastBraidPattern : null;
+                _increment = (_lastBraidIncrement > 0) ? _lastBraidIncrement : 0.01;
+            }
+            else  // defaults to Bazley
+            {
+                _currentPathData = (_lastBazleyPattern != null) ? _lastBazleyPattern : BazeleyPatterns[0];
+                _increment = (_lastBazleyIncrement > 0) ? _lastBazleyIncrement : 0.001;
             }
         }
 
-        IPathData _currentPathData;
-        public IPathData CurrentPathData
+        PathData _currentPathData = new Barrel();
+        public PathData CurrentPathData
         {
             get { return _currentPathData; }
             set
@@ -187,20 +258,27 @@ namespace Geometric_Chuck
                     }
                     else if ((_currentPathData == null) && (value != null))
                     {
-                        if (value.PathType == PatternType.BAZELEY)
-                            LastBazelyPattern = value;
-                        else if (value.PathType == PatternType.ROSS)
+                        if (value.PathType == PatternType.bazley)
+                            LastBazleyPattern = value;
+                        else if (value.PathType == PatternType.ross)
                             LastRossPattern = value;
-                        else if (value.PathType == PatternType.WHEELS)
+                        else if (value.PathType == PatternType.wheels)
                             LastWheelsPattern = value;
-                        else if (value.PathType == PatternType.BARREL)
+                        else if (value.PathType == PatternType.barrel)
                             LastBarrelPattern = value;
+                        else if (value.PathType == PatternType.latticeRim)
+                            LastLatticePattern = value;
+                        else if (value.PathType == PatternType.latticeFace)
+                            LastLatticePattern = value;
+                        else if (value.PathType == PatternType.braid)
+                            LastBraidPattern = value;
                     }
                     if (value != null)
                     {
                         try
                         {
-                            SetProperty(ref _currentPathData, value, "CurrentPathData");
+                            //SetProperty(ref _currentPathData, (value as PathData));
+                            _currentPathData = value;
                             CreatePaths();
                         }
                         catch (System.ArgumentException sae)
@@ -212,6 +290,12 @@ namespace Geometric_Chuck
             }
         }
 
+        Profile _profile;
+        public Profile CurrentProfile
+        {
+            get { return _profile; }
+            set { SetProperty(ref _profile, value); }
+        }
 
         IPathGenerator _pathEngine;
 
@@ -221,39 +305,126 @@ namespace Geometric_Chuck
             get { return _increment; }
             set 
             { 
-                SetProperty(ref _increment, value, "Increment");
+                SetProperty(ref _increment, value);
             }
         }
 
-        public ViewModel()
+        public void CreateData()
         {
             BazeleyPatterns = new ObservableCollection<BazelyChuck>();
-            CreateBazelyData();
-            _lastBazelyPattern = null;
-
+            _lastBazleyPattern = null;
             RossPatterns = new ObservableCollection<RossData>();
-            _currentPath = new PolygonCollection();
+            _currentPath = new ShapeCollection();
             _lastRossPattern = null;
-            CreateRossData();
-
+            WheelsPatterns = new ObservableCollection<WheelsData>();
             _lastWheelsPattern = null;
-            CreateWheelsData();
-
             BarrelPatterns = new ObservableCollection<Barrel>();
             _lastBarrelPattern = null;
+            LatticePatterns = new ObservableCollection<LatticeData>();
+            _lastLatticePattern = null;
+            BraidPatterns = new ObservableCollection<BraidData>();
+            _lastBraidPattern = null;
+
+            CreateBazelyData();
+            CreateRossData();
+            CreateWheelsData();
             CreateBarrelData();
+            CreateLatticeData();
+            CreateBraidData();
+            NeedsInitialising = false;
         }
+
+       
+        public ViewModel()
+        {     
+            NeedsInitialising = true;
+            LastBazleyPattern = new BazelyChuck();
+            LastRossPattern = new RossData();
+            LastWheelsPattern = new WheelsData();
+            LastBarrelPattern = new Barrel();
+            LastLatticePattern = new LatticeData();
+            LastBraidPattern = new BraidData();
+        }
+
+        private void CreateBraidData()
+        {
+            BraidData b = new BraidData();
+            b.Repeats = 4;
+            Permutation p = new Permutation();
+            p.SetPermOf(0, 1);
+            p.SetPermOf(1, 0);
+            b.Add(p);
+            p = new Permutation();
+            b.Add(p);
+            p = new Permutation();
+            p.SetPermOf(0, 1);
+            p.SetPermOf(1, 0);
+            b.Add(p);
+            BraidPatterns.Add(b);
+            b.PropertyChanged += b_PropertyChanged;
+        }
+
+        void b_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (BraidDataChanged != null)
+                BraidDataChanged(this, new EventArgs());
+        }
+
+        private void CreateLatticeData()
+        {
+            LatticeData l = new LatticeData(1);
+            l.Layout.ToolPosition = 60;
+            l.Rows = 10;
+            l.Columns = 10;
+            l.Layout.RepeatX = 10;
+            l.Layout.RepeatY = 10;
+            l.Layout.Width = 30;
+            l.Layout.Height = 30;
+            l.Layout.Clip = true;
+            l.Layout.ClipRange.Start = 50;
+            l.Layout.ClipRange.End = 200;
+            l.PropertyChanged += l_PropertyChanged;
+            l.Add(new Line2D(0, 0, 5, 0));
+            l.Add(new Line2D(0, 5, 5, 5));
+            l.Add(new Line2D(0, 0, 0, 5));
+            l.Add(new Line2D(5, 0, 5, 5));
+            l.Add(new Line2D(0, 0, 5, 5));
+            l.Add(new Line2D(5, 0, 0, 5));
+            l.LineChanged += l_LineChanged;
+            l.LineRemoved += l_LineChanged;
+            LatticePatterns.Add(l);
+        }
+
+        void l_LineChanged(object sender, Line2D e)
+        {
+            if (LatticeDataChanged != null)
+                LatticeDataChanged(this, new EventArgs());
+        }
+
+        void Lines_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            
+        }
+
+        void l_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "K" && (!(sender as LatticeData).Layout.Hyper))
+                return;
+            if (LatticeDataChanged != null)
+                LatticeDataChanged(this, new EventArgs());
+        }
+
 
         private void CreateBarrelData()
         {
             Barrel b = new Barrel(0);
-            b.Add(new Geometric_Chuck.Spindle.Ellipse(0.3));
+            b.Add(new OTWB.Spindle.Ellipse(0.3));
             BarrelPatterns.Add(b);
             b = new Barrel(1);
-            b.Add(new Geometric_Chuck.Spindle.Wave(8, 1, 0));
+            b.Add(new OTWB.Spindle.Wave(8, 1, 0));
             BarrelPatterns.Add(b);
             b = new Barrel(2);
-            b.Add(new Geometric_Chuck.Spindle.Poly(5));
+            b.Add(new OTWB.Spindle.Poly(5));
             BarrelPatterns.Add(b);
 
            
@@ -306,22 +477,31 @@ namespace Geometric_Chuck
         {
             switch (ptyp)
             {
-                case PatternType.BARREL:
+                case PatternType.barrel:
                     _pathEngine = new OffsetPathEngine();
                     break;
-                case PatternType.BAZELEY:
+                case PatternType.bazley:
                     _pathEngine = new BazelyEngine();
                     break;
-                case PatternType.ROSS:
+                case PatternType.ross:
                     _pathEngine = new RossEngine();
                     break;
-                case PatternType.WHEELS:
+                case PatternType.wheels:
                     _pathEngine = new WheelsEngine();
+                    break;
+                case PatternType.latticeRim:
+                    _pathEngine = new LatticeRimEngine();
+                    break;
+                case PatternType.latticeFace:
+                    _pathEngine = new LatticeFaceEngine();
+                    break;
+                case PatternType.braid:
+                    _pathEngine = new BraidEngine();
                     break;
             }
         }
 
-        public void SetupPattern(PatternType ptyp, IPathData d, double inc)
+        public void SetupPattern(PatternType ptyp, PathData d, double inc)
         {
             if (d == null)
             {
@@ -341,23 +521,21 @@ namespace Geometric_Chuck
         public int NumPoints
         {
             get {return _numPoints; }
-            set { SetProperty(ref _numPoints, value, "NumPoints"); }
+            set { SetProperty(ref _numPoints, value); }
         }
 
-        public void AddPath(Windows.UI.Xaml.Shapes.Polygon poly)
+        double _workDiameter;
+        public double WorkDiameter
         {
-            _currentPath.AddPoly(poly);
-            SelectedPathIndex = _currentPath.IndexOf(poly);
+            get { return _workDiameter; }
+            set { SetProperty(ref _workDiameter, value); }
         }
-
-        PolygonCollection _currentPath;
-        public PolygonCollection CurrentPath
+     
+        ShapeCollection _currentPath;
+        public ShapeCollection CurrentPath
         {
-            get { return _currentPath; }
-            set
-            {
-                SetProperty(ref _currentPath, value, "CurrentPath");
-            }
+            get { return _currentPath;  }
+            set { SetProperty(ref _currentPath, value); }
         }
 
         protected int _selectedPathIndex;
@@ -367,20 +545,7 @@ namespace Geometric_Chuck
             set { SetProperty(ref _selectedPathIndex, value, "SelectedRossPathIndex"); }
 
         }
-        public int SelectedPathSize
-        {
-            get
-            {
-                int indx = 0;
-                if ((_currentPath != null && SelectedPathIndex >= 0))
-                {
-                    indx = _currentPath[SelectedPathIndex].Points.Count;
-                }
-
-                return indx;
-            }
-        }
-
+     
         void CreateRossData()
         {
             RossPatterns = new ObservableCollection<RossData>();
@@ -563,7 +728,7 @@ namespace Geometric_Chuck
                 //Debug.WriteLine("Exit Viewmodel.CreatePaths as null path data");
                 return;
             }
-            CurrentPath = _pathEngine.CreatePaths(_currentPathData, Increment);
+            _currentPath = _pathEngine.CreatePaths(_currentPathData, Increment);
             NumPoints =  CurrentPath.NumPoints;
          }
 
@@ -584,13 +749,12 @@ namespace Geometric_Chuck
                 BazelyChuck bc = new BazelyChuck(index++, pdata);
                 _BazelyPatterns.Add(bc);
             }
-            _lastBazelyPattern = _BazelyPatterns[0];
+            _lastBazleyPattern = _BazelyPatterns[0];
         }
 
         void CreateWheelsData()
         {
-            WheelsPatterns = new ObservableCollection<WheelsData>();
-            
+           
             WheelsData val = new WheelsData(0);
             val.PathDataChanged +=val_StageDataChanged;
             val.Add(50, 1);
@@ -636,14 +800,18 @@ namespace Geometric_Chuck
             FileSavePicker savePicker = new FileSavePicker();
             savePicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
             // Dropdown of file types the user can save the file as
-            if (CurrentPathData.PathType == PatternType.WHEELS)
+            if (CurrentPathData.PathType == PatternType.wheels)
                 savePicker.FileTypeChoices.Add("wheel",new List<string>() {".wheel"});
-            else if (CurrentPathData.PathType == PatternType.ROSS)
+            else if (CurrentPathData.PathType == PatternType.ross)
                 savePicker.FileTypeChoices.Add("ross", new List<string>() { ".ross"});
-            else if (CurrentPathData.PathType == PatternType.BAZELEY)
-                savePicker.FileTypeChoices.Add("bazely", new List<string>() { ".baz"});
-            else if (CurrentPathData.PathType == PatternType.BARREL)
+            else if (CurrentPathData.PathType == PatternType.bazley)
+                savePicker.FileTypeChoices.Add("Bazley", new List<string>() { ".baz"});
+            else if (CurrentPathData.PathType == PatternType.barrel)
                 savePicker.FileTypeChoices.Add("barrel", new List<string>() { ".bar"});
+            else if (CurrentPathData.PathType == PatternType.latticeRim)
+                savePicker.FileTypeChoices.Add("lattice", new List<string>() { ".lattice" });
+            else if (CurrentPathData.PathType == PatternType.braid)
+                savePicker.FileTypeChoices.Add("braid", new List<string>() { ".braid" });
             //savePicker.FileTypeChoices.Add("Xml", new List<string>() { ".xml" });
 
             // Default file name if the user does not type one in or select a file to replace
@@ -652,33 +820,55 @@ namespace Geometric_Chuck
             StorageFile file = await savePicker.PickSaveFileAsync();
             if (file != null)
             {
-                IRandomAccessStream sessionRandomAccess = await file.OpenAsync(FileAccessMode.ReadWrite);
-                IOutputStream sessionOutputStream = sessionRandomAccess.GetOutputStreamAt(0);
-                XmlSerializer serializer ;
-                if (CurrentPathData.PathType == PatternType.BAZELEY)
+                try
                 {
-                    serializer = new XmlSerializer(typeof(BazelyChuck));
-                    serializer.Serialize(sessionOutputStream.AsStreamForWrite(), (CurrentPathData as BazelyChuck));
+                    IRandomAccessStream sessionRandomAccess = await file.OpenAsync(FileAccessMode.ReadWrite);
+                    IOutputStream sessionOutputStream = sessionRandomAccess.GetOutputStreamAt(0);
+                    XmlSerializer serializer;
+                    if (CurrentPathData.PathType == PatternType.bazley)
+                    {
+                        serializer = new XmlSerializer(typeof(BazelyChuck));
+                        serializer.Serialize(sessionOutputStream.AsStreamForWrite(), (CurrentPathData as BazelyChuck));
+                    }
+                    else if (CurrentPathData.PathType == PatternType.ross)
+                    {
+                        serializer = new XmlSerializer(typeof(RossData));
+                        serializer.Serialize(sessionOutputStream.AsStreamForWrite(), (CurrentPathData as RossData));
+                    }
+                    else if (CurrentPathData.PathType == PatternType.wheels)
+                    {
+                        serializer = new XmlSerializer(typeof(WheelsData));
+                        serializer.Serialize(sessionOutputStream.AsStreamForWrite(), (CurrentPathData as WheelsData));
+                    }
+                    else if (CurrentPathData.PathType == PatternType.barrel)
+                    {
+                        serializer = new XmlSerializer(typeof(Barrel));
+                        serializer.Serialize(sessionOutputStream.AsStreamForWrite(), (CurrentPathData as Barrel));
+                    }
+                    else if (CurrentPathData.PathType == PatternType.latticeRim)
+                    {
+                        serializer = new XmlSerializer(typeof(LatticeData));
+                        serializer.Serialize(sessionOutputStream.AsStreamForWrite(), (CurrentPathData as LatticeData));
+                    }
+                    else if (CurrentPathData.PathType == PatternType.braid)
+                    {
+                        serializer = new XmlSerializer(typeof(BraidData));
+                        serializer.Serialize(sessionOutputStream.AsStreamForWrite(), (CurrentPathData as BraidData));
+                    }
+                    sessionRandomAccess.Dispose();
+                    await sessionOutputStream.FlushAsync();
+                    sessionOutputStream.Dispose();
                 }
-                else if (CurrentPathData.PathType == PatternType.ROSS)
+                catch (Exception e)
                 {
-                    serializer = new XmlSerializer(typeof(RossData));
-                    serializer.Serialize(sessionOutputStream.AsStreamForWrite(), (CurrentPathData as RossData));
+                    
                 }
-                else if (CurrentPathData.PathType == PatternType.WHEELS)
-                {
-                    serializer = new XmlSerializer(typeof(WheelsData));
-                    serializer.Serialize(sessionOutputStream.AsStreamForWrite(), (CurrentPathData as WheelsData));
-                }
-                else if (CurrentPathData.PathType == PatternType.BARREL)
-                {
-                    serializer = new XmlSerializer(typeof(Barrel));
-                    serializer.Serialize(sessionOutputStream.AsStreamForWrite(), (CurrentPathData as Barrel));
-                }
-                sessionRandomAccess.Dispose();
-                await sessionOutputStream.FlushAsync();
-                sessionOutputStream.Dispose();
             }
+        }
+
+        bool ContainsPatternIndex(ObservableCollection<PathGenData> l, int indx)
+        {
+            return l.Select(p => p.PatternIndex == indx).Count() > 0;
         }
 
         public async void ImportPattern(PatternType typ)
@@ -686,21 +876,25 @@ namespace Geometric_Chuck
             FileOpenPicker openPicker = new FileOpenPicker();
             openPicker.ViewMode = PickerViewMode.Thumbnail;
             openPicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-            if (typ == PatternType.WHEELS)
+            if (typ == PatternType.wheels)
                 openPicker.FileTypeFilter.Add(".wheel");
-            else if (typ == PatternType.ROSS)
+            else if (typ == PatternType.ross)
                 openPicker.FileTypeFilter.Add(".ross");
-            else if (typ == PatternType.BAZELEY)
+            else if (typ == PatternType.bazley)
                 openPicker.FileTypeFilter.Add(".baz");
-            else if (typ == PatternType.BARREL)
+            else if (typ == PatternType.barrel)
                 openPicker.FileTypeFilter.Add(".bar");
+            else if (typ == PatternType.latticeRim)
+                openPicker.FileTypeFilter.Add(".lattice");
+            else if (typ == PatternType.braid)
+                openPicker.FileTypeFilter.Add(".braid");
             openPicker.FileTypeFilter.Add(".xml");
             StorageFile file = await openPicker.PickSingleFileAsync();
             XmlSerializer ser;
             if (file != null)
             {
                 var stream = await file.OpenStreamForReadAsync();
-                if (typ == PatternType.WHEELS)
+                if (typ == PatternType.wheels)
                 {
                     ser = new XmlSerializer(typeof(WheelsData));                
                     WheelsData wd = (WheelsData)ser.Deserialize(stream);
@@ -709,7 +903,7 @@ namespace Geometric_Chuck
                     WheelsPatterns.Add(wd);
                     SelectedPathIndex = wd.PatternIndex;
                 }
-                else if (typ == PatternType.ROSS)
+                else if (typ == PatternType.ross)
                 {
                     ser = new XmlSerializer(typeof(RossData));
                     RossData rd = (RossData)ser.Deserialize(stream);
@@ -718,7 +912,7 @@ namespace Geometric_Chuck
                     SelectedPathIndex = rd.PatternIndex;
 
                 }
-                else if (typ == PatternType.BAZELEY)
+                else if (typ == PatternType.bazley)
                 {
                     ser = new XmlSerializer(typeof(BazelyChuck));
                     BazelyChuck bd = (BazelyChuck)ser.Deserialize(stream);
@@ -726,12 +920,30 @@ namespace Geometric_Chuck
                     BazeleyPatterns.Add(bd);
                     SelectedPathIndex = bd.PatternIndex;
                 }
-                else if (typ == PatternType.BARREL)
+                else if (typ == PatternType.barrel)
                 {
                     ser = new XmlSerializer(typeof(Barrel));
                     Barrel bd = (Barrel)ser.Deserialize(stream);
                     bd.PatternIndex = BarrelPatterns.Count;
                     BarrelPatterns.Add(bd);
+                    SelectedPathIndex = bd.PatternIndex;
+                }
+                else if (typ == PatternType.latticeRim)
+                {
+                    ser = new XmlSerializer(typeof(LatticeData));
+                    LatticeData bd = (LatticeData)ser.Deserialize(stream);
+                    if (LatticePatterns.Select(p => p.PatternIndex == bd.PatternIndex).Count() > 0)
+                       bd.PatternIndex = LatticePatterns.Count + 1;
+
+                    LatticePatterns.Add(bd);
+                    SelectedPathIndex = bd.PatternIndex;
+                }
+                else if (typ == PatternType.braid)
+                {
+                    ser = new XmlSerializer(typeof(BraidData));
+                    BraidData bd = (BraidData)ser.Deserialize(stream);
+                    bd.PatternIndex = BraidPatterns.Count;
+                    BraidPatterns.Add(bd);
                     SelectedPathIndex = bd.PatternIndex;
                 }          
             }
@@ -741,21 +953,105 @@ namespace Geometric_Chuck
             }
            
         }
-
-      
+  
         public List<List<Point>> CurrentPathAsListofPoint
         {
             get
             {
                 List<List<Point>> pc = new List<List<Point>>();
-                foreach (Polygon poly in CurrentPath.Polygons)
+                foreach (Shape s in CurrentPath.Shapes)
                 {
-                    List<Point> lp = poly.Points.ToList<Point>();
-                    pc.Add(lp);
+                    if (s is Polygon)
+                    {
+                        List<Point> lp = (s as Polygon).Points.ToList();
+                        pc.Add(lp);
+                    }
+                    else if (s is Windows.UI.Xaml.Shapes.Path)
+                    {
+
+                    }
                 }
                 return pc;
             }
         
+        }
+
+        internal async void SaveProfile()
+        {
+            FileSavePicker savePicker = new FileSavePicker();
+            savePicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+            // Dropdown of file types the user can save the file as
+            savePicker.FileTypeChoices.Add("profile", new List<string>() { ".prof" });
+            savePicker.FileTypeChoices.Add("csv", new List<string>() { ".csv" });
+            
+            // Default file name if the user does not type one in or select a file to replace
+            savePicker.SuggestedFileName = "new profile";
+
+            StorageFile file = await savePicker.PickSaveFileAsync();
+            if (file != null)
+            {
+                IRandomAccessStream sessionRandomAccess = await file.OpenAsync(FileAccessMode.ReadWrite);
+                IOutputStream sessionOutputStream = sessionRandomAccess.GetOutputStreamAt(0);
+                XmlSerializer serializer;
+                serializer = new XmlSerializer(typeof(Profile));
+                serializer.Serialize(sessionOutputStream.AsStreamForWrite(), CurrentProfile);
+               
+                sessionRandomAccess.Dispose();
+                await sessionOutputStream.FlushAsync();
+                sessionOutputStream.Dispose();
+            }
+        }
+
+        internal async Task ImportProbeData()
+        {
+            FileOpenPicker openPicker = new FileOpenPicker();
+            openPicker.ViewMode = PickerViewMode.Thumbnail;
+            openPicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+            openPicker.FileTypeFilter.Add(".txt");
+            openPicker.FileTypeFilter.Add(".ngc");
+            openPicker.FileTypeFilter.Add(".csv");
+            StorageFile file = await openPicker.PickSingleFileAsync();
+            if (file != null)
+            {
+                IList<string> lines = await Windows.Storage.FileIO.ReadLinesAsync(file);
+                CurrentProfile = ParseProbeData(lines);
+            }
+        }
+
+        private Profile ParseProbeData(IList<string> lines)
+        {
+            PointProfile pp = new PointProfile();
+            double X, Y;
+            X = Y = 0;    
+            foreach (string l in lines)
+            {
+                if (l != string.Empty)
+                {
+                    string[] vs = l.Split(new char[] { ',' });
+                    X = double.Parse(vs[0]);
+                    Y = double.Parse(vs[1]);
+                    pp.Add(X, Y);
+                }
+            }
+             
+            return pp;
+        }
+
+        internal async void LoadProfile()
+        {
+            FileOpenPicker openPicker = new FileOpenPicker();
+            openPicker.ViewMode = PickerViewMode.Thumbnail;
+            openPicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+            openPicker.FileTypeFilter.Add(".profile");
+            openPicker.FileTypeFilter.Add(".csv");
+            StorageFile file = await openPicker.PickSingleFileAsync();
+            XmlSerializer ser;
+            if (file != null)
+            {
+                var stream = await file.OpenStreamForReadAsync();
+                ser = new XmlSerializer(typeof(Profile));
+                CurrentProfile = (Profile)ser.Deserialize(stream);
+            }
         }
     }
  

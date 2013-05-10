@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 using System.ComponentModel;
 using System.Globalization;
 
-namespace Geometric_Chuck.Common
+namespace OTWB.Common
 {	
 	public class Range : BindableBase
 	{
@@ -94,6 +94,23 @@ namespace Geometric_Chuck.Common
                 return Math.Abs(End - Start);
             }
         }
+
+        public bool Includes(double v)
+        {
+            return (v >= Start) && (v <= End);
+        }
+
+        public static bool operator< (double v, Range r)
+        {
+            return v < r.Start;
+        }
+
+        public static bool operator> (double v, Range r)
+        {
+            return v > r.End;
+        }
+
+     
 	}
 
     

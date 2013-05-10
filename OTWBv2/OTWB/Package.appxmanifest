@@ -2,7 +2,7 @@
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
   <Identity Name="60969d84-db98-41ed-aee0-184d903cec8d" Publisher="CN=ALAN" Version="1.0.0.0" />
   <Properties>
-    <DisplayName>Geometric_Chuck</DisplayName>
+    <DisplayName>OTWB</DisplayName>
     <PublisherDisplayName>ALAN</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -14,11 +14,23 @@
     <Resource Language="x-generate" />
   </Resources>
   <Applications>
-    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Geometric_Chuck.App">
-      <VisualElements DisplayName="Geometric Chuck" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Geometric Chuck" ForegroundText="light" BackgroundColor="#464646">
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="OTWB.App">
+      <VisualElements DisplayName="OTWB" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Tools to generate paths and G code for ornamental turners" ForegroundText="light" BackgroundColor="#464646">
         <DefaultTile ShowName="allLogos" />
         <SplashScreen Image="Assets\SplashScreen.png" />
+        <InitialRotationPreference>
+          <Rotation Preference="landscape" />
+        </InitialRotationPreference>
       </VisualElements>
+      <Extensions>
+        <Extension Category="windows.fileOpenPicker">
+          <FileOpenPicker>
+            <SupportedFileTypes>
+              <SupportsAnyFileType />
+            </SupportedFileTypes>
+          </FileOpenPicker>
+        </Extension>
+      </Extensions>
     </Application>
   </Applications>
   <Capabilities>

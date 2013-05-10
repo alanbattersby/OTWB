@@ -1,10 +1,11 @@
-﻿<UserControl
+﻿<UserControl 
     x:Class="OTWB.Settings.CodeSettingsContent"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Geometric_Chuck"
+    xmlns:local="using:OTWB"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Callisto="using:Callisto.Controls"
     mc:Ignorable="d" Width="585" Height="720">
     <UserControl.Resources>
         <Style x:Key="SettingsHeaderText" TargetType="TextBlock">
@@ -14,36 +15,56 @@
             <Setter Property="Margin" Value="0,0,0,2" />
         </Style>
         <Style x:Key="ToggleSwitchStyle" TargetType="ToggleSwitch">
-            <Setter Property="Margin" Value="20,0,0,0" />
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Background" Value="Black" />
             <Setter Property="VerticalAlignment" Value="Center" />
-            
+        </Style>
+        <Style x:Key="TextStyle" TargetType="TextBlock" >
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="0,0,0,5" />
         </Style>
     </UserControl.Resources>
     <Grid Background="{StaticResource AppBarBackgroundThemeBrush}" Margin="0,0,20,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="14*" />
-            <RowDefinition Height="14*" />
-            <RowDefinition Height="13*" />
-            <RowDefinition Height="103*" />
+            <RowDefinition Height="31*" />
+            <RowDefinition Height="8*"  />
+            <RowDefinition Height="87*" />
+            <RowDefinition Height="18*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions >
             <ColumnDefinition Width="37*" />
             <ColumnDefinition Width="76*" />
         </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" >
-            <ToggleSwitch Header="Use Rotary Table" Height="60" IsOn="{Binding UseRotaryTable, Mode=TwoWay}" Style="{StaticResource ToggleSwitchStyle}"/>
-            <ToggleSwitch Header="Use Absolute positions" Height="60" IsOn="{Binding UseAbsoluteMoves, Mode=TwoWay}" Style="{StaticResource ToggleSwitchStyle}" />          
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="1">
-            <ToggleSwitch Header="Use Subroutine" Height="60" IsOn="{Binding UseSubroutine, Mode=TwoWay}"  Style="{StaticResource ToggleSwitchStyle}" />
-            <ToggleSwitch Header="Single File" Height="60" IsOn="{Binding UseSingleFile, Mode=TwoWay}"  Style="{StaticResource ToggleSwitchStyle}" />
-        </StackPanel>
-        <TextBlock Text="Templates" Grid.Row="2" Style="{StaticResource PageSubheaderTextStyle}" Margin="52,0,368,0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="145" Height="40" Foreground="{StaticResource AppBarItemForegroundThemeBrush}" Grid.ColumnSpan="2" />
-        <ListView ItemsSource="{Binding CodeTemplates.AllTemplates}" Background="Black" Grid.Row="2" Margin="0,25,0,0" Grid.Column="1" >
+        <GridView Grid.ColumnSpan="2" >
+            <GridView.Items>
+                <ToggleSwitch Header="Use Rotary Table" Height="60" IsOn="{Binding UseRotaryTable, Mode=TwoWay}" Style="{StaticResource ToggleSwitchStyle}"/>
+                <ToggleSwitch Header="Use Absolute positions" Height="60" IsOn="{Binding UseAbsoluteMoves, Mode=TwoWay}" Style="{StaticResource ToggleSwitchStyle}" Width="160" />
+                <ToggleSwitch Header="Use Subroutine" Height="60" IsOn="{Binding UseSubroutine, Mode=TwoWay}"  Style="{StaticResource ToggleSwitchStyle}" />
+                <ToggleSwitch Header="Use Owords" Height="60" IsOn="{Binding UseOwords, Mode=TwoWay}"  Style="{StaticResource ToggleSwitchStyle}" />
+                <ToggleSwitch Header="Single File" Height="60" IsOn="{Binding UseSingleFile, Mode=TwoWay}"  Style="{StaticResource ToggleSwitchStyle}" />
+                <StackPanel>
+                    <TextBlock Text="DP :" Style="{StaticResource TextStyle}"/>
+                    <Callisto:NumericUpDown Value="{Binding DP, Mode=TwoWay}" Minimum="1"  Maximum="6" />
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Feed rate" Style="{StaticResource TextStyle}"/>
+                    <Callisto:NumericUpDown Value="{Binding Feedrate, Mode=TwoWay}" Maximum="1000" />
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Safe height" Style="{StaticResource TextStyle}"/>
+                    <Callisto:NumericUpDown Value="{Binding Safeheight, Mode=TwoWay}" Minimum="-100"  Maximum="100" />
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Cutting depth" Style="{StaticResource TextStyle}"/>
+                    <Callisto:NumericUpDown Value="{Binding Cuttingdepth, Mode=TwoWay}" Minimum="-100"  Maximum="100" />
+                    <TextBox Text="{Binding Cuttingdepth, Mode=TwoWay}" />
+                </StackPanel>
+            </GridView.Items>      
+        </GridView>
+        <TextBlock Text="Templates" Grid.Row="1" Style="{StaticResource PageSubheaderTextStyle}" Margin="52,0,368,0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="145" Height="40" Foreground="{StaticResource AppBarItemForegroundThemeBrush}" Grid.ColumnSpan="2" />
+        <ListView Background="Black" Grid.Row="1" Grid.Column="1" >
             <ListViewItem Margin="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <ComboBox x:Name="comboBox" ItemsSource="{Binding CodeTemplates.AllTemplates}" Width="340" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <ComboBox x:Name="comboBox" ItemsSource="{Binding Templates.AllTemplates}" Width="340" HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -55,11 +76,15 @@
                 </ComboBox>
             </ListViewItem>
         </ListView>
-        <Border Grid.Row="3" Grid.ColumnSpan="2" BorderThickness="2" CornerRadius="5" BorderBrush="{StaticResource AppBarItemForegroundThemeBrush}" Margin="5" Padding="5">
+        <Border Grid.Row="2" Grid.ColumnSpan="2" BorderThickness="2" CornerRadius="5" BorderBrush="{StaticResource AppBarItemForegroundThemeBrush}" Margin="5,5,5,6" Padding="5">
             <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                 <TextBox Text="{Binding SelectedItem.Template, ElementName=comboBox, Mode=TwoWay}" AcceptsReturn="True"  />
             </ScrollViewer>
         </Border>
-    </Grid>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" >
+            <Button x:ConnectionId='1'  AutomationProperties.Name="Templates"                                Style="{StaticResource OpenFileAppBarButtonStyle}" ToolTipService.ToolTip="Load a new template collection from local storage"/>
+            <Button x:ConnectionId='2' AutomationProperties.Name="Templates"                                Style="{StaticResource SaveAppBarButtonStyle}" ToolTipService.ToolTip="Save this template collection to local storage"   />
+        </StackPanel>
+        </Grid>
 </UserControl>
 

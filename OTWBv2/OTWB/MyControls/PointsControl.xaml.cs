@@ -1,4 +1,5 @@
 ﻿using OTWB.Coordinates;
+using OTWB.PathGenerators;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,7 +16,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace Geometric_Chuck.MyControls
+namespace OTWB.MyControls
 {
     public sealed partial class PointsControl : UserControl
     {
@@ -33,10 +34,8 @@ namespace Geometric_Chuck.MyControls
 
         private void PathCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (DataContext is List<List<Point>>)
-                PointsView.DataContext = (this.DataContext as List<List<Point>>)[PathCombo.SelectedIndex];
-            else
-                PointsView.DataContext = (this.DataContext as List<List<ICoordinate>>)[PathCombo.SelectedIndex];
+            if (DataContext is List<PathFragment>)
+                PointsView.DataContext = (this.DataContext as List<PathFragment>)[PathCombo.SelectedIndex];
             PathCount.DataContext = PointsView.DataContext;
         }
     }

@@ -71,8 +71,8 @@ namespace  OTWB.Coordinates
 		public Spherical (Cartesian c)
         {
             _radius = c.Length;
-            _theta = Geometric_Chuck.BasicLib.ToRadians * Math.Atan(c.Y / c.X);
-            _thi = Geometric_Chuck.BasicLib.ToRadians * Math.Acos(c.Z / _radius);
+            _theta = OTWB.BasicLib.ToRadians * Math.Atan(c.Y / c.X);
+            _thi = OTWB.BasicLib.ToRadians * Math.Acos(c.Z / _radius);
         }
 				
 		public Spherical(Cylindrical c)
@@ -97,8 +97,8 @@ namespace  OTWB.Coordinates
 		
 		public Cartesian toCartesian3 {
 			get {
-				double thetarad = Geometric_Chuck.BasicLib.ToRadians * _theta;
-				double thirad = Geometric_Chuck.BasicLib.ToRadians * _thi;
+				double thetarad = OTWB.BasicLib.ToRadians * _theta;
+				double thirad = OTWB.BasicLib.ToRadians * _thi;
 				Cartesian c = new Cartesian();
 				c.X = (double)(_radius * Math.Cos(thetarad) * Math.Sin(thirad));
 				c.Y = (double)(_radius * Math.Sin(thetarad) * Math.Sin(thirad));
@@ -130,8 +130,8 @@ namespace  OTWB.Coordinates
 		{
 			Cartesian v = this.toCartesian3  + c1.toCartesian3;
             _radius = v.Length;
-            _theta = Geometric_Chuck.BasicLib.ToDegrees * Math.Atan(v.Y / v.X);
-            _thi = Geometric_Chuck.BasicLib.ToDegrees * Math.Acos(v.Z / _radius);
+            _theta = OTWB.BasicLib.ToDegrees * Math.Atan(v.Y / v.X);
+            _thi = OTWB.BasicLib.ToDegrees * Math.Acos(v.Z / _radius);
 		}
 		
 		public double Depth

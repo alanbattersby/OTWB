@@ -53,7 +53,6 @@ C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\
 C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\TCD.Controls.pri.xml
 C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\TCD.Controls.Settings.pri.xml
 C:\Users\ALAN\Documents\Windows 8 Projects\Geometric Chuck\UnitTestLibrary1\obj\Debug\ProjectArchitectures.txt
-C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\UnitTestLibrary1.csprojResolveAssemblyReference.cache
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\Assets\OTWBHelp.pdf
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\Images\UnitTestLogo.png
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\Images\UnitTestSmallLogo.png
@@ -72,6 +71,7 @@ C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\TCD
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\Geometric Chuck.pdb
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\Callisto.pri
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\bin\Debug\TCD.Controls.pri
+C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\UnitTestLibrary1.csprojResolveAssemblyReference.cache
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\UnitTestLibrary1.dll
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\UnitTestLibrary1.pdb
 C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\UnitTestLibrary1\obj\Debug\Microsoft.VisualStudio.TestPlatform.UnitTestFramework\en-US\Microsoft.VisualStudio.TestPlatform.UnitTestFramework.FrameworkMessages.resw

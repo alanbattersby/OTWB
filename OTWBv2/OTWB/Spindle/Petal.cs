@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Geometric_Chuck.Spindle
+namespace OTWB.Spindle
 {
     public class Petal : Wave
     {

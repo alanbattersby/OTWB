@@ -1,4 +1,6 @@
-﻿using Geometric_Chuck.Interfaces;
+﻿using OTWB.Collections;
+using OTWB.Interfaces;
+using OTWB.PathGenerators;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,7 +12,7 @@ using Windows.UI;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Shapes;
 
-namespace Geometric_Chuck.PathGenerators
+namespace OTWB.PathGenerators
 {
     class BazelyEngine : IPathGenerator
     {
@@ -23,15 +25,24 @@ namespace Geometric_Chuck.PathGenerators
             return p * Math.Atan(1.0) / 45.0;
         }
 
-        public PolygonCollection CreatePaths (IPathData pathdata, double inc)
+        public ToolPath CreateToolPath(PathData pd, double inc)
+        {
+            BazelyChuck chuck = (pd as BazelyChuck);
+            if (chuck.Stages.Count == 1)
+                return  new ToolPath(OneStagePath(chuck, inc));
+            else
+                return new ToolPath(TwoStagePath(chuck, inc));
+        }
+
+        public ShapeCollection CreatePaths (PathData pathdata, double inc)
         {
             //Debug.WriteLine("BazelyEngine CreatePaths");
-            PolygonCollection pc = new PolygonCollection();
+            ShapeCollection pc = new ShapeCollection();
             pc.PatternName = pathdata.Name;
             Polygon poly = Path(pathdata, inc);
             try
             {
-                pc.AddPoly(poly);
+                pc.AddShape(poly);
             }
             catch (Exception e)
             {
@@ -41,9 +52,10 @@ namespace Geometric_Chuck.PathGenerators
             return pc;
         }
 
-        Windows.UI.Xaml.Shapes.Polygon Path(IPathData pd, double inc)
+        Windows.UI.Xaml.Shapes.Polygon Path(PathData pd, double inc)
         {
             Windows.UI.Xaml.Shapes.Polygon p = new Windows.UI.Xaml.Shapes.Polygon();
+            p.Tag = "Bazley";
             //Debug.WriteLine("BazelyEngine Polygon Created");
             p.Stroke = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
             p.RenderTransform = new CompositeTransform();
@@ -62,7 +74,7 @@ namespace Geometric_Chuck.PathGenerators
 
         private void CentrePolygon(ref Windows.UI.Xaml.Shapes.Polygon poly)
         {
-            var CurrentExtent = new Extent(double.MaxValue, double.MinValue, double.MaxValue, double.MinValue);
+            var CurrentExtent = new Extent2D(double.MaxValue, double.MinValue, double.MaxValue, double.MinValue);
             foreach (Point p in poly.Points)
                 CurrentExtent.Update(p);
             Point cntr = CurrentExtent.Centre;

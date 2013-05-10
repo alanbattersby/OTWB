@@ -8,7 +8,7 @@
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OTWB</RootNamespace>
-    <AssemblyName>Geometric Chuck</AssemblyName>
+    <AssemblyName>OTWB</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -33,6 +33,7 @@
     <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -105,15 +106,62 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="BasicLib.cs" />
+    <Compile Include="Braid\BraidData.cs" />
+    <Compile Include="BraidPage.xaml.cs">
+      <DependentUpon>BraidPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Braid\BraidDisplay.xaml.cs">
+      <DependentUpon>BraidDisplay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CodeGeneration\BindableCodeTemplate.cs" />
     <Compile Include="CodeGeneration\CodeGenDataContext.cs" />
     <Compile Include="CodeGeneration\GcodeFile.cs" />
     <Compile Include="CodeGeneration\GCODES.cs" />
+    <Compile Include="Collections\Vector2.cs" />
     <Compile Include="Common\Association.cs" />
     <Compile Include="Common\BindableExtender.cs" />
     <Compile Include="Common\BindableString.cs" />
-    <Compile Include="CodeGeneration\CodeGenTemplates.cs" />
+    <Compile Include="CodeGeneration\TemplateCollection.cs" />
     <Compile Include="CodeGeneration\CodeGenViewModel.cs" />
+    <Compile Include="Common\LatticeSizeConverter.cs" />
+    <Compile Include="Extensions\OTWBExtensions.cs" />
+    <Compile Include="LatticeFacePage.xaml.cs">
+      <DependentUpon>LatticeFacePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lattice\LatticeData.cs" />
+    <Compile Include="LatticeRimPage.xaml.cs">
+      <DependentUpon>LatticeRimPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lattice\LatticeDisplay.xaml.cs">
+      <DependentUpon>LatticeDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Coordinates\Line2D.cs" />
+    <Compile Include="Lattice\LayoutData.cs" />
+    <Compile Include="MyControls\ClipToBoundsControl.cs" />
+    <Compile Include="MyControls\CartesianGridControl.xaml.cs">
+      <DependentUpon>CartesianGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyControls\NewProfileControl.xaml.cs">
+      <DependentUpon>NewProfileControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PathGenerators\BraidEngine.cs" />
+    <Compile Include="PathGenerators\LatticeFaceEngine.cs" />
+    <Compile Include="PathGenerators\LatticeRimEngine.cs" />
+    <Compile Include="PathGenerators\ToolPath.cs" />
+    <Compile Include="PathGenerators\Vector.cs" />
+    <Compile Include="ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Profiles\ConcaveArcProfile.cs" />
+    <Compile Include="Profiles\ConvexArcProfileProfile.cs" />
+    <Compile Include="Profiles\PointProfile.cs" />
+    <Compile Include="Profiles\Profile.cs" />
+    <Compile Include="Profiles\ProfileDisplay.xaml.cs">
+      <DependentUpon>ProfileDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\BraidLayoutSettingsContent.xaml.cs">
+      <DependentUpon>BraidLayoutSettingsContent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Settings\CodeSettingsContent.xaml.cs">
       <DependentUpon>CodeSettingsContent.xaml</DependentUpon>
     </Compile>
@@ -137,8 +185,8 @@
     <Compile Include="MyControls\GridControl.xaml.cs">
       <DependentUpon>GridControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MyControls\NewRosetteFlyoutControl.xaml.cs">
-      <DependentUpon>NewRosetteFlyoutControl.xaml</DependentUpon>
+    <Compile Include="MyControls\RosetteFlyoutControl.xaml.cs">
+      <DependentUpon>RosetteFlyoutControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="MyControls\PointsControl.xaml.cs">
       <DependentUpon>PointsControl.xaml</DependentUpon>
@@ -161,7 +209,14 @@
     <Compile Include="Rational.cs" />
     <Compile Include="RossData.cs" />
     <Compile Include="PathGenerators\RossEngine.cs" />
+    <Compile Include="Settings\LatticeFaceLayoutSettingsContent.xaml.cs">
+      <DependentUpon>LatticeFaceLayoutSettingsContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\LatticeRimLayoutSettingsContent.xaml.cs">
+      <DependentUpon>LatticeRimLayoutSettingsContent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Settings\SettingsNames.cs" />
+    <Compile Include="Collections\SortableObservableCollection.cs" />
     <Compile Include="SpindleDataDisplay.xaml.cs">
       <DependentUpon>SpindleDataDisplay.xaml</DependentUpon>
     </Compile>
@@ -169,6 +224,7 @@
       <DependentUpon>SpindlePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Spindle\Barrel.cs" />
+    <Compile Include="PathGenerators\PathGenData.cs" />
     <Compile Include="Spindle\Petal.cs" />
     <Compile Include="Spindle\SquareWave.cs" />
     <Compile Include="Spindle\Ellipse.cs" />
@@ -192,7 +248,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PolygonCollection.cs" />
+    <Compile Include="Collections\ShapeCollection.cs" />
     <Compile Include="RossPage.xaml.cs">
       <DependentUpon>RossPage.xaml</DependentUpon>
     </Compile>
@@ -213,9 +269,53 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Assets\BraidIcon.png" />
+    <Content Include="Assets\code.png" />
+    <Content Include="Assets\concave_profile.png" />
+    <Content Include="Assets\convex_profile.png" />
+    <Content Include="Assets\LatticeFaceIcon.png" />
+    <Content Include="Assets\LatticeIcon.png" />
+    <Content Include="Assets\linear_profile.png" />
     <Content Include="Assets\OTWBHelp.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="TextFile1.txt" />
+    <Page Include="Settings\LatticeFaceLayoutSettingsContent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Settings\BraidLayoutSettingsContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\CartesianGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyControls\NewProfileControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Profiles\ProfileDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\LatticeRimLayoutSettingsContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lattice\LatticeDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LatticeRimPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <None Include="packages.config" />
     <PRIResource Include="Resources.resw" />
     <PRIResource Include="Assets\Resources.resw" />
@@ -239,7 +339,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Content Include="Tmp.txt" />
     <Page Include="MyControls\PointsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -252,7 +351,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MyControls\NewRosetteFlyoutControl.xaml">
+    <Page Include="MyControls\RosetteFlyoutControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -298,7 +397,19 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Content Include="Assets\wave_rosette.png" />
+    <Page Include="BraidPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Braid\BraidDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Content Include="Common\ReadMe.txt" />
+    <Page Include="LatticeFacePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Content Include="GEODATA.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -326,28 +437,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Antlr3.Runtime">
-      <HintPath>..\..\CSharp Eval 1.1\CSharp Eval 1.1\Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Callisto, Version=1.2.6.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Callisto, Version=1.2.7.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\GitHub\callisto\Tools\nuget\Callisto\lib\winrt45\Callisto.dll</HintPath>
-    </Reference>
-    <Reference Include="TCD.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls.dll</HintPath>
-    </Reference>
-    <Reference Include="TCD.Controls.Settings, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls.Settings.dll</HintPath>
-    </Reference>
-    <Reference Include="TCD.Mathematics">
-      <HintPath>..\packages\TCD.Mathematics.1.2.0\lib\portable-net4+sl4+wp7+win8\TCD.Mathematics.dll</HintPath>
+      <HintPath>..\packages\Callisto.1.2.7\lib\winrt45\Callisto.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CodeGenerators\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
   </PropertyGroup>

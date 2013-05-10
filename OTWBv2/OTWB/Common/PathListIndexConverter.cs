@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.UI.Xaml.Data;
 
-namespace Geometric_Chuck.Common
+namespace OTWB.Common
 {
     class PathListIndexConverter : IValueConverter
     {

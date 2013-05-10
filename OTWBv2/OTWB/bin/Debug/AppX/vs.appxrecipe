@@ -5,7 +5,7 @@
     <WindowsUser>ALAN</WindowsUser>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
-    <RegisteredManifestChecksum>69946B18CC4157E6C0CDBFBB58047DF9A03E6B09F628C134780539D05790A06E</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>171FA12C29E9298EFFB519387366763662787048367A9D6024D3E2DD261EB791</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>60969d84-db98-41ed-aee0-184d903cec8d_1.0.0.0_neutral__9ph1k54q1tmnm</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>60969d84-db98-41ed-aee0-184d903cec8d_9ph1k54q1tmnm!App</RegisteredUserModeAppID>
     <RegisteredPackageID>60969d84-db98-41ed-aee0-184d903cec8d</RegisteredPackageID>
@@ -16,241 +16,269 @@
     <AppXManifest Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-03-06T17:33:29.424</Modified>
+      <Modified>2013-05-10T15:42:53.927</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Geometric Chuck.exe">
-      <PackagePath>Geometric Chuck.exe</PackagePath>
-      <Modified>2013-03-08T20:20:19.648</Modified>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\OTWB.exe">
+      <PackagePath>OTWB.exe</PackagePath>
+      <Modified>2013-05-10T19:32:01.613</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Geometric Chuck.pdb">
-      <PackagePath>Geometric Chuck.pdb</PackagePath>
-      <Modified>2013-03-08T20:20:19.621</Modified>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\OTWB.pdb">
+      <PackagePath>OTWB.pdb</PackagePath>
+      <Modified>2013-05-10T19:32:01.581</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\CSharp Eval 1.1\CSharp Eval 1.1\Antlr3.Runtime.dll">
-      <PackagePath>Antlr3.Runtime.dll</PackagePath>
-      <Modified>2013-02-18T16:05:22.015</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\GitHub\callisto\Tools\nuget\Callisto\lib\winrt45\Callisto.dll">
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\Callisto.1.2.7\lib\winrt45\Callisto.dll">
       <PackagePath>Callisto.dll</PackagePath>
-      <Modified>2013-02-04T21:16:00.355</Modified>
+      <Modified>2013-04-02T20:39:42.938</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls.dll">
-      <PackagePath>TCD.Controls.dll</PackagePath>
-      <Modified>2013-02-05T18:44:51.618</Modified>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\BraidIcon.png">
+      <PackagePath>Assets\BraidIcon.png</PackagePath>
+      <Modified>2013-04-28T17:22:46.582</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls.Settings.dll">
-      <PackagePath>TCD.Controls.Settings.dll</PackagePath>
-      <Modified>2013-02-05T18:44:51.628</Modified>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\code.png">
+      <PackagePath>Assets\code.png</PackagePath>
+      <Modified>2013-03-18T17:34:34.742</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Mathematics.1.2.0\lib\portable-net4+sl4+wp7+win8\TCD.Mathematics.dll">
-      <PackagePath>TCD.Mathematics.dll</PackagePath>
-      <Modified>2013-01-23T14:50:55.524</Modified>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\concave_profile.png">
+      <PackagePath>Assets\concave_profile.png</PackagePath>
+      <Modified>2013-04-10T15:29:41.429</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\OTWBHelp.pdf">
-      <PackagePath>Assets\OTWBHelp.pdf</PackagePath>
-      <Modified>2013-03-09T16:47:46.249</Modified>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\convex_profile.png">
+      <PackagePath>Assets\convex_profile.png</PackagePath>
+      <Modified>2013-04-10T15:30:29.787</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\LatticeFaceIcon.png">
+      <PackagePath>Assets\LatticeFaceIcon.png</PackagePath>
+      <Modified>2013-05-10T15:44:29.714</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\LatticeIcon.png">
+      <PackagePath>Assets\LatticeIcon.png</PackagePath>
+      <Modified>2013-03-26T21:08:20.025</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\linear_profile.png">
+      <PackagePath>Assets\linear_profile.png</PackagePath>
+      <Modified>2013-04-10T15:25:32.325</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\BazelyIcon.png">
       <PackagePath>Assets\BazelyIcon.png</PackagePath>
-      <Modified>2013-02-06T21:30:39.430</Modified>
+      <Modified>2013-03-26T21:10:10.451</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\Export.png">
       <PackagePath>Assets\Export.png</PackagePath>
-      <Modified>2013-02-10T16:39:36.359</Modified>
+      <Modified>2013-02-10T16:39:38.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\RoseIcon.png">
       <PackagePath>Assets\RoseIcon.png</PackagePath>
-      <Modified>2013-02-06T21:38:35.315</Modified>
+      <Modified>2013-02-06T21:38:36.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\RossIcon.png">
       <PackagePath>Assets\RossIcon.png</PackagePath>
-      <Modified>2013-02-06T21:33:06.731</Modified>
+      <Modified>2013-03-26T21:09:18.939</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\WheelsIcon.png">
       <PackagePath>Assets\WheelsIcon.png</PackagePath>
-      <Modified>2013-02-06T21:25:59.977</Modified>
+      <Modified>2013-03-26T21:15:29.331</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\ellipse_rosette.png">
       <PackagePath>Assets\ellipse_rosette.png</PackagePath>
-      <Modified>2013-01-25T17:00:29.296</Modified>
+      <Modified>2013-01-25T17:00:30.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\ExportLOgo.png">
       <PackagePath>Assets\ExportLOgo.png</PackagePath>
-      <Modified>2012-11-12T18:01:49.093</Modified>
+      <Modified>2012-11-12T18:01:50.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\gear_rosette.png">
       <PackagePath>Assets\gear_rosette.png</PackagePath>
-      <Modified>2013-01-31T17:04:50.533</Modified>
+      <Modified>2013-01-31T17:04:52.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\Logo.png">
       <PackagePath>Assets\Logo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-11-05T22:57:09.187</Modified>
+      <Modified>2012-11-05T22:57:10.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\petal_rosette.png">
       <PackagePath>Assets\petal_rosette.png</PackagePath>
-      <Modified>2013-01-31T16:58:17.758</Modified>
+      <Modified>2013-01-31T16:58:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\poly_rosette.png">
       <PackagePath>Assets\poly_rosette.png</PackagePath>
-      <Modified>2013-01-25T16:56:35.195</Modified>
+      <Modified>2013-01-25T16:56:36.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\SmallLogo.png">
       <PackagePath>Assets\SmallLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-11-05T21:03:46.952</Modified>
+      <Modified>2012-11-05T21:03:48.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\SplashScreen.png">
       <PackagePath>Assets\SplashScreen.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-11-05T21:20:57.509</Modified>
+      <Modified>2012-11-05T21:20:58.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\spur_gear.png">
       <PackagePath>Assets\spur_gear.png</PackagePath>
-      <Modified>2013-01-28T17:22:44.437</Modified>
+      <Modified>2013-01-28T17:22:46.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\squarewave_rosette.png">
       <PackagePath>Assets\squarewave_rosette.png</PackagePath>
-      <Modified>2013-01-31T16:54:06.760</Modified>
+      <Modified>2013-01-31T16:54:08.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-11-05T21:00:46.335</Modified>
+      <Modified>2012-11-05T21:00:48.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\wave_rosette.png">
       <PackagePath>Assets\wave_rosette.png</PackagePath>
-      <Modified>2013-01-25T16:44:39.725</Modified>
+      <Modified>2013-01-25T16:44:40.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Tmp.txt">
-      <PackagePath>Tmp.txt</PackagePath>
-      <Modified>2013-02-06T16:49:42.962</Modified>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\OTWBHelp.pdf">
+      <PackagePath>Assets\OTWBHelp.pdf</PackagePath>
+      <Modified>2013-03-09T16:47:48.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\TextFile1.txt">
+      <PackagePath>TextFile1.txt</PackagePath>
+      <Modified>2013-05-10T13:56:51.821</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Common\ReadMe.txt">
       <PackagePath>Common\ReadMe.txt</PackagePath>
-      <Modified>2012-11-05T22:27:50.807</Modified>
+      <Modified>2012-11-05T22:27:52.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\GEODATA.txt">
       <PackagePath>GEODATA.txt</PackagePath>
-      <Modified>2012-11-16T17:01:11.064</Modified>
+      <Modified>2012-11-16T17:01:12.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>
-      <Modified>2012-12-18T20:31:00.543</Modified>
+      <Modified>2013-05-10T15:11:17.999</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Settings\LatticeFaceLayoutSettingsContent.xaml">
+      <PackagePath>Settings\LatticeFaceLayoutSettingsContent.xaml</PackagePath>
+      <Modified>2013-05-10T19:24:16.289</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Settings\BraidLayoutSettingsContent.xaml">
+      <PackagePath>Settings\BraidLayoutSettingsContent.xaml</PackagePath>
+      <Modified>2013-05-01T18:32:18.323</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\CartesianGridControl.xaml">
+      <PackagePath>MyControls\CartesianGridControl.xaml</PackagePath>
+      <Modified>2013-04-08T15:45:23.476</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\NewProfileControl.xaml">
+      <PackagePath>MyControls\NewProfileControl.xaml</PackagePath>
+      <Modified>2013-04-10T16:36:37.633</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Profiles\ProfileDisplay.xaml">
+      <PackagePath>Profiles\ProfileDisplay.xaml</PackagePath>
+      <Modified>2013-04-08T16:24:33.633</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\ProfilePage.xaml">
+      <PackagePath>ProfilePage.xaml</PackagePath>
+      <Modified>2013-04-08T16:31:52.936</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Settings\LatticeRimLayoutSettingsContent.xaml">
+      <PackagePath>Settings\LatticeRimLayoutSettingsContent.xaml</PackagePath>
+      <Modified>2013-05-01T18:32:18.287</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Lattice\LatticeDisplay.xaml">
+      <PackagePath>Lattice\LatticeDisplay.xaml</PackagePath>
+      <Modified>2013-03-21T15:35:49.167</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\LatticeRimPage.xaml">
+      <PackagePath>LatticeRimPage.xaml</PackagePath>
+      <Modified>2013-05-01T18:32:18.351</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\StartPage.xaml">
       <PackagePath>StartPage.xaml</PackagePath>
-      <Modified>2013-02-08T12:56:05.547</Modified>
+      <Modified>2013-03-18T17:02:14.308</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\GcodePage.xaml">
       <PackagePath>GcodePage.xaml</PackagePath>
-      <Modified>2013-03-06T16:10:52.373</Modified>
+      <Modified>2013-04-03T19:43:13.870</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Settings\CodeSettingsContent.xaml">
       <PackagePath>Settings\CodeSettingsContent.xaml</PackagePath>
-      <Modified>2013-03-08T18:36:25.863</Modified>
+      <Modified>2013-03-29T16:05:09.064</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\PointsControl.xaml">
       <PackagePath>MyControls\PointsControl.xaml</PackagePath>
-      <Modified>2013-03-05T18:07:26.966</Modified>
+      <Modified>2013-04-03T18:55:12.306</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\RangeControl.xaml">
       <PackagePath>MyControls\RangeControl.xaml</PackagePath>
-      <Modified>2013-02-06T15:19:24.559</Modified>
+      <Modified>2013-03-25T16:53:03.389</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\GridControl.xaml">
       <PackagePath>MyControls\GridControl.xaml</PackagePath>
-      <Modified>2013-02-10T18:50:27.961</Modified>
+      <Modified>2013-03-25T16:47:01.595</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\NewRosetteFlyoutControl.xaml">
-      <PackagePath>MyControls\NewRosetteFlyoutControl.xaml</PackagePath>
-      <Modified>2013-01-31T17:05:25.601</Modified>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\RosetteFlyoutControl.xaml">
+      <PackagePath>MyControls\RosetteFlyoutControl.xaml</PackagePath>
+      <Modified>2013-04-03T18:47:11.713</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\RossControl.xaml">
       <PackagePath>MyControls\RossControl.xaml</PackagePath>
-      <Modified>2013-01-24T18:00:47.341</Modified>
+      <Modified>2013-03-18T16:58:16.102</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\SpindleDataDisplay.xaml">
       <PackagePath>SpindleDataDisplay.xaml</PackagePath>
-      <Modified>2013-02-11T17:51:25.868</Modified>
+      <Modified>2013-03-18T16:58:16.120</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\SpindlePage.xaml">
       <PackagePath>SpindlePage.xaml</PackagePath>
-      <Modified>2013-02-08T13:48:45.115</Modified>
+      <Modified>2013-05-01T18:32:18.275</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\WheelDataControl.xaml">
       <PackagePath>MyControls\WheelDataControl.xaml</PackagePath>
-      <Modified>2013-02-06T18:20:54.394</Modified>
+      <Modified>2013-03-18T16:58:16.106</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Wheels.xaml">
       <PackagePath>Wheels.xaml</PackagePath>
-      <Modified>2013-02-08T13:49:41.124</Modified>
+      <Modified>2013-03-23T17:16:55.972</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Assets\Dictionary1.xaml">
       <PackagePath>Assets\Dictionary1.xaml</PackagePath>
-      <Modified>2012-11-05T23:47:50.494</Modified>
+      <Modified>2013-03-18T16:58:16.051</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\BSDControl.xaml">
       <PackagePath>MyControls\BSDControl.xaml</PackagePath>
-      <Modified>2013-01-24T16:36:20.274</Modified>
+      <Modified>2013-03-18T16:58:16.073</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\BraidPage.xaml">
+      <PackagePath>BraidPage.xaml</PackagePath>
+      <Modified>2013-05-01T18:32:18.332</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Braid\BraidDisplay.xaml">
+      <PackagePath>Braid\BraidDisplay.xaml</PackagePath>
+      <Modified>2013-04-04T20:04:52.268</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\LatticeFacePage.xaml">
+      <PackagePath>LatticeFacePage.xaml</PackagePath>
+      <Modified>2013-05-10T15:29:53.740</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\PathDisplay.xaml">
       <PackagePath>PathDisplay.xaml</PackagePath>
-      <Modified>2013-02-06T17:24:05.340</Modified>
+      <Modified>2013-03-18T16:58:16.109</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\RossPage.xaml">
       <PackagePath>RossPage.xaml</PackagePath>
-      <Modified>2013-02-08T13:47:23.434</Modified>
+      <Modified>2013-03-23T17:13:09.217</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MainPage.xaml">
       <PackagePath>MainPage.xaml</PackagePath>
-      <Modified>2013-02-17T16:52:12.593</Modified>
+      <Modified>2013-04-03T17:32:28.516</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Common\StandardStyles.xaml">
       <PackagePath>Common\StandardStyles.xaml</PackagePath>
-      <Modified>2013-02-08T14:02:25.730</Modified>
+      <Modified>2013-03-22T15:28:12.461</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\GitHub\callisto\Tools\nuget\Callisto\lib\winrt45\Callisto\themes\Generic.xaml">
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\Callisto.1.2.7\lib\winrt45\Callisto\themes\Generic.xaml">
       <PackagePath>Callisto\themes\Generic.xaml</PackagePath>
-      <Modified>2013-02-04T20:28:17.091</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\Flyout.xaml">
-      <PackagePath>TCD.Controls\Flyout.xaml</PackagePath>
-      <Modified>2013-02-05T18:44:51.632</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\HeaderedTextBlock.xaml">
-      <PackagePath>TCD.Controls\HeaderedTextBlock.xaml</PackagePath>
-      <Modified>2013-02-05T18:44:51.633</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\HeaderedTextBox.xaml">
-      <PackagePath>TCD.Controls\HeaderedTextBox.xaml</PackagePath>
-      <Modified>2013-02-05T18:44:51.635</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\KeyboardDismissingComboBox.xaml">
-      <PackagePath>TCD.Controls\KeyboardDismissingComboBox.xaml</PackagePath>
-      <Modified>2013-02-05T18:44:51.635</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\LabeledProgressBar.xaml">
-      <PackagePath>TCD.Controls\LabeledProgressBar.xaml</PackagePath>
-      <Modified>2013-02-05T18:44:51.639</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\LineCounter.xaml">
-      <PackagePath>TCD.Controls\LineCounter.xaml</PackagePath>
-      <Modified>2013-02-05T18:44:51.640</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\PopupContainer.xaml">
-      <PackagePath>TCD.Controls\PopupContainer.xaml</PackagePath>
-      <Modified>2013-02-05T18:44:51.640</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\ResourceHoldingUserControl.xaml">
-      <PackagePath>TCD.Controls\ResourceHoldingUserControl.xaml</PackagePath>
-      <Modified>2013-02-05T18:44:51.641</Modified>
+      <Modified>2013-04-02T20:39:42.948</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2013-03-06T17:33:28.533</Modified>
+      <Modified>2013-05-10T15:42:53.586</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

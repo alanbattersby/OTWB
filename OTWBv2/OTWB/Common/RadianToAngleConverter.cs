@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Data;
 
-namespace Geometric_Chuck.Common
+namespace OTWB.Common
 {
     public class RadianToAngleConverter : IValueConverter
     {

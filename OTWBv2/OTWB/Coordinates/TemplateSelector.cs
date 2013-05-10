@@ -15,6 +15,7 @@ namespace OTWB.Coordinates
         public DataTemplate CylindricalTemplate { get; set; }
         public DataTemplate SphericalTemplate { get; set; }
         public DataTemplate CartesianTemplate { get; set; }
+        public DataTemplate DefaultTemplate { get; set; }
 
         protected override DataTemplate SelectTemplateCore
             (object item, DependencyObject container)
@@ -37,7 +38,7 @@ namespace OTWB.Coordinates
             }
             else
             {
-                return base.SelectTemplate(item, container);
+                return DefaultTemplate;
             }
         }
     }

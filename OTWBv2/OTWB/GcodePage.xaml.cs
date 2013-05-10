@@ -1,11 +1,10 @@
-﻿using Geometric_Chuck.MyControls;
+﻿using OTWB.MyControls;
 using Callisto.Controls;
 using OTWB.Coordinates;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using TCD.Controls;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
@@ -27,26 +26,19 @@ using OTWB.CodeGeneration;
 using OTWB.Common;
 using Windows.UI.Core;
 using System.Text;
+using System.Threading.Tasks;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
-namespace Geometric_Chuck
+namespace OTWB
 {
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class GcodePage : Geometric_Chuck.Common.LayoutAwarePage
+    public sealed partial class GcodePage : OTWB.Common.LayoutAwarePage
     {
         ViewModel viewModel;
         CodeGenViewModel codeGen;
-
-        public enum ListType
-        {
-            POINT,
-            CYLINDRICAL,
-            POINT_OFFSET,
-            CYLINDRICAL_OFFSET
-        }
 
         public GcodePage()
         {
@@ -56,63 +48,65 @@ namespace Geometric_Chuck
             DataContext = codeGen;
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            viewModel = (ViewModel)e.Parameter;
-            SettingsPane.GetForCurrentView().CommandsRequested += GcodePage_CommandsRequested;
-            
+            viewModel = App.viewModel;
+
             if ((viewModel.CurrentPath == null) || (viewModel.CurrentPath.Count == 0))
-                codeGen.ImportPath();
+            {
+                await codeGen.ImportPath();
+                GenerateGcode();
+            }
             else
             {
+                codeGen.ToolPaths = viewModel.CurrentPath;
                 codeGen.CurrentPath = viewModel.CurrentPathAsListofPoint;
                 codeGen.PathName = viewModel.CurrentPath.PatternName;
+                codeGen.Profile = viewModel.CurrentProfile;
+                GenerateGcode();
             }
-            codeGen.GenerateCode();
         }
+
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            SettingsPane.GetForCurrentView().CommandsRequested -= GcodePage_CommandsRequested;
+            //SettingsPane.GetForCurrentView().CommandsRequested -= GcodePage_CommandsRequested;
             base.OnNavigatedFrom(e);
             
         }
 
-        private void GcodePage_CommandsRequested(SettingsPane sender, SettingsPaneCommandsRequestedEventArgs args)
-        {
-            SettingsCommand cmd = new SettingsCommand("GCode", "Code Generation", (x) =>
-            {
-                // create a new instance of the flyout
-                SettingsFlyout settings = new SettingsFlyout();
-                // set the desired width.  If you leave this out, you will get Narrow (346px)
-                settings.FlyoutWidth = Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth.Wide;
+        //private void GcodePage_CommandsRequested(SettingsPane sender, SettingsPaneCommandsRequestedEventArgs args)
+        //{
+        //    SettingsCommand cmd = new SettingsCommand("GCode", "Code Generation", (x) =>
+        //    {
+        //        // create a new instance of the flyout
+        //        SettingsFlyout settings = new SettingsFlyout();
+        //        // set the desired width.  If you leave this out, you will get Narrow (346px)
+        //        settings.FlyoutWidth = Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth.Wide;
 
-                // optionally change header and content background colors away from defaults (recommended)
-                // if using Callisto's AppManifestHelper you can grab the element from some member var you held it in
-                // settings.HeaderBrush = new SolidColorBrush(App.VisualElements.BackgroundColor);
-                settings.HeaderBrush = new SolidColorBrush(Colors.Orange);
-                settings.HeaderText = "G-Code"; // string.Format("{0}", App.VisualElements.DisplayName);
+        //        // optionally change header and content background colors away from defaults (recommended)
+        //        // if using Callisto's AppManifestHelper you can grab the element from some member var you held it in
+        //        // settings.HeaderBrush = new SolidColorBrush(App.VisualElements.BackgroundColor);
+        //        settings.HeaderBrush = new SolidColorBrush(Colors.Orange);
+        //        settings.HeaderText = "G-Code"; // string.Format("{0}", App.VisualElements.DisplayName);
 
-                // provide some logo (preferrably the smallogo the app uses)
-                BitmapImage bmp = new BitmapImage(App.VisualElements.SmallLogoUri);
-                settings.SmallLogoImageSource = bmp;
+        //        // provide some logo (preferrably the smallogo the app uses)
+        //        BitmapImage bmp = new BitmapImage(App.VisualElements.SmallLogoUri);
+        //        settings.SmallLogoImageSource = bmp;
 
-                // set the content for the flyout
-                CodeSettingsContent c = new CodeSettingsContent();
-                c.CodeTemplates = codeGen.Templates;
-                settings.Content = c;
-                // open it
-                settings.IsOpen = true;
+        //        // set the content for the flyout
+        //        CodeSettingsContent c = new CodeSettingsContent();
+        //        //c.DataContext = App.CodeSettingsContext;
+        //        settings.Content = c;
+        //        // open it
+        //        settings.IsOpen = true;
 
-            });
+        //    });
 
-            args.Request.ApplicationCommands.Add(cmd);
-        }
-        private void ShowSettings(object sender, RoutedEventArgs e)
-        {
-            SettingsPane.Show();
-        }
-
+        //    args.Request.ApplicationCommands.Add(cmd);
+        //}
+     
         private void Save_Code_Click(object sender, RoutedEventArgs e)
         {
             if (codeGen.Code.Count == 0) return;
@@ -135,48 +129,30 @@ namespace Geometric_Chuck
             return unsnapped;
         }
 
-        private PointsControl SetupPointsControl(ListType typ)
-        {
-            PointsControl pc = new PointsControl();
-            switch (typ)
-            {
-                case ListType.POINT_OFFSET:
-                    pc.DataContext = codeGen.CreateOffsetList;
-                    pc.Title = "Offsets";
-                    break;
-                case ListType.POINT:
-                    pc.DataContext = codeGen.CurrentPath;
-                    pc.Title = "Points";
-                    break;
-                case ListType.CYLINDRICAL:
-                    pc.DataContext = codeGen.CreateCylindricalList;
-                    pc.Title = "Cylindrical Points";
-                    break;
-                case ListType.CYLINDRICAL_OFFSET:
-                    pc.DataContext = codeGen.CreateCylindricalOffsetList;
-                    pc.Title = "Cylindrical Offsets";
-                    break;
-            }
-            pc.SelectedPath = 0;
 
-            return pc;
-        }
-        
         private void Points_Click(object sender, RoutedEventArgs e)
         {
 
-            if (codeGen.CurrentPath.Count == 0) return;
-            string param = (string)(sender as Button).CommandParameter;
-            ListType flag = (ListType)Enum.Parse(typeof(ListType), param);
-            PointsControl pc = SetupPointsControl(flag);
-            TCD.Controls.Flyout f = new TCD.Controls.Flyout(
-             new SolidColorBrush(Colors.White),//the foreground color of all flyouts
-             (Brush)App.Current.Resources["ApplicationPageBackgroundThemeBrush"],//the background color of all flyouts
-             new SolidColorBrush(Color.FromArgb(255, 255, 0, 0)),//the theme brush of the app
-             pc.Title,
-             FlyoutDimension.Narrow,//switch between narrow and wide depending on the check box
-             pc);
-            f.ShowAsync();
+            if ((codeGen.CurrentPath == null) || (codeGen.CurrentPath.Count == 0)) return;
+           
+            PointsControl pc = new PointsControl();
+            pc.DataContext = viewModel.CurrentPath.AllPaths; 
+            pc.SelectedPath = 0;
+            SettingsFlyout settings = new SettingsFlyout();
+            // set the desired width.  If you leave this out, you will get Narrow (346px)
+            settings.FlyoutWidth = Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth.Narrow;
+
+            // optionally change header and content background colors away from defaults (recommended)
+            // if using Callisto's AppManifestHelper you can grab the element from some member var you held it in
+            settings.HeaderBrush = new SolidColorBrush(App.VisualElements.BackgroundColor);
+            settings.HeaderText = "Points"; // string.Format("{0}", App.VisualElements.DisplayName);
+            settings.ContentBackgroundBrush = new SolidColorBrush(App.VisualElements.BackgroundColor);
+            // provide some logo (preferrably the smallogo the app uses)
+            BitmapImage bmp = new BitmapImage(App.VisualElements.SmallLogoUri);
+            settings.SmallLogoImageSource = bmp;
+            settings.Content = pc;
+            // open it
+            settings.IsOpen = true;
         }
 
         /// <summary>
@@ -202,28 +178,31 @@ namespace Geometric_Chuck
         {
         }
 
+        private void ProgressBarVisible(bool visible)
+        {
+            CodeProgress.Visibility = visible ? Visibility.Visible : Visibility.Collapsed;
+            CodeProgress.IsActive = visible;
+        }
+
+        private async void GenerateGcode()
+        {
+            ProgressBarVisible(true);
+            await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                codeGen.GenerateCode();
+            });
+            ProgressBarVisible(false);
+        }
+
         private void Generate_Code_Click(object sender, RoutedEventArgs e)
         {
-            codeGen.GenerateCode();
+            GenerateGcode();
         }
 
         private void Clear_Code_Click(object sender, RoutedEventArgs e)
         {
             codeGen.Clear();
-
         }
-
-        private void Save_Templates_Click(object sender, RoutedEventArgs e)
-        {
-            codeGen.SaveTemplateCollection();
-        }
-
-        private void Load_Templates_Click(object sender, RoutedEventArgs e)
-        {
-            codeGen.LoadTemplates();
-        }
-
-     
-
+    
     }
 }

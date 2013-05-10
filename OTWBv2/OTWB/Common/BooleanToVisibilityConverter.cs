@@ -11,7 +11,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 
-namespace Geometric_Chuck.Common
+namespace OTWB.Common
 {
     /// <summary>
     /// Value converter that translates true to <see cref="Visibility.Visible"/> and false to

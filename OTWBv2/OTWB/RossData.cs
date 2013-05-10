@@ -1,5 +1,6 @@
-﻿using Geometric_Chuck.Common;
-using Geometric_Chuck.Interfaces;
+﻿using OTWB.Common;
+using OTWB.Interfaces;
+using OTWB.PathGenerators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Geometric_Chuck
+namespace OTWB
 {
-    public class RossData : BindableBase, IPathData
+    public class RossData : PathGenData
     {
         #region Properties
         double _ex1;
@@ -103,13 +104,6 @@ namespace Geometric_Chuck
             set { SetProperty(ref _Phi3, value, "Phi3"); }
         }
 
-        int _PatternIndex;
-        public int PatternIndex
-        {
-            get { return _PatternIndex; }
-            set { SetProperty(ref _PatternIndex, value, "PatternIndex"); }
-        }
-
         string _Script;
         public string Script
         {
@@ -117,33 +111,16 @@ namespace Geometric_Chuck
             set { SetProperty(ref _Script, value, "Script"); }
         }
 
-        public PatternType PathType
-        {
-            get { return PatternType.ROSS; }
-        }
-
-        double _SuggestedMaxTerms;
-        public double SuggestedMaxTurns
-        {
-            get { return _SuggestedMaxTerms; }
-            set { SetProperty(ref _SuggestedMaxTerms, value, "SuggestedMaxTurns"); }
-        }
         #endregion
       
-        public RossData()
+        public RossData() : base (PatternType.ross,0,2)
         {
-            SuggestedMaxTurns = 2;
             Script = "run()";
         }
 
-        public RossData(int pnum)
-            : this()
+        public RossData(int pnum) : base(PatternType.ross,pnum,2)
         {
-            PatternIndex = pnum;
         }
-
-        [XmlIgnore]
-        public string Name { get { return string.Format("ross#{0}", PatternIndex); } }
        
     }
 }

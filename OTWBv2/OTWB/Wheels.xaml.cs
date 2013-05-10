@@ -1,10 +1,10 @@
-﻿using Geometric_Chuck.MyControls;
+﻿using Callisto.Controls;
+using OTWB.MyControls;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using TCD.Controls;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.System.Threading;
@@ -15,16 +15,17 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
-namespace Geometric_Chuck
+namespace OTWB
 {
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class Wheels : Geometric_Chuck.Common.LayoutAwarePage
+    public sealed partial class Wheels : OTWB.Common.LayoutAwarePage
     {
         ViewModel viewModel;
 
@@ -38,14 +39,16 @@ namespace Geometric_Chuck
             try
             {
                 base.OnNavigatedTo(e);
-                viewModel = (ViewModel)e.Parameter;
-                viewModel.SetupPattern(PatternType.WHEELS, null, -1);
+                //viewModel = (ViewModel)e.Parameter;
+                viewModel = App.viewModel;
+                viewModel.SetupPattern(PatternType.wheels, null, -1);
                 viewModel.WheelsDataChanged += viewModel_WheelsDataChanged;
 
                 this.DataContext = viewModel;
                 IncrementCombo.SelectedValue = viewModel.Increment;
                 PatternChoices.ItemsSource = viewModel.WheelsPatterns;
-                PatternChoices.SelectedIndex = viewModel.CurrentPathData.PatternIndex;
+                if (viewModel.CurrentPathData != null)
+                    PatternChoices.SelectedIndex = viewModel.CurrentPathData.PatternIndex;
 
 
                 PatternChoices.SelectionChanged += PatternChoices_SelectionChanged;
@@ -67,6 +70,7 @@ namespace Geometric_Chuck
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
+            viewModel.WheelsDataChanged -= viewModel_WheelsDataChanged;
             //viewModel.CleanUpForPageChange();
         }
         /// <summary>
@@ -111,11 +115,27 @@ namespace Geometric_Chuck
             }
         }
 
+        private void ProgressBarVisible(bool visible)
+        {
+            ProgressRing1.Visibility = visible ? Visibility.Visible : Visibility.Collapsed;
+            ProgressRing1.IsActive = visible;
+        }
+
+        private async void GeneratePaths()
+        {
+            ProgressBarVisible(true);
+            await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                viewModel.CreatePaths();
+                WheelsPathDisplay.CurrentPath = viewModel.CurrentPath;
+                WheelsPathDisplay.ShowPaths();
+            });
+            ProgressBarVisible(false);
+        }
+
         private void ReCalculate()
         {
-            viewModel.CreatePaths();
-            WheelsPathDisplay.CurrentPath = viewModel.CurrentPath;
-            WheelsPathDisplay.ShowPaths();
+            GeneratePaths();
         }
 
         private void PatternChoices_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -151,7 +171,7 @@ namespace Geometric_Chuck
 
         private void Import_Pattern_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.ImportPattern(PatternType.WHEELS);
+            viewModel.ImportPattern(PatternType.wheels);
             PatternChoices.SelectedIndex = viewModel.SelectedPathIndex;
         }
 
@@ -159,45 +179,52 @@ namespace Geometric_Chuck
         {
             GridControl gc = new GridControl();
             gc.DataContext = WheelsPathDisplay.Grid;
-            Flyout f = new Flyout(
-              new SolidColorBrush(Colors.White),//the foreground color of all flyouts
-              (Brush)App.Current.Resources["ApplicationPageBackgroundThemeBrush"],//the background color of all flyouts
-              new SolidColorBrush(Color.FromArgb(255, 255, 0, 0)),//the theme brush of the app
-              "Change Grid Size",
-              FlyoutDimension.Narrow,//switch between narrow and wide depending on the check box
-              gc);
-            f.DataContext = WheelsPathDisplay.Grid;
-            f.Name = "GridControl";
-            f.OnClosing += f_OnClosing;
-            f.ShowAsync();
+            SettingsFlyout settings = new SettingsFlyout();
+            // set the desired width.  If you leave this out, you will get Narrow (346px)
+            settings.FlyoutWidth = Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth.Narrow;
+
+            // optionally change header and content background colors away from defaults (recommended)
+            // if using Callisto's AppManifestHelper you can grab the element from some member var you held it in
+            settings.HeaderBrush = new SolidColorBrush(WheelsPathDisplay.Grid.Foreground);
+            settings.HeaderText = "Change Grid Size"; // string.Format("{0}", App.VisualElements.DisplayName);
+            settings.ContentBackgroundBrush = WheelsPathDisplay.CanvasBackgroundBrush;
+            // provide some logo (preferrably the smallogo the app uses)
+            BitmapImage bmp = new BitmapImage(App.VisualElements.SmallLogoUri);
+            settings.SmallLogoImageSource = bmp;
+            settings.Content = gc;
+            // open it
+            settings.IsOpen = true;
         }
 
         private void Points_Click(object sender, RoutedEventArgs e)
         {
+            if (WheelsPathDisplay.CurrentPath.Count == 0) return;
             PointsControl pc = new PointsControl();
-            pc.DataContext = WheelsPathDisplay.CurrentPath.AllPoints;
+            pc.DataContext = viewModel.CurrentPath.AllPaths; //BazleyPathDisplay.CurrentPath.AllPoints;
             pc.SelectedPath = 0;
-            Flyout f = new Flyout(
-             new SolidColorBrush(Colors.White),//the foreground color of all flyouts
-             (Brush)App.Current.Resources["ApplicationPageBackgroundThemeBrush"],//the background color of all flyouts
-             new SolidColorBrush(Color.FromArgb(255, 255, 0, 0)),//the theme brush of the app
-             "Points",
-             FlyoutDimension.Narrow,//switch between narrow and wide depending on the check box
-             pc);
-            f.ShowAsync();
-        }
+            SettingsFlyout settings = new SettingsFlyout();
+            // set the desired width.  If you leave this out, you will get Narrow (346px)
+            settings.FlyoutWidth = Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth.Narrow;
 
-        void f_OnClosing(object sender, CloseReason reason, System.ComponentModel.CancelEventArgs cancelEventArgs)
-        {
-            //BazelyPathDisplay.UpdateGrid();
-            ReCalculate();
+            // optionally change header and content background colors away from defaults (recommended)
+            // if using Callisto's AppManifestHelper you can grab the element from some member var you held it in
+            settings.HeaderBrush = new SolidColorBrush(App.VisualElements.BackgroundColor);
+            settings.HeaderText = "Points"; // string.Format("{0}", App.VisualElements.DisplayName);
+            settings.ContentBackgroundBrush = WheelsPathDisplay.CanvasBackgroundBrush;
+            // provide some logo (preferrably the smallogo the app uses)
+            BitmapImage bmp = new BitmapImage(App.VisualElements.SmallLogoUri);
+            settings.SmallLogoImageSource = bmp;
+            settings.Content = pc;
+            // open it
+            settings.IsOpen = true;
+
         }
 
         private void Gcode_Click(object sender, RoutedEventArgs e)
         {
             if (this.Frame != null)
             {
-                this.Frame.Navigate(typeof(GcodePage), viewModel);
+                this.Frame.Navigate(typeof(GcodePage));
             }
         }
     }

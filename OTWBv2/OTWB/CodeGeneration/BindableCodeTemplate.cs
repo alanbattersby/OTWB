@@ -1,4 +1,4 @@
-﻿using Geometric_Chuck.Common;
+﻿using OTWB.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,7 @@ using Windows.UI.Xaml.Documents;
 using System.Text.RegularExpressions;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Markup;
+using System.Collections.ObjectModel;
 
 namespace OTWB.CodeGeneration
 {
@@ -55,7 +56,7 @@ namespace OTWB.CodeGeneration
     public class BindableCodeTemplate : BindableBase
     {
         TextBlock txt;  // the text block to be constructed
-        List<CodeLineItem> Items { get; set; }
+        ObservableCollection<CodeLineItem> Items { get; set; }
 
         bool _include;
         public bool Include
@@ -79,7 +80,7 @@ namespace OTWB.CodeGeneration
 
         public BindableCodeTemplate(string name, string tmpl)
         {
-            Items = new List<CodeLineItem>();
+            Items = new ObservableCollection<CodeLineItem>();
             txt = new TextBlock();
             Name = name;
             Template = tmpl;

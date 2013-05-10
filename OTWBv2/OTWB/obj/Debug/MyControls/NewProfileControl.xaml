@@ -1,0 +1,65 @@
+﻿<UserControl
+    x:Class="OTWB.MyControls.NewProfileControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OTWB.MyControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="400" Height="560">
+    
+    <Grid>
+        <ScrollViewer HorizontalScrollMode="Disabled" Margin="0,0,0,0">
+            <StackPanel>
+                <Button x:ConnectionId='1'                        RenderTransformOrigin="0.5,0.5" 
+                        ToolTipService.ToolTip="Create a new Linear Profile" >
+                    <Button.RenderTransform>
+                        <CompositeTransform ScaleX="0.5" ScaleY="0.5"/>
+                    </Button.RenderTransform>
+                    <Image Source="ms-appx:///Assets/linear_profile.png" RenderTransformOrigin="0.5,0.5" >
+
+                    </Image>
+                </Button>
+                <Button x:ConnectionId='2'                        RenderTransformOrigin="0.5,0.5" 
+                        ToolTipService.ToolTip="Create a new Concave Profile"
+                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                    <Button.RenderTransform>
+                        <CompositeTransform ScaleX="0.5" ScaleY="0.5"/>
+                    </Button.RenderTransform>
+                    <Image Source="ms-appx:///Assets/concave_profile.png" RenderTransformOrigin="0.5,0.5" >
+
+                    </Image>
+                </Button>
+                <Button x:ConnectionId='3'                        RenderTransformOrigin="0.5,0.5" 
+                        ToolTipService.ToolTip="Create a new Convex Profile"
+                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                    <Button.RenderTransform>
+                        <CompositeTransform ScaleX="0.5" ScaleY="0.5"/>
+                    </Button.RenderTransform>
+                    <Image Source="ms-appx:///Assets/convex_profile.png" RenderTransformOrigin="0.5,0.5" >
+
+                    </Image>
+                </Button>
+                <Button x:ConnectionId='4'                        RenderTransformOrigin="0.5,0.5" 
+                        ToolTipService.ToolTip="Load Point Profile from Probe data"
+                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                    <Button.RenderTransform>
+                        <CompositeTransform ScaleX="0.5" ScaleY="0.5"/>
+                    </Button.RenderTransform>
+                    <Image Source="ms-appx:///Assets/convex_profile.png" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center" >
+
+                    </Image>
+                </Button>
+                <Button x:ConnectionId='5'                        RenderTransformOrigin="0.5,0.5" 
+                        ToolTipService.ToolTip="Load Existing Profile"
+                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                    <Button.RenderTransform>
+                        <CompositeTransform ScaleX="0.5" ScaleY="0.5"/>
+                    </Button.RenderTransform>
+                    <Image Source="ms-appx:///Assets/convex_profile.png" RenderTransformOrigin="0.5,0.5" />
+                </Button>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
+

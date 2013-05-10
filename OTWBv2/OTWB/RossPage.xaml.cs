@@ -1,6 +1,7 @@
-﻿using Geometric_Chuck.Interfaces;
-using Geometric_Chuck.MyControls;
-using Geometric_Chuck.PathGenerators;
+﻿using Callisto.Controls;
+using OTWB.Interfaces;
+using OTWB.MyControls;
+using OTWB.PathGenerators;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,7 +9,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
-using TCD.Controls;
 using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -24,17 +24,18 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Shapes;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
-namespace Geometric_Chuck
+namespace OTWB
 {
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class RossPage : Geometric_Chuck.Common.LayoutAwarePage
+    public sealed partial class RossPage : OTWB.Common.LayoutAwarePage
     {
         private ViewModel viewModel;
 
@@ -60,8 +61,9 @@ namespace Geometric_Chuck
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            viewModel = (ViewModel)e.Parameter;
-            viewModel.SetupPattern(PatternType.ROSS, null, -1);
+            //viewModel = (ViewModel)e.Parameter;
+            viewModel = App.viewModel;
+            viewModel.SetupPattern(PatternType.ross, null, -1);
             this.DataContext = viewModel;
             RossPatternChoices.ItemsSource = viewModel.RossPatterns;
             RossIncrementCombo.SelectedValue = viewModel.Increment;
@@ -130,7 +132,7 @@ namespace Geometric_Chuck
             //Debug.WriteLine("PatternChoices selection changed to {0}",((RossData)RossPatternChoices.SelectedValue).Name);
             if (RossPatternChoices.SelectedValue != null)
             {
-                viewModel.CurrentPathData = (Interfaces.IPathData)RossPatternChoices.SelectedValue;
+                viewModel.CurrentPathData = (Interfaces.PathData)RossPatternChoices.SelectedValue;
                 viewModel.CurrentPathData.PropertyChanged += CurrentPathData_PropertyChanged;
                 ReCalculate();
             }
@@ -141,11 +143,31 @@ namespace Geometric_Chuck
             ReCalculate();
         }
 
+        private void ProgressBarVisible(bool visible)
+        {
+            ProgressRing2.Visibility = visible ? Visibility.Visible : Visibility.Collapsed;
+            ProgressRing2.IsActive = visible;
+        }
+
+
+        private async void GeneratePaths()
+        {
+            ProgressBarVisible(true);
+            await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                viewModel.CreatePaths();
+                RossPathDisplay.CurrentPath = viewModel.CurrentPath;
+                RossPathDisplay.ShowPaths();
+            });
+            ProgressBarVisible(false);
+        }
+
         private void ReCalculate()
         {
-            viewModel.CreatePaths();
-            RossPathDisplay.CurrentPath = viewModel.CurrentPath;
-            RossPathDisplay.ShowPaths();
+            GeneratePaths();
+            //viewModel.CreatePaths();
+            //RossPathDisplay.CurrentPath = viewModel.CurrentPath;
+            //RossPathDisplay.ShowPaths();
             //PointsView.DataContext = viewModel.CurrentPath;
         }
 
@@ -172,22 +194,22 @@ namespace Geometric_Chuck
             bool unsnapped = ((ApplicationView.Value != ApplicationViewState.Snapped) || ApplicationView.TryUnsnap());
             if (!unsnapped)
             {
-                NotifyUser("Cannot unsnap the sample.", Geometric_Chuck.MainPage.NotifyType.StatusMessage);
+                NotifyUser("Cannot unsnap the sample.", OTWB.MainPage.NotifyType.StatusMessage);
             }
 
             return unsnapped;
         }
 
-        public void NotifyUser(string strMessage, Geometric_Chuck.MainPage.NotifyType type)
+        public void NotifyUser(string strMessage, OTWB.MainPage.NotifyType type)
         {
             switch (type)
             {
                 // Use the status message style.
-                case Geometric_Chuck.MainPage.NotifyType.StatusMessage:
+                case OTWB.MainPage.NotifyType.StatusMessage:
                     StatusBlock.Style = Resources["StatusStyle"] as Style;
                     break;
                 // Use the error message style.
-                case Geometric_Chuck.MainPage.NotifyType.ErrorMessage:
+                case OTWB.MainPage.NotifyType.ErrorMessage:
                     StatusBlock.Style = Resources["ErrorStyle"] as Style;
                     break;
             }
@@ -218,38 +240,46 @@ namespace Geometric_Chuck
         {
             GridControl gc = new GridControl();
             gc.DataContext = RossPathDisplay.Grid;
-            Flyout f = new Flyout(
-              new SolidColorBrush(Colors.White),//the foreground color of all flyouts
-              (Brush)App.Current.Resources["ApplicationPageBackgroundThemeBrush"],//the background color of all flyouts
-              new SolidColorBrush(Color.FromArgb(255, 255, 0, 0)),//the theme brush of the app
-              "Change Grid Size",
-              FlyoutDimension.Narrow,//switch between narrow and wide depending on the check box
-              gc);
-            f.DataContext = RossPathDisplay.Grid;
-            f.Name = "GridControl";
-            f.OnClosing += f_OnClosing;
-            f.ShowAsync();
+            SettingsFlyout settings = new SettingsFlyout();
+            // set the desired width.  If you leave this out, you will get Narrow (346px)
+            settings.FlyoutWidth = Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth.Narrow;
+
+            // optionally change header and content background colors away from defaults (recommended)
+            // if using Callisto's AppManifestHelper you can grab the element from some member var you held it in
+            settings.HeaderBrush = new SolidColorBrush(RossPathDisplay.Grid.Foreground);
+            settings.HeaderText = "Change Grid Size"; // string.Format("{0}", App.VisualElements.DisplayName);
+            settings.ContentBackgroundBrush = RossPathDisplay.CanvasBackgroundBrush;
+            // provide some logo (preferrably the smallogo the app uses)
+            BitmapImage bmp = new BitmapImage(App.VisualElements.SmallLogoUri);
+            settings.SmallLogoImageSource = bmp;
+            settings.Content = gc;
+            // open it
+            settings.IsOpen = true;
         }
 
-        void f_OnClosing(object sender, CloseReason reason, System.ComponentModel.CancelEventArgs cancelEventArgs)
-        {
-            //BazelyPathDisplay.UpdateGrid();
-            ReCalculate();
-        }
-
+      
         private void Points_Click(object sender, RoutedEventArgs e)
         {
+            if (RossPathDisplay.CurrentPath.Count == 0) return;
             PointsControl pc = new PointsControl();
-            pc.DataContext = RossPathDisplay.CurrentPath.AllPoints;
+            pc.DataContext = viewModel.CurrentPath.AllPaths; //BazleyPathDisplay.CurrentPath.AllPoints;
             pc.SelectedPath = 0;
-            Flyout f = new Flyout(
-             new SolidColorBrush(Colors.White),//the foreground color of all flyouts
-             (Brush)App.Current.Resources["ApplicationPageBackgroundThemeBrush"],//the background color of all flyouts
-             new SolidColorBrush(Color.FromArgb(255, 255, 0, 0)),//the theme brush of the app
-             "Points",
-             FlyoutDimension.Narrow,//switch between narrow and wide depending on the check box
-             pc);
-            f.ShowAsync();
+            SettingsFlyout settings = new SettingsFlyout();
+            // set the desired width.  If you leave this out, you will get Narrow (346px)
+            settings.FlyoutWidth = Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth.Narrow;
+
+            // optionally change header and content background colors away from defaults (recommended)
+            // if using Callisto's AppManifestHelper you can grab the element from some member var you held it in
+            settings.HeaderBrush = new SolidColorBrush(App.VisualElements.BackgroundColor);
+            settings.HeaderText = "Points"; // string.Format("{0}", App.VisualElements.DisplayName);
+            settings.ContentBackgroundBrush = RossPathDisplay.CanvasBackgroundBrush;
+            // provide some logo (preferrably the smallogo the app uses)
+            BitmapImage bmp = new BitmapImage(App.VisualElements.SmallLogoUri);
+            settings.SmallLogoImageSource = bmp;
+            settings.Content = pc;
+            // open it
+            settings.IsOpen = true;
+
         }
 
         private void Export_Pattern_Click(object sender, RoutedEventArgs e)
@@ -259,7 +289,7 @@ namespace Geometric_Chuck
 
         private void Import_Pattern_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.ImportPattern(PatternType.ROSS);
+            viewModel.ImportPattern(PatternType.ross);
             RossPatternChoices.SelectedIndex = viewModel.SelectedPathIndex;
         }
 
@@ -267,7 +297,7 @@ namespace Geometric_Chuck
         {
             if (this.Frame != null)
             {
-                this.Frame.Navigate(typeof(GcodePage), viewModel);
+                this.Frame.Navigate(typeof(GcodePage));
             }
         }
     }

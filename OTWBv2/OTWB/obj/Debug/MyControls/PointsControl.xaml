@@ -1,30 +1,30 @@
 ﻿<UserControl
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Geometric_Chuck.MyControls"
+    xmlns:local="using:OTWB.MyControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:Common="using:Geometric_Chuck.Common"
+    xmlns:Common="using:OTWB.Common"
     xmlns:Coord="using:OTWB.Coordinates"
-    x:Class="Geometric_Chuck.MyControls.PointsControl"
-    mc:Ignorable="d"
-    d:DesignHeight="635"
-    d:DesignWidth="245">
+    x:Class="OTWB.MyControls.PointsControl"
+    mc:Ignorable="d" Width="320" Height="760">
 
     <UserControl.Resources>
         <Common:PathListIndexConverter x:Key="PathListIndexConverter"/>
-        <Common:PolyPointsConverter x:Key="PolyPointsConverter"/>
+        <Common:ShapePointsConverter x:Key="PolyPointsConverter"/>
         <DataTemplate x:Key="PointTemplate">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
+                  
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="{Binding X}" HorizontalAlignment="Right" Margin="10,0,20,0" />
+                <TextBlock Text="{Binding X}" />
                 <TextBlock Grid.Column="1" Text="{Binding Y}" />
+               
             </Grid>
         </DataTemplate>
         <DataTemplate x:Key="CylindricalTemplate">
@@ -48,25 +48,32 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="{Binding X}" Margin="0,0,20,0" />
                 <TextBlock Grid.Column="1" Text="{Binding Y}" Margin="0,0,20,0" />
-                <TextBlock Grid.Column="2" Text="{Binding Z}" />
+                <TextBlock Grid.Column="2" Text="{Binding Z}" Margin="0,0,20,0"/>
+                <TextBlock Grid.Column="3" Text="{Binding XYLength}" Margin="0,0,20,0"/>
+                <TextBlock Grid.Column="4" Text="{Binding Angle}" />
             </Grid>
+        </DataTemplate>
+        <DataTemplate  x:Key="DefaultTemplate" >
+            <TextBlock Text="{Binding}" />
         </DataTemplate>
         <Coord:CoordTemplateSelector x:Key="itemsTemplateSelector"
                             PointTemplate="{StaticResource PointTemplate}" 
                             CylindricalTemplate="{StaticResource CylindricalTemplate}"
                             CartesianTemplate="{StaticResource CartesianTemplate}"
-
+                            DefaultTemplate="{StaticResource DefaultTemplate}"
          />
     </UserControl.Resources>
 
     <Border BorderThickness="2" CornerRadius="2" DataContext="{Binding}">
-        <StackPanel>
+        <StackPanel Margin="0" VerticalAlignment="Top" Height="758">
             <ComboBox x:ConnectionId='1' x:Name="PathCombo" ItemsSource="{Binding Converter={StaticResource PathListIndexConverter}}"                                               >
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -78,8 +85,53 @@
                 <Run>Number of Points is </Run>
                 <Run Text="{Binding Count}"/>
             </TextBlock>
-            <ListView x:Name="PointsView"   Height="610" HorizontalAlignment="Left" Width="243" 
-                      ItemTemplateSelector="{StaticResource itemsTemplateSelector}" ItemsSource="{Binding}" />
+            <Grid Margin="0,0,18,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="(X" Style="{StaticResource TitleTextStyle}"/>
+                <TextBlock Grid.Column="1" Text="Y"  Style="{StaticResource TitleTextStyle}"/>
+                <TextBlock Grid.Column="2" Text="Z"  Style="{StaticResource TitleTextStyle}"/>
+                <TextBlock Grid.Column="2" Text="W)" Style="{StaticResource TitleTextStyle}" Grid.ColumnSpan="2" Margin="37,0,0,0"/>
+                <TextBlock Grid.Column="4" Text="(L" Style="{StaticResource TitleTextStyle}"/>
+                <TextBlock Grid.Column="5" Text="A)" Style="{StaticResource TitleTextStyle}"/>
+            </Grid>
+            <ListView x:Name="PointsView" 
+                       ItemsSource="{Binding }" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Height="513" Margin="0,0,43,0" >
+               
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock x:Name="X" Text="{Binding X}" Margin="0,0,5,0" Style="{StaticResource ItemTextStyle}"/>
+                            <TextBlock Grid.Column="1" Text="{Binding Y}" Margin="0,0,5,0" Style="{StaticResource ItemTextStyle}"/>
+                            <TextBlock Grid.Column="2" Text="{Binding Z}" Margin="0,0,5,0" Style="{StaticResource ItemTextStyle}"/>
+                            <TextBlock Grid.Column="3" Text="{Binding WindingNumber}" Margin="0,0,20,0" Style="{StaticResource ItemTextStyle}"/>
+                            <TextBlock Grid.Column="4" Text="{Binding XYLength}" Margin="0,0,5,0" Style="{StaticResource ItemTextStyle}"/>
+                            <TextBlock Grid.Column="5" Text="{Binding Angle}" Style="{StaticResource ItemTextStyle}" />
+                        </Grid>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+            </ListView>
         </StackPanel>
     </Border>
 </UserControl>

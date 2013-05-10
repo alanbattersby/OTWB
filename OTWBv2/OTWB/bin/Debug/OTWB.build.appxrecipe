@@ -13,29 +13,35 @@
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Geometric Chuck.exe">
-      <PackagePath>Geometric Chuck.exe</PackagePath>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\OTWB.exe">
+      <PackagePath>OTWB.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Geometric Chuck.pdb">
-      <PackagePath>Geometric Chuck.pdb</PackagePath>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\OTWB.pdb">
+      <PackagePath>OTWB.pdb</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\CSharp Eval 1.1\CSharp Eval 1.1\Antlr3.Runtime.dll">
-      <PackagePath>Antlr3.Runtime.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\GitHub\callisto\Tools\nuget\Callisto\lib\winrt45\Callisto.dll">
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\Callisto.1.2.7\lib\winrt45\Callisto.dll">
       <PackagePath>Callisto.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls.dll">
-      <PackagePath>TCD.Controls.dll</PackagePath>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\BraidIcon.png">
+      <PackagePath>Assets\BraidIcon.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls.Settings.dll">
-      <PackagePath>TCD.Controls.Settings.dll</PackagePath>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\code.png">
+      <PackagePath>Assets\code.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Mathematics.1.2.0\lib\portable-net4+sl4+wp7+win8\TCD.Mathematics.dll">
-      <PackagePath>TCD.Mathematics.dll</PackagePath>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\concave_profile.png">
+      <PackagePath>Assets\concave_profile.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\OTWBHelp.pdf">
-      <PackagePath>Assets\OTWBHelp.pdf</PackagePath>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\convex_profile.png">
+      <PackagePath>Assets\convex_profile.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\LatticeFaceIcon.png">
+      <PackagePath>Assets\LatticeFaceIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\LatticeIcon.png">
+      <PackagePath>Assets\LatticeIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\linear_profile.png">
+      <PackagePath>Assets\linear_profile.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\BazelyIcon.png">
       <PackagePath>Assets\BazelyIcon.png</PackagePath>
@@ -92,8 +98,11 @@
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\wave_rosette.png">
       <PackagePath>Assets\wave_rosette.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Tmp.txt">
-      <PackagePath>Tmp.txt</PackagePath>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Assets\OTWBHelp.pdf">
+      <PackagePath>Assets\OTWBHelp.pdf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\TextFile1.txt">
+      <PackagePath>TextFile1.txt</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\Common\ReadMe.txt">
       <PackagePath>Common\ReadMe.txt</PackagePath>
@@ -103,6 +112,33 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Settings\LatticeFaceLayoutSettingsContent.xaml">
+      <PackagePath>Settings\LatticeFaceLayoutSettingsContent.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Settings\BraidLayoutSettingsContent.xaml">
+      <PackagePath>Settings\BraidLayoutSettingsContent.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\CartesianGridControl.xaml">
+      <PackagePath>MyControls\CartesianGridControl.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\NewProfileControl.xaml">
+      <PackagePath>MyControls\NewProfileControl.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Profiles\ProfileDisplay.xaml">
+      <PackagePath>Profiles\ProfileDisplay.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\ProfilePage.xaml">
+      <PackagePath>ProfilePage.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Settings\LatticeRimLayoutSettingsContent.xaml">
+      <PackagePath>Settings\LatticeRimLayoutSettingsContent.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Lattice\LatticeDisplay.xaml">
+      <PackagePath>Lattice\LatticeDisplay.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\LatticeRimPage.xaml">
+      <PackagePath>LatticeRimPage.xaml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\StartPage.xaml">
       <PackagePath>StartPage.xaml</PackagePath>
@@ -122,8 +158,8 @@
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\GridControl.xaml">
       <PackagePath>MyControls\GridControl.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\NewRosetteFlyoutControl.xaml">
-      <PackagePath>MyControls\NewRosetteFlyoutControl.xaml</PackagePath>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\RosetteFlyoutControl.xaml">
+      <PackagePath>MyControls\RosetteFlyoutControl.xaml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\RossControl.xaml">
       <PackagePath>MyControls\RossControl.xaml</PackagePath>
@@ -146,6 +182,15 @@
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\MyControls\BSDControl.xaml">
       <PackagePath>MyControls\BSDControl.xaml</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\BraidPage.xaml">
+      <PackagePath>BraidPage.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Braid\BraidDisplay.xaml">
+      <PackagePath>Braid\BraidDisplay.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\LatticeFacePage.xaml">
+      <PackagePath>LatticeFacePage.xaml</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\PathDisplay.xaml">
       <PackagePath>PathDisplay.xaml</PackagePath>
     </AppxPackagedFile>
@@ -158,32 +203,8 @@
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\Common\StandardStyles.xaml">
       <PackagePath>Common\StandardStyles.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\GitHub\callisto\Tools\nuget\Callisto\lib\winrt45\Callisto\themes\Generic.xaml">
+    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\Callisto.1.2.7\lib\winrt45\Callisto\themes\Generic.xaml">
       <PackagePath>Callisto\themes\Generic.xaml</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\Flyout.xaml">
-      <PackagePath>TCD.Controls\Flyout.xaml</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\HeaderedTextBlock.xaml">
-      <PackagePath>TCD.Controls\HeaderedTextBlock.xaml</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\HeaderedTextBox.xaml">
-      <PackagePath>TCD.Controls\HeaderedTextBox.xaml</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\KeyboardDismissingComboBox.xaml">
-      <PackagePath>TCD.Controls\KeyboardDismissingComboBox.xaml</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\LabeledProgressBar.xaml">
-      <PackagePath>TCD.Controls\LabeledProgressBar.xaml</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\LineCounter.xaml">
-      <PackagePath>TCD.Controls\LineCounter.xaml</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\PopupContainer.xaml">
-      <PackagePath>TCD.Controls\PopupContainer.xaml</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\packages\TCD.Controls.1.4.15\lib\netcore45\TCD.Controls\ResourceHoldingUserControl.xaml">
-      <PackagePath>TCD.Controls\ResourceHoldingUserControl.xaml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ALAN\Documents\Windows 8 Projects\OTWBv2\OTWB\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>

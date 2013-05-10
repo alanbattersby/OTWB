@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
 
-namespace Geometric_Chuck.Spindle
+namespace OTWB.Spindle
 {
     /// <summary>
     /// path composed of relative offsets defined by
