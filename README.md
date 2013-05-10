@@ -32,7 +32,7 @@ The program can Generate simple gcode as either
 * Use absolute or relative positioning for points
 * Generate for standard XY movement or for rotary table
 * Main code parts implemented as a series of user editable templates
-*Uses a general binding model within templates
+* Uses a general binding model within templates
 
 Please note that gode generation for lattices and braids is not implemented.
     
